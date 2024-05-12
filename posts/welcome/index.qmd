@@ -1,0 +1,8 @@
+---
+title: "Welcome To My Blog"
+author: "Timothy H Hartzog"
+date: "2024-05-08"
+categories: [news]
+---
+
+This is the first post in a Quarto blog. Welcome!

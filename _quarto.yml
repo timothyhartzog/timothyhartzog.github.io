@@ -1,0 +1,20 @@
+project:
+  type: website
+
+website:
+  title: "Computation in Clinical Care"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/timothyhartog/
+    
+      - icon: twitter
+        href: https://twitter.com/timothyhartzog
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+editor: visual
+
