@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timothy Hartzog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Particle canvas background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">TH</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <p class="hero-greeting" id="typed-greeting"></p>
+      <h1 class="hero-title">Timothy Hartzog</h1>
+      <p class="hero-subtitle">Developer &bull; Creator &bull; Problem Solver</p>
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <p>Scroll down</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title reveal">About Me</h2>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>Welcome to my corner of the internet. I build things for the web and love turning ideas into interactive experiences.</p>
+          <p>This site itself is a demonstration of what's possible with GitHub Pages &mdash; pure HTML, CSS, and JavaScript with no server-side code. Everything you see here runs entirely in your browser.</p>
+          <div class="stats">
+            <div class="stat" data-target="100" data-suffix="%">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Client-Side</span>
+            </div>
+            <div class="stat" data-target="0" data-suffix="">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Server Required</span>
+            </div>
+            <div class="stat" data-target="60" data-suffix="fps">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Animations</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">terminal</span>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+              <p><span class="prompt">$</span> <span class="terminal-typed" id="terminal-typed"></span><span class="cursor">|</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <h2 class="section-title reveal">Skills &amp; Tools</h2>
+      <div class="tabs reveal">
+        <button class="tab active" data-tab="frontend">Frontend</button>
+        <button class="tab" data-tab="backend">Backend</button>
+        <button class="tab" data-tab="tools">Tools</button>
+      </div>
+      <div class="tab-panels">
+        <div class="tab-panel active" id="panel-frontend">
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F310;</div>
+              <h3>HTML5</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="95"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F3A8;</div>
+              <h3>CSS3</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="90"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x26A1;</div>
+              <h3>JavaScript</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="88"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x269B;&#xFE0F;</div>
+              <h3>React</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="80"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-backend">
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F40D;</div>
+              <h3>Python</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="85"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F4E6;</div>
+              <h3>Node.js</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="78"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F5C4;</div>
+              <h3>SQL</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="75"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x2601;&#xFE0F;</div>
+              <h3>REST APIs</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="82"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-tools">
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F500;</div>
+              <h3>Git</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="90"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F433;</div>
+              <h3>Docker</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="70"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F6E0;&#xFE0F;</div>
+              <h3>VS Code</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="92"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">&#x1F916;</div>
+              <h3>CI/CD</h3>
+              <div class="skill-bar"><div class="skill-fill" data-level="72"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">Projects</h2>
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">App</button>
+        <button class="filter-btn" data-filter="tool">Tool</button>
+      </div>
+      <div class="project-grid" id="project-grid">
+        <div class="project-card reveal" data-category="web">
+          <div class="project-img" style="--hue: 210;"></div>
+          <div class="project-info">
+            <h3>Portfolio Site</h3>
+            <p>An interactive personal website built with vanilla HTML, CSS, and JS. Hosted on GitHub Pages.</p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="app">
+          <div class="project-img" style="--hue: 150;"></div>
+          <div class="project-info">
+            <h3>Task Tracker</h3>
+            <p>A kanban-style task management app with drag-and-drop support and local storage persistence.</p>
+            <div class="project-tags">
+              <span>React</span><span>CSS</span><span>LocalStorage</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="tool">
+          <div class="project-img" style="--hue: 30;"></div>
+          <div class="project-info">
+            <h3>CLI Toolkit</h3>
+            <p>A collection of command-line utilities for automating repetitive development workflows.</p>
+            <div class="project-tags">
+              <span>Python</span><span>Click</span><span>Shell</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="web">
+          <div class="project-img" style="--hue: 280;"></div>
+          <div class="project-info">
+            <h3>Data Dashboard</h3>
+            <p>A real-time data visualization dashboard with interactive charts and filterable datasets.</p>
+            <div class="project-tags">
+              <span>JavaScript</span><span>D3.js</span><span>API</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="app">
+          <div class="project-img" style="--hue: 340;"></div>
+          <div class="project-info">
+            <h3>Weather App</h3>
+            <p>A sleek weather application with location-based forecasts and animated weather icons.</p>
+            <div class="project-tags">
+              <span>React</span><span>API</span><span>Geolocation</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card reveal" data-category="tool">
+          <div class="project-img" style="--hue: 60;"></div>
+          <div class="project-info">
+            <h3>Markdown Editor</h3>
+            <p>A live-preview markdown editor with syntax highlighting and export options.</p>
+            <div class="project-tags">
+              <span>JavaScript</span><span>CodeMirror</span><span>Markdown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section -->
+  <section class="section section-alt" id="demo">
+    <div class="container">
+      <h2 class="section-title reveal">Interactive Playground</h2>
+      <p class="section-desc reveal">GitHub Pages supports full client-side interactivity. Try these demos:</p>
+      <div class="demo-grid reveal">
+        <div class="demo-box">
+          <h3>Color Mixer</h3>
+          <div class="color-mixer">
+            <label>R <input type="range" min="0" max="255" value="100" class="color-slider" data-color="r"></label>
+            <label>G <input type="range" min="0" max="255" value="150" class="color-slider" data-color="g"></label>
+            <label>B <input type="range" min="0" max="255" value="255" class="color-slider" data-color="b"></label>
+            <div class="color-preview" id="color-preview"></div>
+            <p class="color-value" id="color-value">#6496FF</p>
+          </div>
+        </div>
+        <div class="demo-box">
+          <h3>Drawing Pad</h3>
+          <canvas id="draw-canvas" width="300" height="200"></canvas>
+          <div class="draw-controls">
+            <input type="color" id="draw-color" value="#6496ff">
+            <input type="range" id="draw-size" min="1" max="20" value="3">
+            <button id="draw-clear" class="btn btn-sm">Clear</button>
+          </div>
+        </div>
+        <div class="demo-box">
+          <h3>Sorting Visualizer</h3>
+          <div class="sort-bars" id="sort-bars"></div>
+          <div class="sort-controls">
+            <button id="sort-shuffle" class="btn btn-sm">Shuffle</button>
+            <button id="sort-start" class="btn btn-sm btn-primary">Sort</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">Get In Touch</h2>
+      <div class="contact-grid reveal">
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" required placeholder=" ">
+            <label for="name">Your Name</label>
+            <span class="form-line"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" required placeholder=" ">
+            <label for="email">Your Email</label>
+            <span class="form-line"></span>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="4" required placeholder=" "></textarea>
+            <label for="message">Message</label>
+            <span class="form-line"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+          </button>
+        </form>
+        <div class="contact-info">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/timothyhartzog" target="_blank" rel="noopener">@timothyhartzog</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M22 6L12 13L2 6"/></svg>
+            <div>
+              <h4>Email</h4>
+              <p>Get in touch via the form</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h4>Location</h4>
+              <p>Available Worldwide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Timothy Hartzog. Built with vanilla HTML, CSS &amp; JS. Hosted on GitHub Pages.</p>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
