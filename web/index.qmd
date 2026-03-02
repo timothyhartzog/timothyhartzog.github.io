@@ -1,7 +1,27 @@
 ---
-title: "web"
+title: "WasmPosts"
 ---
 
-This is a Quarto website.
+A blog platform powered by **WebAssembly** with **Google Sign-In** authentication and role-based user management.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Features
+
+- **WebAssembly post engine** — post creation, editing, and deletion run inside a Rust-compiled WASM module for fast, type-safe client-side logic.
+- **Google Authentication** — sign in with your Google account via Google Identity Services.
+- **Role-based access control** — three roles managed entirely in WASM:
+  - **Admin** — full access to posts and user management.
+  - **Editor** — create, edit, and delete posts.
+  - **Viewer** — read-only access.
+- **Persistent storage** — posts and users are stored in the browser's `localStorage`, powered by the WASM module.
+
+## Getting Started
+
+1. **[View Posts](posts.html)** — browse all published posts.
+2. **[New Post](editor.html)** — sign in and create a post (requires editor or admin role).
+3. **[Manage Users](users.html)** — assign roles (admin only).
+
+### Setup
+
+To enable Google Sign-In, replace `YOUR_GOOGLE_CLIENT_ID` in `js/ui.js` with your own OAuth 2.0 Client ID from the [Google Cloud Console](https://console.cloud.google.com/apis/credentials).
+
+The first user to sign in is automatically assigned the **Admin** role.

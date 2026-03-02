@@ -1,1 +1,51 @@
-/* css styles */
+/* ── Auth bar ──────────────────────────────────────────────────────────── */
+
+.auth-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-sm {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
+
+.user-name {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Post cards ────────────────────────────────────────────────────────── */
+
+.post-card .card-text {
+  white-space: pre-wrap;
+}
+
+/* ── Role select ───────────────────────────────────────────────────────── */
+
+.role-select {
+  width: auto;
+  display: inline-block;
+  min-width: 100px;
+}
+
+/* ── Responsive tweaks ─────────────────────────────────────────────────── */
+
+@media (max-width: 576px) {
+  .auth-bar {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}

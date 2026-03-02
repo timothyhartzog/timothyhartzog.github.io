@@ -1,12 +1,24 @@
 project:
   type: website
+  resources:
+    - "wasm/**"
+    - "js/**"
+    - "posts.html"
+    - "editor.html"
+    - "users.html"
 
 website:
-  title: "web"
+  title: "WasmPosts"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: posts.html
+        text: Posts
+      - href: editor.html
+        text: New Post
+      - href: users.html
+        text: Users
       - about.qmd
 
 format:
@@ -14,6 +26,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">WasmPosts</a>
+    <div class="navbar-nav me-auto">
+      <a class="nav-link" href="posts.html">Posts</a>
+      <a class="nav-link" href="editor.html">New Post</a>
+      <a class="nav-link active" href="users.html">Users</a>
+    </div>
+    <div id="auth-bar"></div>
+  </div>
+</nav>
+
+<main class="container">
+  <h1>User Management</h1>
+  <p class="text-muted">Manage user roles and permissions. Only admins can access this page.</p>
+
+  <div id="login-prompt" class="alert alert-info" style="display:none;">
+    Please sign in with Google to manage users.
+  </div>
+
+  <div id="users-list">
+    <p class="text-muted">Loading&hellip;</p>
+  </div>
+
+  <div class="mt-4 p-3 bg-light rounded" id="role-info" style="display:none;">
+    <h5>Role Descriptions</h5>
+    <ul class="mb-0">
+      <li><strong>Admin</strong> — Full access: create/edit/delete posts and manage users.</li>
+      <li><strong>Editor</strong> — Can create, edit, and delete posts.</li>
+      <li><strong>Viewer</strong> — Read-only access to posts.</li>
+    </ul>
+    <small class="text-muted">The first user to sign in is automatically assigned the Admin role.</small>
+  </div>
+</main>
+
+<script type="module">
+  import "./js/app.js";
+  import "./js/ui.js";
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    await WasmApp.init();
+    UI.renderAuthBar("auth-bar");
+
+    const session = WasmApp.getSession();
+
+    if (!session || !session.logged_in) {
+      document.getElementById("login-prompt").style.display = "block";
+      document.getElementById("users-list").innerHTML = "";
+    } else {
+      UI.renderUsersList("users-list");
+      if (session.role === "admin") {
+        document.getElementById("role-info").style.display = "block";
+      }
+    }
+
+    WasmApp.onSessionChange(() => {
+      const s = WasmApp.getSession();
+      if (!s || !s.logged_in) {
+        document.getElementById("login-prompt").style.display = "block";
+        document.getElementById("users-list").innerHTML = "";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
