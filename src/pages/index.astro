@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Home">
+  <section class="hero">
+    <h1>Welcome to <span class="accent">Hartzog.ai</span></h1>
+    <p class="hero-sub">
+      Data analysis, research, and educational resources. Exploring ideas at the
+      intersection of technology, data science, and learning.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Latest Blog Posts</h2>
+      <a href="/blog" class="view-all">View all &rarr;</a>
+    </div>
+    {blogPosts.length > 0 ? (
+      <div class="card-grid">
+        {blogPosts.map((post) => (
+          <a href={`/blog/${post.id}`} class="card">
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <div class="tags">
+              {post.data.tags.map((tag: string) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="empty">No blog posts yet. Check back soon!</p>
+    )}
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Data Analysis</h2>
+      <a href="/analysis" class="view-all">View all &rarr;</a>
+    </div>
+    {analysisPosts.length > 0 ? (
+      <div class="card-grid">
+        {analysisPosts.map((post) => (
+          <a href={`/analysis/${post.id}`} class="card">
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <div class="tags">
+              {post.data.tags.map((tag: string) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="empty">Interactive analysis articles coming soon.</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0 4rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .accent {
+    color: var(--color-accent);
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section {
+    margin-bottom: 3.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .view-all {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    display: block;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    color: var(--color-text);
+  }
+
+  .card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .card time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+    margin: 0.5rem 0;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--color-accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .empty {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
