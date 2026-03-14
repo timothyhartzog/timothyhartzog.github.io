@@ -1,0 +1,12 @@
+{
+  "sites": [
+    {
+      "name": "Hartzog.ai",
+      "url": "https://www.hartzog.ai",
+      "repo": "timothyhartzog.github.io",
+      "description": "Main blog, data analysis, and educational resources",
+      "icon": "home",
+      "primary": true
+    }
+  ]
+}

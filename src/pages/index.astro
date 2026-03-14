@@ -73,6 +73,18 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
       <p class="empty">Interactive analysis articles coming soon.</p>
     )}
   </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Projects</h2>
+      <a href="/projects" class="view-all">View all &rarr;</a>
+    </div>
+    <p class="projects-desc">
+      Explore the Hartzog.ai ecosystem — interconnected projects sharing a consistent
+      design system, built with Rust/WASM and D3.js for interactive data visualization.
+    </p>
+    <a href="/projects" class="projects-cta">Browse Projects &rarr;</a>
+  </section>
 </BaseLayout>
 
 <style>
@@ -168,6 +180,28 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
     padding: 0.2rem 0.6rem;
     border-radius: 999px;
     font-weight: 500;
+  }
+
+  .projects-desc {
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin-bottom: 1rem;
+  }
+
+  .projects-cta {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+
+  .projects-cta:hover {
+    opacity: 0.85;
+    color: var(--color-bg);
   }
 
   .empty {

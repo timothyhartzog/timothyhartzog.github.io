@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import sitesData from '../../theme/sites.json';
+
+const sites = sitesData.sites;
+const primary = sites.find(s => s.primary);
+const projects = sites.filter(s => !s.primary);
+
+const icons = {
+  home: '<path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/>',
+  code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+  chart: '<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>',
+  default: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>',
+};
+---
+
+<BaseLayout title="Projects">
+  <h1>Projects</h1>
+  <p class="subtitle">
+    All Hartzog.ai projects and repositories. Each project shares a consistent design system
+    and links back to this hub.
+  </p>
+
+  <div class="project-grid">
+    {primary && (
+      <a href={primary.url} class="project-card primary-card">
+        <div class="card-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="card-icon">
+            <Fragment set:html={icons[primary.icon] || icons.default} />
+          </svg>
+          <span class="badge">Main Site</span>
+        </div>
+        <h2>{primary.name}</h2>
+        <p>{primary.description}</p>
+        <span class="repo-name">{primary.repo}</span>
+      </a>
+    )}
+
+    {projects.map((site) => (
+      <a href={site.url} class="project-card">
+        <div class="card-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="card-icon">
+            <Fragment set:html={icons[site.icon] || icons.default} />
+          </svg>
+        </div>
+        <h2>{site.name}</h2>
+        <p>{site.description}</p>
+        <span class="repo-name">{site.repo}</span>
+      </a>
+    ))}
+
+    <div class="project-card add-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="add-icon">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+      <h2>Add a Project</h2>
+      <p>
+        Add your repo to <code>src/theme/sites.json</code> and include a
+        <code>.hartzog.json</code> flag file in your repo.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--hz-text-muted);
+    font-size: 1.1rem;
+    max-width: 65ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--hz-card);
+    border: 1px solid var(--hz-border);
+    border-radius: var(--hz-radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    color: var(--hz-text);
+    text-decoration: none;
+  }
+
+  a.project-card:hover {
+    border-color: var(--hz-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--hz-shadow-md);
+  }
+
+  .primary-card {
+    border-color: rgba(56, 189, 248, 0.3);
+    background: linear-gradient(135deg, var(--hz-card), rgba(56, 189, 248, 0.05));
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--hz-accent);
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: var(--hz-accent-subtle);
+    color: var(--hz-accent);
+    letter-spacing: 0.05em;
+  }
+
+  .project-card h2 {
+    font-size: 1.2rem;
+    margin: 0.25rem 0 0;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+    color: var(--hz-text-muted);
+    flex: 1;
+  }
+
+  .repo-name {
+    font-family: var(--hz-font-mono);
+    font-size: 0.75rem;
+    color: var(--hz-text-faint);
+  }
+
+  .add-card {
+    border-style: dashed;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: var(--hz-text-muted);
+  }
+
+  .add-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--hz-text-faint);
+  }
+
+  .add-card h2 {
+    color: var(--hz-text-muted);
+  }
+
+  .add-card code {
+    font-size: 0.8em;
+  }
+</style>

@@ -1,0 +1,55 @@
+/*
+ * Project-specific styles
+ *
+ * The shared theme is loaded via CDN in index.html:
+ *   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/timothyhartzog/timothyhartzog.github.io@main/src/theme/base.css" />
+ *
+ * All --hz-* CSS variables from colors.css are available here.
+ * Add project-specific overrides and styles below.
+ */
+
+/* Example: custom visualization container */
+.viz-panel {
+  background: var(--hz-bg-secondary);
+  border: 1px solid var(--hz-border);
+  border-radius: var(--hz-radius-lg);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.viz-panel h3 {
+  font-size: 1rem;
+  color: var(--hz-text);
+  margin-bottom: 0.75rem;
+}
+
+/* D3 chart defaults */
+.viz-panel svg text {
+  fill: var(--hz-text-muted);
+  font-family: var(--hz-font-sans);
+  font-size: 0.75rem;
+}
+
+.viz-panel svg .axis line,
+.viz-panel svg .axis path {
+  stroke: var(--hz-border);
+}
+
+.viz-panel svg .data-line {
+  stroke: var(--hz-accent);
+  stroke-width: 2;
+  fill: none;
+}
+
+.viz-panel svg .data-area {
+  fill: var(--hz-accent-subtle);
+}
+
+.viz-panel svg .data-bar {
+  fill: var(--hz-accent);
+  rx: 3;
+}
+
+.viz-panel svg .data-bar:hover {
+  fill: var(--hz-accent-hover);
+}
