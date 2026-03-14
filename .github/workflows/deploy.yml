@@ -33,10 +33,35 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+      # GCP deployment — uncomment when ready to dual-deploy
+      # - name: Authenticate to Google Cloud
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     credentials_json: ${{ secrets.GCP_SA_KEY }}
+      #
+      # - name: Deploy to Cloud Storage
+      #   uses: google-github-actions/upload-cloud-storage@v2
+      #   with:
+      #     path: dist
+      #     destination: ${{ vars.GCP_BUCKET_NAME }}
+      #     process_gcloudignore: false
+      #
+      # - name: Set cache headers on static assets
+      #   run: |
+      #     gsutil -m setmeta -h "Cache-Control:public, max-age=31536000, immutable" \
+      #       "gs://${{ vars.GCP_BUCKET_NAME }}/_astro/**"
+      #     gsutil -m setmeta -h "Cache-Control:public, max-age=3600, must-revalidate" \
+      #       "gs://${{ vars.GCP_BUCKET_NAME }}/**/*.html"
+      #
+      # - name: Invalidate CDN cache
+      #   run: |
+      #     gcloud compute url-maps invalidate-cdn-cache \
+      #       hartzog-ai-urlmap-prod --path "/*" --async
 
   deploy:
     needs: build

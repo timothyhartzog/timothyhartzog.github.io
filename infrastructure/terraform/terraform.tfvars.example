@@ -1,0 +1,21 @@
+# Copy this file to terraform.tfvars and fill in your values
+project_id = "hartzog-ai"
+region     = "us-central1"
+domain     = "hartzog.ai"
+
+# Set to "staging" for testing
+environment = "prod"
+
+# Enable when you need server-side API
+enable_cloud_run = false
+
+# Enable when you need a database
+enable_firestore = false
+
+# Child project sites (add as you create new repos)
+# child_sites = {
+#   "rust-data-viz" = {
+#     bucket_suffix = "rust-data-viz"
+#     description   = "Interactive Rust/WASM data visualizations"
+#   }
+# }

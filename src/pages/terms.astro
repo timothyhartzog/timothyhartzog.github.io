@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Terms of Service" description="Hartzog.ai terms of service.">
+  <article class="prose">
+    <h1>Terms of Service</h1>
+    <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
+
+    <h2>Agreement</h2>
+    <p>
+      By accessing and using Hartzog.ai ("the Site"), you agree to these terms.
+      If you do not agree, please do not use the Site.
+    </p>
+
+    <h2>Services</h2>
+    <p>
+      Hartzog.ai provides data analysis, AI/ML consulting, technical training,
+      and software development services. Specific project terms are established
+      through separate agreements.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <ul>
+      <li>All content on this site (articles, analysis, visualizations, code) is owned
+        by Hartzog.ai unless otherwise noted.</li>
+      <li>Open-source code in our public repositories is governed by their respective licenses.</li>
+      <li>You may share links to our content but may not reproduce it without permission.</li>
+    </ul>
+
+    <h2>User Conduct</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the Site for unlawful purposes</li>
+      <li>Attempt to interfere with the Site's operation</li>
+      <li>Scrape or bulk-download content without permission</li>
+    </ul>
+
+    <h2>Disclaimer</h2>
+    <p>
+      Content on this site, including data analysis articles, is provided for
+      informational and educational purposes. It does not constitute professional
+      advice. Use any analysis, code, or recommendations at your own risk.
+    </p>
+
+    <h2>Limitation of Liability</h2>
+    <p>
+      Hartzog.ai is not liable for any damages arising from your use of the Site
+      or reliance on its content. Services provided under separate agreements are
+      governed by those agreements.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      We may update these terms at any time. Continued use of the Site after
+      changes constitutes acceptance.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about these terms? Contact us at
+      <a href="mailto:contact@hartzog.ai">contact@hartzog.ai</a>.
+    </p>
+  </article>
+</BaseLayout>

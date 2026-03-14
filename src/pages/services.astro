@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const services = [
+  {
+    icon: '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>',
+    title: 'Data Analysis & Visualization',
+    description: 'Transform raw data into actionable insights with interactive dashboards and reports built with D3.js and Rust/WASM for high-performance computation.',
+    features: ['Interactive dashboards', 'Statistical modeling', 'Real-time data pipelines', 'Custom visualizations'],
+  },
+  {
+    icon: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
+    title: 'AI & Machine Learning',
+    description: 'Custom AI solutions from prototype to production. We build models that solve real business problems with measurable ROI.',
+    features: ['Custom model development', 'NLP & text analysis', 'Predictive analytics', 'AI integration consulting'],
+  },
+  {
+    icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    title: 'Technical Training',
+    description: 'Educational content and hands-on workshops for teams looking to build data literacy and AI capabilities.',
+    features: ['Data science workshops', 'Rust/WASM training', 'AI literacy programs', 'Custom curriculum'],
+  },
+  {
+    icon: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    title: 'Software Development',
+    description: 'High-performance web applications built with modern technologies. Specializing in Rust, WebAssembly, and interactive frontends.',
+    features: ['Rust/WASM applications', 'Full-stack development', 'Performance optimization', 'Architecture consulting'],
+  },
+];
+---
+
+<BaseLayout
+  title="Services"
+  description="AI-powered data analysis, machine learning solutions, technical training, and high-performance software development."
+>
+  <section class="hero">
+    <h1>What We <span class="accent">Build</span></h1>
+    <p class="hero-sub">
+      We turn complex data into clear decisions. From interactive analysis tools to
+      custom AI solutions, we help organizations harness the power of their data.
+    </p>
+  </section>
+
+  <div class="services-grid">
+    {services.map((service) => (
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="service-icon">
+          <Fragment set:html={service.icon} />
+        </svg>
+        <h2>{service.title}</h2>
+        <p>{service.description}</p>
+        <ul class="features">
+          {service.features.map((f) => (
+            <li>{f}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <section class="cta-section">
+    <h2>Ready to Get Started?</h2>
+    <p>Let's discuss how Hartzog.ai can help with your next project.</p>
+    <a href="/contact" class="cta-btn">Get in Touch</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2rem 0 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .accent { color: var(--color-accent); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .service-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .features li {
+    font-size: 0.75rem;
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--color-accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+
+  .cta-btn:hover {
+    opacity: 0.85;
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
