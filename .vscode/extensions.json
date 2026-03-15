@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    // Spell & Grammar
+    "streetsidesoftware.code-spell-checker",
+    "znck.grammarly",
+
+    // Markdown & MDX
+    "davidanson.vscode-markdownlint",
+    "unifiedjs.vscode-mdx",
+    "yzhang.markdown-all-in-one",
+
+    // Astro & React
+    "astro-build.astro-vscode",
+
+    // AI Assistant
+    "anthropic.claude-code",
+
+    // Git
+    "eamodio.gitlens"
+  ]
+}

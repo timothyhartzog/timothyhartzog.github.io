@@ -1,0 +1,37 @@
+{
+  "name": "Hartzog.ai Blog & Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "znck.grammarly",
+        "davidanson.vscode-markdownlint",
+        "unifiedjs.vscode-mdx",
+        "yzhang.markdown-all-in-one",
+        "astro-build.astro-vscode",
+        "anthropic.claude-code",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "editor.wordWrap": "on",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "npm ci",
+
+  "forwardPorts": [4321],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "remoteEnv": {
+    "NODE_ENV": "development"
+  }
+}
