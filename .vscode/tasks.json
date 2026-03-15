@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "New Blog Post",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/new-blog-post.mjs", "${input:blogTitle}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "New Analysis Article",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/new-analysis.mjs", "${input:analysisTitle}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev Server",
+      "type": "npm",
+      "script": "dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "blogTitle",
+      "description": "Blog post title",
+      "type": "promptString",
+      "default": "My New Post"
+    },
+    {
+      "id": "analysisTitle",
+      "description": "Analysis article title",
+      "type": "promptString",
+      "default": "My New Analysis"
+    }
+  ]
+}
