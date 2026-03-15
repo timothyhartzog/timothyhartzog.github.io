@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import sitesData from '../theme/sites.json';
 
 const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -9,93 +10,154 @@ const blogPosts = (await getCollection('blog', ({ data }) => !data.draft))
 const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+
+const apps = sitesData.sites.filter(s => !s.primary && s.type === 'app');
+
+const services = [
+  {
+    icon: '<path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>',
+    title: 'Data Analysis & Visualization',
+    description: 'Interactive dashboards and reports built with D3.js and Rust/WASM for high-performance computation.',
+  },
+  {
+    icon: '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
+    title: 'AI & Machine Learning',
+    description: 'Custom AI solutions from prototype to production with measurable ROI.',
+  },
+  {
+    icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    title: 'Technical Training',
+    description: 'Hands-on workshops for teams building data literacy and AI capabilities.',
+  },
+  {
+    icon: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+    title: 'Software Development',
+    description: 'High-performance web applications built with Rust, WebAssembly, and modern frontends.',
+  },
+];
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Hartzog.ai — AI-Powered Solutions for Your Business">
+  <!-- Hero -->
   <section class="hero">
-    <h1>Welcome to <span class="accent">Hartzog.ai</span></h1>
+    <p class="hero-eyebrow">AI Solutions & Data Engineering</p>
+    <h1>Turn Your Data Into <span class="accent">Decisions</span></h1>
     <p class="hero-sub">
-      Data analysis, research, and educational resources. Exploring ideas at the
-      intersection of technology, data science, and learning.
+      We build AI-powered tools, interactive data analysis platforms, and custom
+      software that help businesses move faster with confidence.
     </p>
+    <div class="hero-actions">
+      <a href="/services" class="btn-primary">Explore Services</a>
+      <a href="/contact" class="btn-secondary">Get in Touch</a>
+    </div>
   </section>
 
+  <!-- Services Overview -->
   <section class="section">
     <div class="section-header">
-      <h2>Latest Blog Posts</h2>
+      <h2>What We Build</h2>
+      <a href="/services" class="view-all">All services &rarr;</a>
+    </div>
+    <div class="services-grid">
+      {services.map((service) => (
+        <a href="/services" class="service-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="service-icon">
+            <Fragment set:html={service.icon} />
+          </svg>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Applications (subdomain apps) -->
+  {apps.length > 0 && (
+    <section class="section">
+      <div class="section-header">
+        <h2>Our Applications</h2>
+        <a href="/projects" class="view-all">All projects &rarr;</a>
+      </div>
+      <div class="apps-grid">
+        {apps.map((app) => (
+          <a href={app.url} class="app-card" target="_blank" rel="noopener">
+            <div class="app-header">
+              <span class="app-badge">App</span>
+              {app.subdomain && <span class="app-domain">{app.subdomain}.hartzog.ai</span>}
+            </div>
+            <h3>{app.name}</h3>
+            <p>{app.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Latest Content -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Latest Insights</h2>
       <a href="/blog" class="view-all">View all &rarr;</a>
     </div>
-    {blogPosts.length > 0 ? (
+    {blogPosts.length > 0 || analysisPosts.length > 0 ? (
       <div class="card-grid">
-        {blogPosts.map((post) => (
-          <a href={`/blog/${post.id}`} class="card">
-            <time datetime={post.data.date.toISOString()}>
-              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-            <div class="tags">
-              {post.data.tags.map((tag: string) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          </a>
-        ))}
+        {[...blogPosts, ...analysisPosts]
+          .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+          .slice(0, 3)
+          .map((post) => {
+            const type = blogPosts.includes(post) ? 'blog' : 'analysis';
+            return (
+              <a href={`/${type}/${post.id}`} class="card">
+                <div class="card-meta">
+                  <span class="card-type">{type === 'blog' ? 'Blog' : 'Analysis'}</span>
+                  <time datetime={post.data.date.toISOString()}>
+                    {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </time>
+                </div>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                <div class="tags">
+                  {post.data.tags.map((tag: string) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </a>
+            );
+          })}
       </div>
     ) : (
-      <p class="empty">No blog posts yet. Check back soon!</p>
+      <p class="empty">Insights coming soon. Check back shortly.</p>
     )}
   </section>
 
-  <section class="section">
-    <div class="section-header">
-      <h2>Data Analysis</h2>
-      <a href="/analysis" class="view-all">View all &rarr;</a>
-    </div>
-    {analysisPosts.length > 0 ? (
-      <div class="card-grid">
-        {analysisPosts.map((post) => (
-          <a href={`/analysis/${post.id}`} class="card">
-            <time datetime={post.data.date.toISOString()}>
-              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-            <div class="tags">
-              {post.data.tags.map((tag: string) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          </a>
-        ))}
-      </div>
-    ) : (
-      <p class="empty">Interactive analysis articles coming soon.</p>
-    )}
-  </section>
-
-  <section class="section">
-    <div class="section-header">
-      <h2>Projects</h2>
-      <a href="/projects" class="view-all">View all &rarr;</a>
-    </div>
-    <p class="projects-desc">
-      Explore the Hartzog.ai ecosystem — interconnected projects sharing a consistent
-      design system, built with Rust/WASM and D3.js for interactive data visualization.
-    </p>
-    <a href="/projects" class="projects-cta">Browse Projects &rarr;</a>
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Get Started?</h2>
+    <p>Let's discuss how Hartzog.ai can help with your next project.</p>
+    <a href="/contact" class="btn-primary">Contact Us</a>
   </section>
 </BaseLayout>
 
 <style>
+  /* Hero */
   .hero {
     text-align: center;
-    padding: 3rem 0 4rem;
+    padding: 4rem 0 5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
   }
 
   .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.25rem;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
   }
 
   .accent {
@@ -106,11 +168,52 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
     font-size: 1.2rem;
     color: var(--color-text-muted);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
   }
 
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+    color: var(--color-bg);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* Sections */
   .section {
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
   }
 
   .section-header {
@@ -129,6 +232,104 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
     font-weight: 500;
   }
 
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .service-card {
+    display: block;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    color: var(--color-text);
+  }
+
+  .service-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .service-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* Apps */
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .app-card {
+    display: block;
+    background: linear-gradient(135deg, var(--color-card), rgba(56, 189, 248, 0.04));
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    color: var(--color-text);
+  }
+
+  .app-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .app-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .app-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .app-domain {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .app-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .app-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* Content cards */
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -150,6 +351,21 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
     transform: translateY(-2px);
   }
 
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-type {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+  }
+
   .card time {
     font-size: 0.8rem;
     color: var(--color-text-muted);
@@ -157,7 +373,7 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
 
   .card h3 {
     font-size: 1.15rem;
-    margin: 0.5rem 0;
+    margin-bottom: 0.5rem;
   }
 
   .card p {
@@ -182,26 +398,24 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
     font-weight: 500;
   }
 
-  .projects-desc {
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section p {
     color: var(--color-text-muted);
-    max-width: 60ch;
-    margin-bottom: 1rem;
-  }
-
-  .projects-cta {
-    display: inline-block;
-    padding: 0.6rem 1.25rem;
-    background: var(--color-accent);
-    color: var(--color-bg);
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: opacity 0.2s;
-  }
-
-  .projects-cta:hover {
-    opacity: 0.85;
-    color: var(--color-bg);
+    margin-bottom: 1.5rem;
   }
 
   .empty {
@@ -211,10 +425,16 @@ const analysisPosts = (await getCollection('analysis', ({ data }) => !data.draft
 
   @media (max-width: 640px) {
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.25rem;
     }
 
-    .card-grid {
+    .hero-sub {
+      font-size: 1.05rem;
+    }
+
+    .services-grid,
+    .card-grid,
+    .apps-grid {
       grid-template-columns: 1fr;
     }
   }

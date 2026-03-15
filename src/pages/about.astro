@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="About Hartzog.ai — who we are, what we do, and why we build AI-powered solutions."
+>
+  <section class="hero">
+    <h1>About <span class="accent">Hartzog.ai</span></h1>
+    <p class="hero-sub">
+      We build AI-powered tools and data platforms that help businesses make
+      better decisions, faster.
+    </p>
+  </section>
+
+  <div class="content-grid">
+    <section class="content-section">
+      <h2>What We Do</h2>
+      <p>
+        Hartzog.ai is an AI and data engineering consultancy. We specialize in
+        turning complex data into clear, actionable insights through custom
+        software, interactive analysis tools, and machine learning solutions.
+      </p>
+      <p>
+        Our work spans the full stack — from high-performance Rust/WASM computation
+        engines to interactive D3.js visualizations to production ML pipelines.
+        Every solution we build is designed to be fast, maintainable, and portable.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Our Approach</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Data-Driven</h3>
+          <p>Every recommendation is backed by analysis, not assumptions. We let the data guide the solution.</p>
+        </div>
+        <div class="value-card">
+          <h3>No Vendor Lock-in</h3>
+          <p>We build on open standards and portable architectures. Your tools should work wherever you need them.</p>
+        </div>
+        <div class="value-card">
+          <h3>Performance-First</h3>
+          <p>Speed matters. We use Rust, WebAssembly, and modern web technologies to deliver fast experiences.</p>
+        </div>
+        <div class="value-card">
+          <h3>Transparent Process</h3>
+          <p>Clear communication, honest timelines, and open-source tooling wherever possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>The Platform</h2>
+      <p>
+        This site is the hub of the Hartzog.ai ecosystem — a collection of
+        interconnected applications, each running on its own subdomain, sharing a
+        consistent design system and theme.
+      </p>
+      <p>
+        Our applications are deployed on Azure Static Web Apps with GitHub Pages as
+        a backup, ensuring reliability and global performance. The shared theme and
+        Web Components make every app feel like part of a unified platform.
+      </p>
+      <a href="/projects" class="link-cta">Explore our projects &rarr;</a>
+    </section>
+  </div>
+
+  <section class="cta-section">
+    <h2>Let's Work Together</h2>
+    <p>Have a project in mind? We'd love to hear about it.</p>
+    <a href="/contact" class="btn-primary">Get in Touch</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2rem 0 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .accent { color: var(--color-accent); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-section p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 70ch;
+    margin-bottom: 1rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .value-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+
+  .value-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+  }
+
+  .value-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .link-cta {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    margin-top: 0.5rem;
+  }
+
+  .link-cta:hover {
+    text-decoration: underline;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.85;
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2rem; }
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,6 +1,9 @@
 {
   "parent": "https://www.hartzog.ai",
   "theme": true,
-  "name": "Project Name",
-  "description": "Short description of this project"
+  "name": "App Name",
+  "description": "Short description of this application",
+  "subdomain": "app-name",
+  "type": "app",
+  "hosting": "azure-swa"
 }
