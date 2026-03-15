@@ -48,7 +48,20 @@ import InteractiveChart from '../../components/InteractiveChart.tsx';
 import DataTable from '../../components/DataTable.tsx';
 import D3Container from '../../components/D3Container.tsx';
 
-{/* ---- Recharts example ---- */}
+{/* ---- Data imports (pick the format you need) ---- */}
+
+{/* JSON: */}
+{/* import jsonData from '../../data/sample-revenue.json'; */}
+
+{/* CSV: */}
+{/* import { loadCsv } from '../../data/load-csv'; */}
+{/* import csvText from '../../data/sample-projects.csv?raw'; */}
+{/* export const csvData = loadCsv(csvText); */}
+
+{/* TypeScript: */}
+{/* import { monthlyMetrics } from '../../data/sample-metrics'; */}
+
+{/* ---- Recharts — standard charts (line, bar, pie, area) ---- */}
 
 ## Chart
 
@@ -66,7 +79,7 @@ import D3Container from '../../components/D3Container.tsx';
   ]}
 />
 
-{/* ---- Data table example ---- */}
+{/* ---- Data table ---- */}
 
 ## Data
 
@@ -83,7 +96,7 @@ import D3Container from '../../components/D3Container.tsx';
   ]}
 />
 
-{/* ---- D3.js example (uncomment to use) ---- */}
+{/* ---- D3.js — complex/custom visualizations (uncomment to use) ---- */}
 
 {/*
 ## D3 Visualization
