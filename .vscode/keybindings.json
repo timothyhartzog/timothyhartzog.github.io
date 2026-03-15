@@ -2,11 +2,17 @@
 // Copy these into your user keybindings (Cmd+K Cmd+S > Open Keyboard Shortcuts JSON):
 //
 //   { "key": "ctrl+shift+b", "command": "workbench.action.tasks.runTask", "args": "New Blog Post" },
-//   { "key": "ctrl+shift+a", "command": "workbench.action.tasks.runTask", "args": "New Analysis Article" }
+//   { "key": "ctrl+shift+a", "command": "workbench.action.tasks.runTask", "args": "New Analysis Article" },
+//   { "key": "ctrl+shift+n", "command": "workbench.action.tasks.runTask", "args": "New Marimo Notebook" },
+//   { "key": "ctrl+shift+m", "command": "workbench.action.tasks.runTask", "args": "Open Marimo Editor" }
 //
 // VS Code does not support workspace-level keybindings, so these must be added
-// to your user keybindings.json once. After that, Ctrl+Shift+B creates a blog
-// post and Ctrl+Shift+A creates an analysis article.
+// to your user keybindings.json once. After that:
 //
-// Alternatively, use the Command Palette (Cmd+Shift+P) > "Tasks: Run Task" and
-// pick "New Blog Post" or "New Analysis Article" from the list.
+//   Ctrl+Shift+B → New blog post
+//   Ctrl+Shift+A → New analysis article (MDX)
+//   Ctrl+Shift+N → New Marimo notebook (Python)
+//   Ctrl+Shift+M → Open Marimo editor in browser
+//
+// Alternatively, use the Command Palette (Cmd+Shift+P) > "Tasks: Run Task"
+// and pick from the list.

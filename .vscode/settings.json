@@ -42,14 +42,20 @@
     "gitlens",
     "markdownlint",
     "sitemap",
-    "noindex"
+    "noindex",
+    "marimo",
+    "plotly",
+    "pyodide",
+    "pandas",
+    "numpy"
   ],
   "cSpell.ignorePaths": [
     "node_modules",
     "dist",
     "package-lock.json",
     ".astro",
-    "public/wasm"
+    "public/wasm",
+    "public/notebooks"
   ],
 
   // ---------- Markdownlint ----------
@@ -70,6 +76,12 @@
     "node_modules": true,
     "dist": true,
     ".astro": true
+  },
+
+  // ---------- Python / Marimo ----------
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [88]
   },
 
   // ---------- Astro ----------

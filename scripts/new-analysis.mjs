@@ -46,6 +46,7 @@ draft: true
 
 import InteractiveChart from '../../components/InteractiveChart.tsx';
 import DataTable from '../../components/DataTable.tsx';
+import PlotlyChart from '../../components/PlotlyChart.tsx';
 import D3Container from '../../components/D3Container.tsx';
 
 {/* ---- Data imports (pick the format you need) ---- */}
@@ -95,6 +96,14 @@ import D3Container from '../../components/D3Container.tsx';
     { name: 'Item B', value: 200 },
   ]}
 />
+
+{/* ---- Plotly — charts exported from Python/Marimo (uncomment to use) ---- */}
+
+{/*
+## Plotly Chart
+
+<PlotlyChart client:load src="/data/charts/your-chart.json" title="Chart from Python" />
+*/}
 
 {/* ---- D3.js — complex/custom visualizations (uncomment to use) ---- */}
 

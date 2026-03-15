@@ -8,7 +8,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "new:blog": "node scripts/new-blog-post.mjs",
-    "new:analysis": "node scripts/new-analysis.mjs"
+    "new:analysis": "node scripts/new-analysis.mjs",
+    "new:notebook": "node scripts/new-notebook.mjs",
+    "notebook:edit": "marimo edit",
+    "notebook:export": "node scripts/export-notebooks.mjs",
+    "notebook:export:all": "node scripts/export-notebooks.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.6",

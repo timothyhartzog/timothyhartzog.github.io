@@ -2,6 +2,12 @@
   "name": "Hartzog.ai Blog & Development",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
 
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+
   "customizations": {
     "vscode": {
       "extensions": [
@@ -11,6 +17,11 @@
         "unifiedjs.vscode-mdx",
         "yzhang.markdown-all-in-one",
         "astro-build.astro-vscode",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.datawrangler",
+        "mechatroner.rainbow-csv",
+        "marimo-team.marimo",
         "anthropic.claude-code",
         "eamodio.gitlens"
       ],
@@ -21,13 +32,17 @@
     }
   },
 
-  "postCreateCommand": "npm ci",
+  "postCreateCommand": "npm ci && pip install -r requirements.txt",
 
-  "forwardPorts": [4321],
+  "forwardPorts": [4321, 2718],
   "portsAttributes": {
     "4321": {
       "label": "Astro Dev Server",
       "onAutoForward": "notify"
+    },
+    "2718": {
+      "label": "Marimo Editor",
+      "onAutoForward": "openBrowser"
     }
   },
 

@@ -26,6 +26,42 @@
       "problemMatcher": []
     },
     {
+      "label": "New Marimo Notebook",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/new-notebook.mjs", "${input:notebookTitle}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Open Marimo Editor",
+      "type": "shell",
+      "command": "marimo",
+      "args": ["edit", "${input:notebookFile}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Export All Notebooks",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/export-notebooks.mjs"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Dev Server",
       "type": "npm",
       "script": "dev",
@@ -49,6 +85,18 @@
       "description": "Analysis article title",
       "type": "promptString",
       "default": "My New Analysis"
+    },
+    {
+      "id": "notebookTitle",
+      "description": "Marimo notebook title",
+      "type": "promptString",
+      "default": "My Analysis"
+    },
+    {
+      "id": "notebookFile",
+      "description": "Path to notebook .py file",
+      "type": "promptString",
+      "default": "notebooks/sample-analysis.py"
     }
   ]
 }

@@ -12,6 +12,13 @@
     // Astro & React
     "astro-build.astro-vscode",
 
+    // Python & Data
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.datawrangler",
+    "mechatroner.rainbow-csv",
+    "marimo-team.marimo",
+
     // AI Assistant
     "anthropic.claude-code",
 
