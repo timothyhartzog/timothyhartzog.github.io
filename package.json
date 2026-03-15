@@ -12,7 +12,8 @@
     "new:notebook": "node scripts/new-notebook.mjs",
     "notebook:edit": "marimo edit",
     "notebook:export": "node scripts/export-notebooks.mjs",
-    "notebook:export:all": "node scripts/export-notebooks.mjs"
+    "notebook:export:all": "node scripts/export-notebooks.mjs",
+    "publish": "node scripts/publish-draft.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.6",

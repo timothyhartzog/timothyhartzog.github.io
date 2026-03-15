@@ -38,6 +38,17 @@
       "problemMatcher": []
     },
     {
+      "label": "Publish Draft",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/publish-draft.mjs", "${input:draftSlug}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Export All Notebooks",
       "type": "shell",
       "command": "node",
@@ -78,6 +89,12 @@
       "description": "Marimo notebook title",
       "type": "promptString",
       "default": "My Analysis"
+    },
+    {
+      "id": "draftSlug",
+      "description": "Draft slug to publish (leave empty to list all drafts)",
+      "type": "promptString",
+      "default": ""
     }
   ]
 }
