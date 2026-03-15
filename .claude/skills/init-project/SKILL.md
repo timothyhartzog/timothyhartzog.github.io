@@ -51,7 +51,7 @@ Create the following files and directories:
 #### `.hartzog.json`
 ```json
 {
-  "parent": "https://www.hartzog.ai",
+  "parent": "https://www.hartzog.dev",
   "theme": true,
   "name": "<display-name>",
   "description": "<description>"
@@ -83,13 +83,13 @@ Create a styled 404 page that uses the shared theme:
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <hartzog-nav parent="https://www.hartzog.ai"></hartzog-nav>
+  <hartzog-nav parent="https://www.hartzog.dev"></hartzog-nav>
   <main class="hz-container" style="padding: 4rem 1.5rem; text-align: center; flex: 1;">
     <h1 style="font-size: 4rem; color: var(--hz-accent);">404</h1>
     <p style="color: var(--hz-text-muted); margin-bottom: 1.5rem;">Page not found.</p>
     <a href="/" style="color: var(--hz-accent);">Go back home</a>
   </main>
-  <hartzog-footer compact parent="https://www.hartzog.ai"></hartzog-footer>
+  <hartzog-footer compact parent="https://www.hartzog.dev"></hartzog-footer>
 </body>
 </html>
 ```
@@ -172,7 +172,7 @@ Location: <path>
 Files:
   index.html          Main page with shared theme, nav, footer, CTA, newsletter
   styles.css          Project styles using --hz-* CSS variables
-  .hartzog.json       Ecosystem flag (links back to hartzog.ai)
+  .hartzog.json       Ecosystem flag (links back to hartzog.dev)
   404.html            Custom 404 with shared theme
   robots.txt          SEO
   .github/workflows/  Auto-deploy on push to main
@@ -189,5 +189,5 @@ Next steps:
   1. Create the GitHub repo: gh repo create timothyhartzog/<repo-name> --public
   2. Push: git remote add origin ... && git push -u origin main
   3. Enable GitHub Pages: Settings > Pages > Source: GitHub Actions
-  4. The project will appear on hartzog.ai/projects automatically
+  4. The project will appear on hartzog.dev/projects automatically
 ```

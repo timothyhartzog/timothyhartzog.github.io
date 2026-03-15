@@ -6,7 +6,7 @@ This is the main site for **Hartzog.ai**, an AI business built as a static site
 using Astro + React + MDX, deployed on Azure Static Web Apps (primary) with
 GitHub Pages as a backup mirror.
 
-- **Domain**: www.hartzog.ai
+- **Domain**: www.hartzog.dev
 - **Stack**: Astro 5, React 19, MDX, Recharts, Rust/WASM, D3.js
 - **Primary Hosting**: Azure Static Web Apps
 - **Backup Hosting**: GitHub Pages (identical build from same repo)
@@ -23,7 +23,7 @@ Azure SWA supports API routes via Azure Functions if server features are needed 
 **Every decision must consider both hosting targets.** The deploy workflow
 (`.github/workflows/deploy.yml`) builds once and deploys to both:
 
-- **Azure SWA** (primary) — serves `www.hartzog.ai` with global CDN, free SSL,
+- **Azure SWA** (primary) — serves `www.hartzog.dev` with global CDN, free SSL,
   and PR preview environments.
 - **GitHub Pages** (backup) — serves `timothyhartzog.github.io` as an identical
   mirror.
@@ -45,8 +45,8 @@ Key rules:
 This repo is the hub of an ecosystem of subdomain applications. Each app is a
 separate repo with its own Azure SWA instance.
 
-- **Main site**: `www.hartzog.ai` (this repo)
-- **Subdomain apps**: `<app-name>.hartzog.ai` (separate repos)
+- **Main site**: `www.hartzog.dev` (this repo)
+- **Subdomain apps**: `<app-name>.hartzog.dev` (separate repos)
 - **Shared theme** (`src/theme/`) — CSS variables, Web Components (nav, footer,
   contact form, newsletter, CTA banner). Served via jsDelivr CDN.
 - **Site registry** (`src/theme/sites.json`) — Central list of all projects and apps.
