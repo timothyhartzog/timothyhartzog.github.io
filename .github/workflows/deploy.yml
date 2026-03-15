@@ -1,4 +1,4 @@
-name: Deploy to Azure Static Web Apps & GitHub Pages
+name: Build, Test & Deploy
 
 on:
   push:
@@ -42,11 +42,50 @@ jobs:
           name: site-build
           path: dist
 
-  # Primary: Azure Static Web Apps
-  deploy-azure:
+  # GUI and page tests
+  test:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-build
+          path: dist
+
+      - name: Run tests
+        run: npx playwright test
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: test-results/
+          retention-days: 7
+
+  # Primary: Azure Static Web Apps (skips gracefully if token not set)
+  deploy-azure:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    if: |
+      secrets.AZURE_STATIC_WEB_APPS_API_TOKEN != '' &&
+      (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed'))
     environment:
       name: azure-swa
       url: ${{ steps.azure-deploy.outputs.static_web_app_url }}
@@ -73,7 +112,9 @@ jobs:
 
   # Close PR: clean up Azure preview environment
   close-azure-preview:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: |
+      github.event_name == 'pull_request' && github.event.action == 'closed' &&
+      secrets.AZURE_STATIC_WEB_APPS_API_TOKEN != ''
     runs-on: ubuntu-latest
     steps:
       - name: Close Azure SWA preview
@@ -82,9 +123,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: close
 
-  # Backup: GitHub Pages (only on push to main)
+  # Backup: GitHub Pages (only on push to main, after tests pass)
   deploy-github-pages:
-    needs: build
+    needs: [build, test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
