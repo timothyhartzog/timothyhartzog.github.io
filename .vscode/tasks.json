@@ -5,7 +5,13 @@
       "label": "New Blog Post",
       "type": "shell",
       "command": "node",
-      "args": ["scripts/new-blog-post.mjs", "${input:blogTitle}"],
+      "args": [
+        "scripts/new-blog-post.mjs",
+        "${input:blogTitle}",
+        "${input:blogDescription}",
+        "${input:blogTags}",
+        "${input:blogDate}"
+      ],
       "group": "none",
       "presentation": {
         "reveal": "silent",
@@ -17,7 +23,13 @@
       "label": "New Analysis Article",
       "type": "shell",
       "command": "node",
-      "args": ["scripts/new-analysis.mjs", "${input:analysisTitle}"],
+      "args": [
+        "scripts/new-analysis.mjs",
+        "${input:analysisTitle}",
+        "${input:analysisDescription}",
+        "${input:analysisTags}",
+        "${input:analysisDate}"
+      ],
       "group": "none",
       "presentation": {
         "reveal": "silent",
@@ -76,19 +88,55 @@
       "id": "blogTitle",
       "description": "Blog post title",
       "type": "promptString",
-      "default": "My New Post"
+      "default": ""
+    },
+    {
+      "id": "blogDescription",
+      "description": "Short description (for SEO and card previews)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "blogTags",
+      "description": "Tags (comma-separated, e.g. ai, data, tutorial)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "blogDate",
+      "description": "Publish date (YYYY-MM-DD, leave empty for today)",
+      "type": "promptString",
+      "default": ""
     },
     {
       "id": "analysisTitle",
       "description": "Analysis article title",
       "type": "promptString",
-      "default": "My New Analysis"
+      "default": ""
+    },
+    {
+      "id": "analysisDescription",
+      "description": "Short description (for SEO and card previews)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "analysisTags",
+      "description": "Tags (comma-separated, e.g. data, visualization, python)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "analysisDate",
+      "description": "Publish date (YYYY-MM-DD, leave empty for today)",
+      "type": "promptString",
+      "default": ""
     },
     {
       "id": "notebookTitle",
       "description": "Marimo notebook title",
       "type": "promptString",
-      "default": "My Analysis"
+      "default": ""
     },
     {
       "id": "draftSlug",
