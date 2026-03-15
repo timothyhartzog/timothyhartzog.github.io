@@ -3,8 +3,7 @@
 //
 //   { "key": "ctrl+shift+b", "command": "workbench.action.tasks.runTask", "args": "New Blog Post" },
 //   { "key": "ctrl+shift+a", "command": "workbench.action.tasks.runTask", "args": "New Analysis Article" },
-//   { "key": "ctrl+shift+n", "command": "workbench.action.tasks.runTask", "args": "New Marimo Notebook" },
-//   { "key": "ctrl+shift+m", "command": "workbench.action.tasks.runTask", "args": "Open Marimo Editor" }
+//   { "key": "ctrl+shift+n", "command": "workbench.action.tasks.runTask", "args": "New Marimo Notebook" }
 //
 // VS Code does not support workspace-level keybindings, so these must be added
 // to your user keybindings.json once. After that:
@@ -12,7 +11,11 @@
 //   Ctrl+Shift+B → New blog post
 //   Ctrl+Shift+A → New analysis article (MDX)
 //   Ctrl+Shift+N → New Marimo notebook (Python)
-//   Ctrl+Shift+M → Open Marimo editor in browser
 //
-// Alternatively, use the Command Palette (Cmd+Shift+P) > "Tasks: Run Task"
-// and pick from the list.
+// To open a Marimo notebook inside VS Code:
+//   Just open any .py file in notebooks/ — the Marimo extension auto-detects
+//   it and shows "Open as Marimo Notebook" in the editor toolbar.
+//   Or right-click the file > "Open as Marimo Notebook".
+//
+// The Marimo panel opens alongside your editor. Claude Code stays in the
+// terminal/sidebar. Both see the same .py file.

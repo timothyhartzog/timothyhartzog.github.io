@@ -83,6 +83,11 @@
     "editor.tabSize": 4,
     "editor.rulers": [88]
   },
+  "marimo.marimoPath": "marimo",
+  "marimo.showTerminal": false,
+  "marimo.port": 2718,
+  "marimo.enableToken": false,
+  "marimo.debug": false,
 
   // ---------- Astro ----------
   "astro.enableServerPlugin": false

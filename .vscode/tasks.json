@@ -38,19 +38,6 @@
       "problemMatcher": []
     },
     {
-      "label": "Open Marimo Editor",
-      "type": "shell",
-      "command": "marimo",
-      "args": ["edit", "${input:notebookFile}"],
-      "group": "none",
-      "presentation": {
-        "reveal": "always",
-        "panel": "dedicated"
-      },
-      "isBackground": true,
-      "problemMatcher": []
-    },
-    {
       "label": "Export All Notebooks",
       "type": "shell",
       "command": "node",
@@ -91,12 +78,6 @@
       "description": "Marimo notebook title",
       "type": "promptString",
       "default": "My Analysis"
-    },
-    {
-      "id": "notebookFile",
-      "description": "Path to notebook .py file",
-      "type": "promptString",
-      "default": "notebooks/sample-analysis.py"
     }
   ]
 }
