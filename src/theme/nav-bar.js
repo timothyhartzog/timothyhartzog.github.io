@@ -40,7 +40,7 @@ class HartzogNav extends HTMLElement {
       this._sites = data.sites || [];
     } catch {
       this._sites = [
-        { name: 'Hartzog.ai', url: 'https://www.hartzog.ai', primary: true }
+        { name: 'Hartzog.ai', url: 'https://www.hartzog.dev', primary: true }
       ];
     }
   }

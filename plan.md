@@ -6,7 +6,7 @@
 ```
 GitHub Repo → GitHub Actions Build → GitHub Pages CDN
                                       ↓
-                              www.hartzog.ai (static)
+                              www.hartzog.dev (static)
 ```
 
 ### Future (Google Cloud — Scalable)
@@ -15,7 +15,7 @@ GitHub Repo → Cloud Build → Cloud Storage (static assets)
                                ↓
                           Cloud CDN + Load Balancer
                                ↓
-                        www.hartzog.ai
+                        www.hartzog.dev
                                ↓
                     Cloud Run (API/SSR when needed)
                                ↓
@@ -40,7 +40,7 @@ Create `infrastructure/` directory with Terraform configs:
 - `main.tf` — Provider, project, remote state (Cloud Storage backend)
 - `storage.tf` — Cloud Storage bucket for static site hosting
 - `cdn.tf` — Cloud CDN + HTTPS load balancer
-- `dns.tf` — Cloud DNS zone for hartzog.ai
+- `dns.tf` — Cloud DNS zone for hartzog.dev
 - `cloudbuild.tf` — Cloud Build trigger (on push to main)
 - `cloudrun.tf` — Cloud Run service (placeholder for future API)
 - `variables.tf` — Configurable project ID, region, domain
@@ -81,14 +81,14 @@ Update `.github/workflows/deploy.yml` to:
 ### 2.3 DNS Preparation
 - Set up Cloud DNS zone mirroring current DNS
 - Create SSL certificate via Google-managed certificates
-- Test with a staging subdomain (e.g., `staging.hartzog.ai`)
+- Test with a staging subdomain (e.g., `staging.hartzog.dev`)
 
 ---
 
 ## Phase 3: DNS Cutover
 
 ### 3.1 Switch DNS
-- Point `hartzog.ai` A/AAAA records to Cloud CDN IP
+- Point `hartzog.dev` A/AAAA records to Cloud CDN IP
 - Keep GitHub Pages as fallback (CNAME file stays in repo)
 - Monitor for 48 hours
 
@@ -132,8 +132,8 @@ Add backend capabilities without changing the static site architecture.
 ### 5.1 Multi-Site Cloud Storage
 Each child repo gets its own Cloud Storage bucket:
 ```
-gs://hartzog-ai-website/          → www.hartzog.ai
-gs://hartzog-ai-<project>/       → www.hartzog.ai/<project>/ (or subdomain)
+gs://hartzog-ai-website/          → www.hartzog.dev
+gs://hartzog-ai-<project>/       → www.hartzog.dev/<project>/ (or subdomain)
 ```
 
 ### 5.2 Update /init-project Skill

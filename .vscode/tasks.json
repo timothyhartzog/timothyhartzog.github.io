@@ -1,0 +1,182 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "New Blog Post",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "scripts/new-blog-post.mjs",
+        "${input:blogTitle}",
+        "${input:blogDescription}",
+        "${input:blogTags}",
+        "${input:blogDate}"
+      ],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "New Analysis Article",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "scripts/new-analysis.mjs",
+        "${input:analysisTitle}",
+        "${input:analysisDescription}",
+        "${input:analysisTags}",
+        "${input:analysisDate}"
+      ],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "New Marimo Notebook",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/new-notebook.mjs", "${input:notebookTitle}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Publish Draft",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/publish-draft.mjs", "${input:draftSlug}"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Export All Notebooks",
+      "type": "shell",
+      "command": "node",
+      "args": ["scripts/export-notebooks.mjs"],
+      "group": "none",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "npx",
+      "args": ["playwright", "test"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests (headed browser)",
+      "type": "shell",
+      "command": "npx",
+      "args": ["playwright", "test", "--headed"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests (UI mode)",
+      "type": "shell",
+      "command": "npx",
+      "args": ["playwright", "test", "--ui"],
+      "group": "test",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev Server",
+      "type": "npm",
+      "script": "dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "blogTitle",
+      "description": "Blog post title",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "blogDescription",
+      "description": "Short description (for SEO and card previews)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "blogTags",
+      "description": "Tags (comma-separated, e.g. ai, data, tutorial)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "blogDate",
+      "description": "Publish date (YYYY-MM-DD, leave empty for today)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "analysisTitle",
+      "description": "Analysis article title",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "analysisDescription",
+      "description": "Short description (for SEO and card previews)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "analysisTags",
+      "description": "Tags (comma-separated, e.g. data, visualization, python)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "analysisDate",
+      "description": "Publish date (YYYY-MM-DD, leave empty for today)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "notebookTitle",
+      "description": "Marimo notebook title",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "draftSlug",
+      "description": "Draft slug to publish (leave empty to list all drafts)",
+      "type": "promptString",
+      "default": ""
+    }
+  ]
+}

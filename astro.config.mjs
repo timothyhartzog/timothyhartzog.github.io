@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.hartzog.ai',
+  site: 'https://www.hartzog.dev',
   integrations: [mdx(), react(), sitemap()],
   output: 'static',
 });

@@ -7,7 +7,7 @@
  *     heading="Need help with your data?"
  *     text="Let's build something great together."
  *     button-text="Get Started"
- *     button-url="https://www.hartzog.ai/contact">
+ *     button-url="https://www.hartzog.dev/contact">
  *   </hartzog-cta>
  */
 
@@ -16,7 +16,7 @@ class HartzogCTA extends HTMLElement {
     const heading = this.getAttribute('heading') || 'Ready to get started?';
     const text = this.getAttribute('text') || 'Let Hartzog.ai help with your next project.';
     const btnText = this.getAttribute('button-text') || 'Contact Us';
-    const btnUrl = this.getAttribute('button-url') || 'https://www.hartzog.ai/contact';
+    const btnUrl = this.getAttribute('button-url') || 'https://www.hartzog.dev/contact';
 
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `

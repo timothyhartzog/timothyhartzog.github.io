@@ -6,7 +6,7 @@
  *   <hartzog-footer></hartzog-footer>
  *
  * Attributes:
- *   parent  — URL of the main site (default: https://www.hartzog.ai)
+ *   parent  — URL of the main site (default: https://www.hartzog.dev)
  *   compact — Add this attribute for a single-line footer
  */
 
@@ -18,7 +18,7 @@ class HartzogFooter extends HTMLElement {
 
   connectedCallback() {
     const year = new Date().getFullYear();
-    const parent = this.getAttribute('parent') || 'https://www.hartzog.ai';
+    const parent = this.getAttribute('parent') || 'https://www.hartzog.dev';
     const compact = this.hasAttribute('compact');
 
     if (compact) {

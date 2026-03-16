@@ -59,7 +59,7 @@ The flag file contents:
 
 ```json
 {
-  "parent": "https://www.hartzog.ai",
+  "parent": "https://www.hartzog.dev",
   "theme": true,
   "name": "<display-name>",
   "description": "<description>"
@@ -87,7 +87,7 @@ Theme:      Shared nav/footer/colors via CDN
 Next steps:
 1. Copy .hartzog.json to the root of <repo-name> (if not done automatically)
 2. Commit and push changes in both repos
-3. The project will appear on hartzog.ai/projects and in the nav dropdown
+3. The project will appear on hartzog.dev/projects and in the nav dropdown
 ```
 
 ### 6. Offer to commit

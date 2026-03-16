@@ -1,0 +1,9 @@
+project,status,completion,budget
+Alpha Pipeline,Active,78,250
+Data Warehouse v2,Active,45,480
+ML Model Refresh,Planning,12,150
+API Gateway,Complete,100,320
+Dashboard Redesign,Active,63,90
+ETL Migration,Active,88,200
+Security Audit,Complete,100,75
+Mobile App v3,Planning,5,410

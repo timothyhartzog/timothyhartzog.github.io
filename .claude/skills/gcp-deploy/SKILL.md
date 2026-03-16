@@ -51,7 +51,7 @@ Switch DNS from GitHub Pages to GCP:
 1. Check if GCP project exists and is configured
 2. Show Terraform state summary
 3. Check if dual-deploy is enabled in GitHub Actions
-4. Show current DNS resolution for hartzog.ai
+4. Show current DNS resolution for hartzog.dev
 5. Report which environment is active (GitHub Pages, GCP, or both)
 
 ## Important Notes

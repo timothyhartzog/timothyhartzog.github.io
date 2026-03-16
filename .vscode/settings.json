@@ -1,0 +1,94 @@
+{
+  // ---------- Editor defaults for content writing ----------
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "on",
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+
+  // ---------- Markdown / MDX editing ----------
+  "[markdown]": {
+    "editor.quickSuggestions": false,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "editor.rulers": [80],
+    "editor.defaultFormatter": "davidanson.vscode-markdownlint"
+  },
+  "[mdx]": {
+    "editor.quickSuggestions": false,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "editor.rulers": [80]
+  },
+
+  // ---------- Spell Checker (cSpell) ----------
+  "cSpell.enabled": true,
+  "cSpell.language": "en",
+  "cSpell.enableFiletypes": ["markdown", "mdx", "astro"],
+  "cSpell.words": [
+    "hartzog",
+    "astro",
+    "astrojs",
+    "wasm",
+    "recharts",
+    "formspree",
+    "plausible",
+    "jsdelivr",
+    "frontmatter",
+    "codespace",
+    "codespaces",
+    "devcontainer",
+    "webassembly",
+    "gitlens",
+    "markdownlint",
+    "sitemap",
+    "noindex",
+    "marimo",
+    "plotly",
+    "pyodide",
+    "pandas",
+    "numpy"
+  ],
+  "cSpell.ignorePaths": [
+    "node_modules",
+    "dist",
+    "package-lock.json",
+    ".astro",
+    "public/wasm",
+    "public/notebooks"
+  ],
+
+  // ---------- Markdownlint ----------
+  "markdownlint.config": {
+    "MD013": false,
+    "MD033": false,
+    "MD041": false
+  },
+
+  // ---------- File associations ----------
+  "files.associations": {
+    "*.mdx": "mdx",
+    "*.astro": "astro"
+  },
+
+  // ---------- Explorer: focus on content ----------
+  "files.exclude": {
+    "node_modules": true,
+    "dist": true,
+    ".astro": true
+  },
+
+  // ---------- Python / Marimo ----------
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [88]
+  },
+  "marimo.marimoPath": "marimo",
+  "marimo.showTerminal": false,
+  "marimo.port": 2718,
+  "marimo.enableToken": false,
+  "marimo.debug": false,
+
+  // ---------- Astro ----------
+  "astro.enableServerPlugin": false
+}
