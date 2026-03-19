@@ -1,0 +1,116 @@
+{
+  "D3 Visualization Module": {
+    "scope": "typescript",
+    "prefix": "d3-module",
+    "body": [
+      "import * as d3 from 'd3';",
+      "import type { D3RenderFn, D3VizMeta } from './types';",
+      "",
+      "export const meta: D3VizMeta = {",
+      "  title: '${1:Visualization Title}',",
+      "  description: '${2:Description of what this visualization shows.}',",
+      "  tags: ['${3:visualization}'],",
+      "};",
+      "",
+      "const render: D3RenderFn = (container, width, height) => {",
+      "  const margin = { top: 20, right: 20, bottom: 40, left: 50 };",
+      "  const innerW = width - margin.left - margin.right;",
+      "  const innerH = height - margin.top - margin.bottom;",
+      "",
+      "  const svg = d3",
+      "    .select(container)",
+      "    .append('svg')",
+      "    .attr('width', width)",
+      "    .attr('height', height);",
+      "",
+      "  const g = svg",
+      "    .append('g')",
+      "    .attr('transform', `translate(\\${margin.left},\\${margin.top})`);",
+      "",
+      "  $0",
+      "",
+      "  return () => {",
+      "    svg.remove();",
+      "  };",
+      "};",
+      "",
+      "export default render;"
+    ],
+    "description": "New D3 visualization module scaffold"
+  },
+  "D3 Scale Linear": {
+    "scope": "typescript",
+    "prefix": "d3-scale-linear",
+    "body": [
+      "const ${1:scale} = d3",
+      "  .scaleLinear()",
+      "  .domain([${2:0}, ${3:100}])",
+      "  .range([${4:0}, ${5:innerW}]);"
+    ],
+    "description": "D3 linear scale"
+  },
+  "D3 Scale Band": {
+    "scope": "typescript",
+    "prefix": "d3-scale-band",
+    "body": [
+      "const ${1:scale} = d3",
+      "  .scaleBand<string>()",
+      "  .domain(${2:data}.map((d) => d.${3:name}))",
+      "  .range([${4:0}, ${5:innerW}])",
+      "  .padding(${6:0.2});"
+    ],
+    "description": "D3 band scale"
+  },
+  "D3 Axis Bottom": {
+    "scope": "typescript",
+    "prefix": "d3-axis-bottom",
+    "body": [
+      "g.append('g')",
+      "  .attr('transform', `translate(0,\\${innerH})`)",
+      "  .call(d3.axisBottom(${1:x}))",
+      "  .selectAll('text')",
+      "  .style('fill', '#94a3b8');"
+    ],
+    "description": "D3 bottom axis"
+  },
+  "D3 Axis Left": {
+    "scope": "typescript",
+    "prefix": "d3-axis-left",
+    "body": [
+      "g.append('g')",
+      "  .call(d3.axisLeft(${1:y}).ticks(${2:5}))",
+      "  .selectAll('text')",
+      "  .style('fill', '#94a3b8');"
+    ],
+    "description": "D3 left axis"
+  },
+  "D3 Tooltip": {
+    "scope": "typescript",
+    "prefix": "d3-tooltip",
+    "body": [
+      "const tooltip = d3",
+      "  .select(container)",
+      "  .append('div')",
+      "  .style('position', 'absolute')",
+      "  .style('padding', '6px 10px')",
+      "  .style('background', '#1e293b')",
+      "  .style('border', '1px solid #38bdf8')",
+      "  .style('border-radius', '6px')",
+      "  .style('color', '#e2e8f0')",
+      "  .style('font-size', '0.8rem')",
+      "  .style('pointer-events', 'none')",
+      "  .style('opacity', 0);"
+    ],
+    "description": "D3 styled tooltip div"
+  },
+  "D3 Transition": {
+    "scope": "typescript",
+    "prefix": "d3-transition",
+    "body": [
+      ".transition()",
+      ".duration(${1:600})",
+      ".delay((_, i) => i * ${2:80})"
+    ],
+    "description": "D3 transition with staggered delay"
+  }
+}

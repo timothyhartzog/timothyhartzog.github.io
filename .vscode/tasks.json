@@ -106,6 +106,23 @@
       "problemMatcher": []
     },
     {
+      "label": "New D3 Visualization",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "scripts/new-d3-viz.mjs",
+        "${input:d3Title}",
+        "${input:d3Description}",
+        "${input:d3Tags}"
+      ],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Dev Server",
       "type": "npm",
       "script": "dev",
@@ -113,6 +130,15 @@
         "kind": "build",
         "isDefault": true
       },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev Server (Author Dashboard)",
+      "type": "shell",
+      "command": "npx",
+      "args": ["astro", "dev"],
+      "group": "build",
       "isBackground": true,
       "problemMatcher": []
     }
@@ -175,6 +201,24 @@
     {
       "id": "draftSlug",
       "description": "Draft slug to publish (leave empty to list all drafts)",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "d3Title",
+      "description": "D3 visualization title",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "d3Description",
+      "description": "Short description of the visualization",
+      "type": "promptString",
+      "default": ""
+    },
+    {
+      "id": "d3Tags",
+      "description": "Tags (comma-separated, e.g. chart, bar, interactive)",
       "type": "promptString",
       "default": ""
     }

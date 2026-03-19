@@ -13,6 +13,7 @@
     "notebook:edit": "marimo edit",
     "notebook:export": "node scripts/export-notebooks.mjs",
     "notebook:export:all": "node scripts/export-notebooks.mjs",
+    "new:d3": "node scripts/new-d3-viz.mjs",
     "publish": "node scripts/publish-draft.mjs",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
@@ -31,7 +32,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
+    "@types/d3": "^7.4.3",
     "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "@types/react-dom": "^19.0.0",
+    "d3": "^7.9.0"
   }
 }

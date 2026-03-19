@@ -1,0 +1,117 @@
+{
+  "Blog Post Frontmatter": {
+    "scope": "markdown",
+    "prefix": "blog-front",
+    "body": [
+      "---",
+      "title: \"${1:Post Title}\"",
+      "description: \"${2:A brief description for SEO and card previews.}\"",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "tags: [\"${3:tag1}\", \"${4:tag2}\"]",
+      "draft: true",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Blog post frontmatter template"
+  },
+  "MDX Analysis Frontmatter": {
+    "scope": "mdx",
+    "prefix": "analysis-front",
+    "body": [
+      "---",
+      "title: \"${1:Analysis Title}\"",
+      "description: \"${2:A brief description for SEO and card previews.}\"",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "tags: [\"${3:data}\", \"${4:visualization}\"]",
+      "draft: true",
+      "---",
+      "",
+      "import D3Viz from '../../components/D3Viz.tsx';",
+      "import InteractiveChart from '../../components/InteractiveChart.tsx';",
+      "import DataTable from '../../components/DataTable.tsx';",
+      "",
+      "$0"
+    ],
+    "description": "Analysis article frontmatter with component imports"
+  },
+  "MDX Import D3Viz": {
+    "scope": "mdx",
+    "prefix": "d3-import",
+    "body": [
+      "import D3Viz from '../../components/D3Viz.tsx';"
+    ],
+    "description": "Import D3Viz component"
+  },
+  "MDX D3 Module Embed": {
+    "scope": "mdx",
+    "prefix": "d3-module",
+    "body": [
+      "<D3Viz",
+      "  client:load",
+      "  label=\"${1:Chart Title}\"",
+      "  height=\"${2:400px}\"",
+      "  module={() => import('../../d3/${3:example-bar-chart}')}",
+      "/>"
+    ],
+    "description": "Embed a D3 visualization module from src/d3/"
+  },
+  "MDX D3 Inline": {
+    "scope": "mdx",
+    "prefix": "d3-inline",
+    "body": [
+      "<D3Viz",
+      "  client:load",
+      "  label=\"${1:Chart Title}\"",
+      "  height=\"${2:400px}\"",
+      "  renderFn={(container, width, height) => {",
+      "    // D3 code here",
+      "    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');",
+      "    svg.setAttribute('width', String(width));",
+      "    svg.setAttribute('height', String(height));",
+      "    container.appendChild(svg);",
+      "    $0",
+      "  }}",
+      "/>"
+    ],
+    "description": "Inline D3 visualization in MDX"
+  },
+  "MDX Recharts Chart": {
+    "scope": "mdx",
+    "prefix": "recharts",
+    "body": [
+      "<InteractiveChart",
+      "  client:load",
+      "  title=\"${1:Chart Title}\"",
+      "  data={[",
+      "    { name: '${2:Jan}', value: ${3:100} },",
+      "    { name: '${4:Feb}', value: ${5:150} },",
+      "    { name: '${6:Mar}', value: ${7:200} },",
+      "  ]}",
+      "  dataKeys={[",
+      "    { key: 'value', color: '#38bdf8' },",
+      "  ]}",
+      "/>"
+    ],
+    "description": "Recharts interactive chart"
+  },
+  "MDX Data Table": {
+    "scope": "mdx",
+    "prefix": "datatable",
+    "body": [
+      "<DataTable",
+      "  client:load",
+      "  title=\"${1:Table Title}\"",
+      "  columns={[",
+      "    { key: '${2:name}', label: '${3:Name}' },",
+      "    { key: '${4:value}', label: '${5:Value}' },",
+      "  ]}",
+      "  data={[",
+      "    { ${2:name}: '${6:Item A}', ${4:value}: ${7:100} },",
+      "    { ${2:name}: '${8:Item B}', ${4:value}: ${9:200} },",
+      "  ]}",
+      "/>"
+    ],
+    "description": "Sortable, filterable data table"
+  }
+}
