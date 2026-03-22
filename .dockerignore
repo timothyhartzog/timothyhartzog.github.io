@@ -1,0 +1,8 @@
+# .dockerignore — static GitHub Pages site
+.git/
+.gitignore
+.github/
+.vscode/
+.DS_Store
+*.md
+LICENSE
