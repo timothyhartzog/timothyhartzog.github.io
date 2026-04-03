@@ -1,0 +1,70 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Chapter 1: Getting Started\"\n",
+        "---\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Introduction\n",
+        "\n",
+        "This is the first chapter of the example book. In a real book, this would contain\n",
+        "your content — text, code, figures, and interactive elements.\n",
+        "\n",
+        "## Code Examples\n",
+        "\n",
+        "Quarto makes it easy to include executable code:\n"
+      ],
+      "id": "d3ef378d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "# Example Python code\n",
+        "data = [1, 2, 3, 4, 5]\n",
+        "total = sum(data)\n",
+        "print(f\"Sum: {total}, Mean: {total/len(data)}\")"
+      ],
+      "id": "91bd44d5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Embedded Artifact\n",
+        "\n",
+        "You can embed Claude artifacts directly in chapters:\n",
+        "\n",
+        "::: {.claude-artifact}\n",
+        "<div style=\"padding: 1.5rem; background: linear-gradient(135deg, #1e293b, #283548); border-radius: 12px; font-family: system-ui;\">\n",
+        "  <h4 style=\"color: #38bdf8; margin: 0 0 0.75rem 0;\">Key Concepts</h4>\n",
+        "  <ul style=\"color: #e2e8f0; margin: 0; padding-left: 1.25rem; line-height: 1.8;\">\n",
+        "    <li>Quarto renders <code>.qmd</code> files to HTML, PDF, and more</li>\n",
+        "    <li>Books are collections of chapters with shared navigation</li>\n",
+        "    <li>Claude artifacts embed as self-contained HTML widgets</li>\n",
+        "  </ul>\n",
+        "</div>\n",
+        ":::"
+      ],
+      "id": "2020e2f9"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

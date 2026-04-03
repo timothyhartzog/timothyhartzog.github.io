@@ -1,4 +1,4 @@
-name: Build, Test & Deploy
+name: Build & Deploy (Quarto)
 
 on:
   push:
@@ -24,68 +24,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
         with:
-          node-version: 22
-          cache: npm
+          version: "1.6.43"
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build site
-        run: npm run build
+      - name: Render site
+        run: quarto render
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: site-build
-          path: dist
+          path: _site
 
-  # GUI and page tests
-  test:
+  # Primary: Azure Static Web Apps
+  deploy-azure:
     needs: build
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-build
-          path: dist
-
-      - name: Run tests
-        run: npx playwright test
-
-      - name: Upload test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-report
-          path: test-results/
-          retention-days: 7
-
-  # Primary: Azure Static Web Apps (skips gracefully if token not set)
-  deploy-azure:
-    needs: [build, test]
-    runs-on: ubuntu-latest
     if: |
-      secrets.AZURE_STATIC_WEB_APPS_API_TOKEN != '' &&
-      (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed'))
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.action != 'closed')
     environment:
       name: azure-swa
       url: ${{ steps.azure-deploy.outputs.static_web_app_url }}
@@ -97,35 +56,40 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site-build
-          path: dist
+          path: _site
 
       - name: Deploy to Azure Static Web Apps
         id: azure-deploy
         uses: Azure/static-web-apps-deploy@v1
+        env:
+          AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: /
-          output_location: dist
+          output_location: _site
           skip_app_build: true
+        if: env.AZURE_STATIC_WEB_APPS_API_TOKEN != ''
 
-  # Close PR: clean up Azure preview environment
+  # Close PR: clean up Azure preview
   close-azure-preview:
     if: |
-      github.event_name == 'pull_request' && github.event.action == 'closed' &&
-      secrets.AZURE_STATIC_WEB_APPS_API_TOKEN != ''
+      github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Close Azure SWA preview
         uses: Azure/static-web-apps-deploy@v1
+        env:
+          AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: close
+        if: env.AZURE_STATIC_WEB_APPS_API_TOKEN != ''
 
-  # Backup: GitHub Pages (only on push to main, after tests pass)
+  # Backup: GitHub Pages
   deploy-github-pages:
-    needs: [build, test]
+    needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
@@ -136,12 +100,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: site-build
-          path: dist
+          path: _site
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

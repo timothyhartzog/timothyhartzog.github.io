@@ -1,0 +1,34 @@
+---
+title: "Chapter 1: Getting Started"
+---
+
+## Introduction
+
+This is the first chapter of the example book. In a real book, this would contain
+your content — text, code, figures, and interactive elements.
+
+## Code Examples
+
+Quarto makes it easy to include executable code:
+
+```python
+# Example Python code
+data = [1, 2, 3, 4, 5]
+total = sum(data)
+print(f"Sum: {total}, Mean: {total/len(data)}")
+```
+
+## Embedded Artifact
+
+You can embed Claude artifacts directly in chapters:
+
+::: {.claude-artifact}
+<div style="padding: 1.5rem; background: linear-gradient(135deg, #1e293b, #283548); border-radius: 12px; font-family: system-ui;">
+  <h4 style="color: #38bdf8; margin: 0 0 0.75rem 0;">Key Concepts</h4>
+  <ul style="color: #e2e8f0; margin: 0; padding-left: 1.25rem; line-height: 1.8;">
+    <li>Quarto renders <code>.qmd</code> files to HTML, PDF, and more</li>
+    <li>Books are collections of chapters with shared navigation</li>
+    <li>Claude artifacts embed as self-contained HTML widgets</li>
+  </ul>
+</div>
+:::

@@ -1,0 +1,20 @@
+---
+title: "About"
+---
+
+## Timothy Hartzog
+
+I build AI-powered tools, interactive data analysis platforms, and custom software
+that help businesses move faster with confidence.
+
+### Services
+
+- **Data Analysis & Visualization** — Interactive dashboards and reports
+- **AI & Machine Learning** — Custom AI solutions from prototype to production
+- **Technical Training** — Hands-on workshops for teams
+- **Software Development** — High-performance web applications
+
+### Contact
+
+Reach out via [GitHub](https://github.com/timothyhartzog) to discuss how we can
+help with your next project.

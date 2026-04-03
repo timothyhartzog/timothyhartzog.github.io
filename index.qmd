@@ -1,0 +1,48 @@
+---
+title: "Timothy Hartzog"
+subtitle: "AI Solutions & Data Engineering"
+page-layout: full
+toc: false
+---
+
+::: {.hero-banner}
+
+# Turn Your Data Into [Decisions]{.accent}
+
+We build AI-powered tools, interactive data analysis platforms, and custom
+software that help businesses move faster with confidence.
+
+[Explore Blog](/blog/){.btn .btn-primary} [Get in Touch](about.qmd){.btn .btn-outline-light}
+
+:::
+
+## What We Build
+
+::: {.grid}
+
+::: {.g-col-6 .g-col-md-3}
+### Data Analysis & Visualization
+Interactive dashboards and reports built with modern tools for high-performance computation.
+:::
+
+::: {.g-col-6 .g-col-md-3}
+### AI & Machine Learning
+Custom AI solutions from prototype to production with measurable ROI.
+:::
+
+::: {.g-col-6 .g-col-md-3}
+### Technical Training
+Hands-on workshops for teams building data literacy and AI capabilities.
+:::
+
+::: {.g-col-6 .g-col-md-3}
+### Software Development
+High-performance web applications built with Rust, WebAssembly, and modern frontends.
+:::
+
+:::
+
+## Latest Posts
+
+::: {#latest-posts}
+:::
