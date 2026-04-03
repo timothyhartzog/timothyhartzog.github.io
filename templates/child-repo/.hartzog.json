@@ -1,9 +1,0 @@
-{
-  "parent": "https://www.hartzog.dev",
-  "theme": true,
-  "name": "App Name",
-  "description": "Short description of this application",
-  "subdomain": "app-name",
-  "type": "app",
-  "hosting": "azure-swa"
-}

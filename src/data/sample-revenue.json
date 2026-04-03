@@ -1,7 +1,0 @@
-[
-  { "quarter": "Q1 2025", "engineering": 420, "research": 310, "operations": 180 },
-  { "quarter": "Q2 2025", "engineering": 490, "research": 340, "operations": 195 },
-  { "quarter": "Q3 2025", "engineering": 530, "research": 380, "operations": 210 },
-  { "quarter": "Q4 2025", "engineering": 610, "research": 410, "operations": 240 },
-  { "quarter": "Q1 2026", "engineering": 680, "research": 450, "operations": 260 }
-]

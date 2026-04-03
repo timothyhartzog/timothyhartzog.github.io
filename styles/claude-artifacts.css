@@ -1,0 +1,46 @@
+/* Claude Artifact Styles */
+
+/* Inline artifact container (div with class .claude-artifact) */
+.claude-artifact {
+  margin: 1.5rem 0;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+/* Iframe-based artifact container (from shortcode) */
+.claude-artifact-container {
+  margin: 1.5rem 0;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.claude-artifact-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(56, 189, 248, 0.06);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+.claude-artifact-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.claude-artifact-title {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}

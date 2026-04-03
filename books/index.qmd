@@ -1,0 +1,13 @@
+---
+title: "Books"
+listing:
+  contents:
+    - "*/index.qmd"
+  sort: "date desc"
+  type: default
+  fields: [title, description]
+page-layout: full
+toc: false
+---
+
+Browse in-progress and published books hosted on this site.

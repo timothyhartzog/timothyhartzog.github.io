@@ -1,0 +1,65 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "blog/"
+    - "books/"
+    - "!CLAUDE.md"
+
+website:
+  title: "Timothy Hartzog"
+  description: "AI Solutions, Data Engineering & Technical Writing"
+  site-url: https://www.hartzog.dev
+  favicon: images/favicon.svg
+  open-graph: true
+  twitter-card: true
+
+  navbar:
+    background: dark
+    logo: images/favicon.svg
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Blog
+        href: blog/index.qmd
+      - text: Books
+        href: books/index.qmd
+      - text: About
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/timothyhartzog
+        aria-label: GitHub
+
+  sidebar:
+    - id: books
+      title: "Books"
+      style: floating
+      contents:
+        - books/index.qmd
+        - section: "Example Book"
+          contents:
+            - books/example-book/index.qmd
+            - books/example-book/chapter1.qmd
+            - books/example-book/chapter2.qmd
+
+  page-footer:
+    left: "&copy; 2026 Timothy Hartzog"
+    right:
+      - icon: github
+        href: https://github.com/timothyhartzog
+
+  search:
+    location: navbar
+    type: overlay
+
+format:
+  html:
+    theme:
+      dark: [darkly, styles/custom.scss]
+    css: styles/claude-artifacts.css
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: monokai

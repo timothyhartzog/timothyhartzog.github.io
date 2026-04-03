@@ -1,0 +1,42 @@
+---
+title: "Chapter 2: Advanced Topics"
+---
+
+## Interactive Content
+
+One of the strengths of publishing with Quarto is the ability to embed interactive
+elements directly in your content.
+
+## Data Visualization
+
+You can include charts, tables, and interactive widgets. Here's an example using
+a Claude artifact:
+
+::: {.claude-artifact}
+<div style="padding: 1.5rem; background: linear-gradient(135deg, #1e293b, #283548); border-radius: 12px; font-family: system-ui; text-align: center;">
+  <h4 style="color: #38bdf8; margin: 0 0 1rem 0;">Sample Bar Chart</h4>
+  <div style="display: flex; align-items: flex-end; justify-content: center; gap: 0.75rem; height: 150px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+      <div style="width: 40px; height: 60px; background: #38bdf8; border-radius: 4px 4px 0 0;"></div>
+      <span style="color: #94a3b8; font-size: 0.75rem;">Q1</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+      <div style="width: 40px; height: 100px; background: #38bdf8; border-radius: 4px 4px 0 0;"></div>
+      <span style="color: #94a3b8; font-size: 0.75rem;">Q2</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+      <div style="width: 40px; height: 80px; background: #38bdf8; border-radius: 4px 4px 0 0;"></div>
+      <span style="color: #94a3b8; font-size: 0.75rem;">Q3</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+      <div style="width: 40px; height: 130px; background: #34d399; border-radius: 4px 4px 0 0;"></div>
+      <span style="color: #94a3b8; font-size: 0.75rem;">Q4</span>
+    </div>
+  </div>
+</div>
+:::
+
+## Next Steps
+
+Continue adding chapters by creating new `.qmd` files in the book folder and
+registering them in `_quarto.yml`.
