@@ -3,13 +3,11 @@
 ## Project Overview
 
 This is the main site for **Timothy Hartzog / Hartzog.ai**, built as a static site
-using **Quarto**, deployed on Azure Static Web Apps (primary) with GitHub Pages
-as a backup mirror.
+using **Quarto**, deployed on GitHub Pages.
 
 - **Domain**: www.hartzog.dev
 - **Stack**: Quarto 1.6+, SCSS, Lua shortcodes
-- **Primary Hosting**: Azure Static Web Apps
-- **Backup Hosting**: GitHub Pages (identical build from same repo)
+- **Hosting**: GitHub Pages
 - **Repo**: timothyhartzog/timothyhartzog.github.io
 
 ## Architecture
@@ -18,13 +16,12 @@ as a backup mirror.
 The site uses `project: type: website` in `_quarto.yml`. All pages are `.qmd`
 files rendered to static HTML. Output goes to `_site/`.
 
-### Dual Deploy (Azure SWA + GitHub Pages)
-The deploy workflow (`.github/workflows/deploy.yml`) builds once with
-`quarto render` and deploys to both Azure SWA and GitHub Pages.
+### GitHub Pages Deploy
+The deploy workflow (`.github/workflows/deploy.yml`) builds with
+`quarto render` and deploys to GitHub Pages.
 
 ### Key Rules
 - Do NOT hardcode hosting-specific URLs — use relative paths
-- `staticwebapp.config.json` controls Azure SWA routing/headers
 - All styling uses `styles/custom.scss` (dark theme based on Darkly)
 
 ## File Structure
@@ -52,11 +49,8 @@ _extensions/
     ├── _extension.yml
     └── claude-artifact.lua
 images/                  # Site images (favicon, etc.)
-infrastructure/
-└── azure/               # Azure SWA setup docs
-staticwebapp.config.json # Azure SWA routing & headers
 .github/workflows/
-└── deploy.yml           # CI: quarto render → deploy to both hosts
+└── deploy.yml           # CI: quarto render → deploy to GitHub Pages
 ```
 
 ## Development
