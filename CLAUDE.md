@@ -103,3 +103,6 @@ Drop the `.html` file in the same folder as the post's `index.qmd`.
 - Theme: Darkly (Bootstrap dark) + `styles/custom.scss`
 - Brand colors: `#0f172a` (bg), `#1e293b` (card), `#38bdf8` (accent)
 - Artifact styles: `styles/claude-artifacts.css`
+
+## Preferences
+- Always use **light themes** for all web projects
