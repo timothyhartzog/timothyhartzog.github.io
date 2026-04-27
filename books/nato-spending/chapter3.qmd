@@ -1,0 +1,118 @@
+---
+title: "Chapter 3: COFOG Spending Categories"
+---
+
+## The COFOG Framework
+
+The **Classification of the Functions of Government (COFOG)** is the internationally standardised taxonomy for government expenditure, developed by the OECD and adopted by the United Nations Statistics Division. It organises all general government spending into **10 top-level divisions** by socioeconomic purpose — what the money buys, not how it is disbursed.
+
+COFOG is the correct lens for cross-country comparison because it cuts through differences in administrative structure. Whether a country funds healthcare through a national health service, private insurance mandates, or employer social contributions, COFOG aggregates all of it under Division 07 — Health.
+
+## The 10 COFOG Divisions
+
+| Division | Label | EU Avg % GDP (2023) |
+|---|---|---|
+| 01 | General Public Services | 5.9% |
+| 02 | Defence | 1.3% |
+| 03 | Public Order & Safety | 1.7% |
+| 04 | Economic Affairs | 5.8% |
+| 05 | Environmental Protection | 0.8% |
+| 06 | Housing & Community Amenities | 1.2% |
+| 07 | Health | 7.3% |
+| 08 | Recreation, Culture & Religion | 1.2% |
+| 09 | Education | 4.7% |
+| 10 | Social Protection | 19.2% |
+| | **Total EU Average** | **49.0%** |
+
+*Source: Eurostat gov_10a_exp, March 2025. EU averages for 27 EU member states.*
+
+## NATO Master Reference: All 10 Categories
+
+The table below shows all 32 NATO allies across all 10 COFOG divisions. Values are % of GDP; 2023 Eurostat data for EU members, OECD/IMF 2024 estimates for US and Canada.
+
+| Country | GPS | DEF | POS | EA | ENV | HCA | HLT | RCR | EDU | SP | Total |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| United States | 4.5 | 3.4 | 1.7 | 4.2 | 0.3 | 0.5 | 8.7 | 0.4 | 5.4 | 14.0 | **37.9** |
+| Canada | 4.8 | 1.4 | 2.0 | 4.5 | 0.5 | 0.8 | 9.8 | 0.6 | 6.2 | 13.4 | **44.0** |
+| United Kingdom | 4.6 | 2.3 | 1.9 | 3.8 | 0.5 | 1.2 | 8.2 | 0.5 | 5.4 | 17.9 | **46.3** |
+| France | 8.2 | 2.1 | 1.6 | 4.4 | 0.8 | 1.8 | 8.9 | 1.4 | 5.4 | 23.4 | **58.0** |
+| Germany | 5.4 | 1.5 | 1.6 | 5.2 | 0.8 | 1.1 | 8.2 | 0.9 | 4.4 | 19.8 | **49.0** |
+| Italy | 7.4 | 1.5 | 1.9 | 4.6 | 0.7 | 0.7 | 6.8 | 0.8 | 4.0 | 21.1 | **49.5** |
+| Spain | 4.4 | 1.3 | 1.8 | 4.8 | 0.8 | 0.6 | 7.4 | 1.4 | 4.3 | 18.6 | **45.4** |
+| Netherlands | 3.6 | 1.5 | 1.6 | 3.7 | 0.9 | 0.5 | 7.8 | 1.2 | 5.3 | 16.7 | **42.8** |
+| Belgium | 6.8 | 1.3 | 1.7 | 4.6 | 0.9 | 0.4 | 8.1 | 1.4 | 6.2 | 20.8 | **52.2** |
+| Poland | 4.8 | 2.3 | 2.3 | 7.5 | 0.8 | 1.0 | 6.2 | 1.0 | 5.2 | 15.1 | **46.2** |
+| Sweden | 4.3 | 1.4 | 1.4 | 4.1 | 0.5 | 0.5 | 7.5 | 1.2 | 7.2 | 18.8 | **47.0** |
+| Norway | 4.5 | 1.9 | 1.0 | 5.8 | 0.5 | 1.2 | 9.5 | 1.2 | 6.2 | 21.5 | **53.3** |
+| Denmark | 4.1 | 1.6 | 0.9 | 3.8 | 0.5 | 0.8 | 8.2 | 1.1 | 6.8 | 18.8 | **46.6** |
+| Turkey | 5.1 | 2.0 | 1.6 | 6.2 | 0.3 | 0.6 | 4.5 | 0.8 | 4.0 | 8.2 | **33.3** |
+| Greece | 8.2 | 2.8 | 1.7 | 4.0 | 0.5 | 0.4 | 5.3 | 0.8 | 4.1 | 21.5 | **49.3** |
+| Romania | 5.2 | 1.5 | 2.7 | 6.8 | 0.8 | 0.5 | 4.7 | 1.0 | 3.9 | 12.8 | **40.0** |
+| Hungary | 10.3 | 1.3 | 1.9 | 9.2 | 0.9 | 0.6 | 4.1 | 1.0 | 5.0 | 12.3 | **46.6** |
+| Portugal | 5.3 | 1.3 | 1.7 | 4.2 | 0.6 | 0.6 | 7.2 | 1.0 | 4.9 | 18.4 | **45.2** |
+| Czechia | 4.2 | 1.5 | 1.8 | 5.9 | 0.9 | 1.0 | 8.9 | 1.1 | 5.0 | 14.6 | **45.0** |
+| Finland | 6.6 | 1.8 | 1.2 | 5.3 | 0.5 | 0.8 | 8.2 | 1.2 | 6.3 | 25.7 | **57.6** |
+| Slovakia | 5.0 | 1.2 | 2.4 | 7.5 | 0.9 | 0.9 | 6.4 | 1.1 | 4.4 | 16.2 | **46.0** |
+| Luxembourg | 4.9 | 0.7 | 1.4 | 4.0 | 0.8 | 0.7 | 5.8 | 1.3 | 5.3 | 16.6 | **41.5** |
+| Latvia | 3.9 | 2.3 | 2.6 | 4.8 | 0.5 | 1.0 | 5.1 | 1.4 | 5.8 | 12.9 | **40.3** |
+| Lithuania | 3.4 | 1.5 | 1.2 | 4.2 | 0.6 | 0.6 | 5.8 | 1.0 | 5.0 | 14.2 | **37.5** |
+| Estonia | 4.5 | 2.4 | 1.7 | 4.5 | 1.0 | 0.8 | 7.1 | 1.8 | 6.3 | 12.5 | **42.6** |
+| Croatia | 4.5 | 1.2 | 2.2 | 7.8 | 0.7 | 0.5 | 7.3 | 1.1 | 4.5 | 16.1 | **45.9** |
+| Bulgaria | 3.2 | 1.7 | 2.6 | 5.2 | 0.7 | 0.6 | 5.5 | 1.0 | 3.6 | 14.5 | **38.6** |
+| Slovenia | 4.8 | 1.1 | 1.7 | 5.0 | 0.8 | 0.9 | 7.8 | 1.3 | 5.5 | 17.1 | **46.0** |
+| Albania | 4.5 | 1.2 | 1.5 | 5.8 | 0.5 | 0.6 | 3.8 | 0.8 | 3.2 | 8.0 | **30.0** |
+| N. Macedonia | 5.5 | 1.2 | 1.8 | 5.5 | 0.7 | 0.5 | 4.6 | 0.8 | 3.8 | 11.0 | **35.4** |
+| Montenegro | 5.2 | 1.2 | 2.0 | 5.0 | 0.6 | 0.6 | 5.5 | 1.0 | 4.5 | 16.5 | **42.1** |
+| Iceland | 8.8 | 0.0 | 1.4 | 4.2 | 0.7 | 1.5 | 8.2 | 1.8 | 6.8 | 14.8 | **48.2** |
+
+*GPS=General Public Services · DEF=Defence · POS=Public Order & Safety · EA=Economic Affairs · ENV=Environment · HCA=Housing & Community · HLT=Health · RCR=Recreation/Culture · EDU=Education · SP=Social Protection*
+
+## Interactive Dashboard
+
+The dashboard below provides three interactive views across all 32 allies and all 10 COFOG categories:
+
+- **Alliance Overview** — stacked total spending bar, social protection ranking, health ranking, education vs. defence scatter, EU composition doughnut
+- **Country Cards** — individual profiles for all 32 allies with radar charts vs. NATO average; filter by region or search
+- **Rankings** — select any COFOG category and instantly rank all 32 allies, with NATO average reference line
+
+{{< claude-artifact file="nato-dashboard.html" height="920px" title="NATO COFOG Spending Dashboard" >}}
+
+## Category Highlights
+
+### Social Protection: The Dominant Variable
+
+Social protection is by far the largest COFOG category across every NATO member, accounting for 39.3% of all EU government expenditure. The **old-age sub-category alone — primarily pension payments — represents 10.4% of EU GDP**, larger than health, education, and defence combined.
+
+**Range within NATO:** Finland (25.7%) → Albania (8.0%)
+
+The 17-percentage-point gap between Finland and Albania in social protection spending is the single largest cross-sectional variation in any COFOG category. It reflects:
+- Demographic differences (Finland's older population vs. Albania's younger)
+- Pension generosity differences (Nordic replacement rates vs. post-communist minimal pensions)
+- Coverage differences (universal vs. contributory systems)
+- Income differences (wealthier countries can afford more generous systems)
+
+### Health: The Second-Largest and Fastest-Growing
+
+Government health spending averages 7.3% of EU GDP and is the most consistently growing category due to ageing, technological advancement, and expanding coverage.
+
+**Range within NATO:** Canada (9.8%), Norway (9.5%) → Albania (3.8%), Hungary (4.1%)
+
+The 6-percentage-point gap between leaders and laggards represents a direct human capital differential. Countries with underfunded health systems have lower life expectancy, higher chronic disease prevalence, and reduced military manpower pools.
+
+### General Public Services: Debt's Shadow
+
+The GPS category (averaging 5.9% of EU GDP) is dominated by interest payments on government debt. **Hungary's extraordinary 10.3% of GDP GPS figure includes approximately 5% in debt service costs alone** — money that buys no services, no capabilities, no deterrence. Italy (~3.8% GDP in interest), Greece (~3.5%), Belgium (~2.5%), and France (~2.8%) all face similar structural drains.
+
+### Education: The Long-Run Divergence
+
+**Range within NATO:** Sweden (7.2%), Denmark (6.8%) → Albania (3.2%), Bulgaria (3.6%), Romania (3.9%)
+
+The countries most in need of human capital investment for economic convergence — Eastern and Southern European allies — are systematically investing the least in education relative to GDP. This is a classic development trap: low education spending → lower productivity growth → smaller tax base → less fiscal room for education investment.
+
+### Economic Affairs: EU Transfers in Disguise
+
+Hungary (9.2%), Croatia (7.8%), Poland and Slovakia (7.5%) lead NATO in economic affairs spending. For EU members, this category is significantly inflated by EU structural and cohesion fund flows passing through government budgets. Net recipients like Poland, Romania, and the Baltic states receive tens of billions in EU transfers that appear as government expenditure here — the net fiscal impact is smaller than the gross figure suggests.
+
+::: {.callout-note}
+Proceed to [Chapter 4 — Country Profiles](chapter4.qmd) for individual analysis of all 32 NATO members.
+:::

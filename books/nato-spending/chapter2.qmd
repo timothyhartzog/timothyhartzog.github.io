@@ -1,0 +1,131 @@
+---
+title: "Chapter 2: Federal Budgets of All 32 Allies"
+---
+
+All figures are **general government** (central + sub-national + social security funds) as a percentage of GDP. Fiscal balance data is IMF World Economic Outlook April 2025; 2024 fiscal year. Green = surplus or small deficit; red = large deficit.
+
+## Master Budget Reference Table
+
+| Country | GDP ($) | Revenue % | Expend % | Balance % | Debt %GDP | Def % |
+|---|---|---|---|---|---|---|
+| 🇺🇸 United States | $28.8T | 34.4 | 37.9 | **−6.5** | 122 | 3.4 |
+| 🇩🇪 Germany | $4.7T | 46.2 | 48.2 | −2.0 | 63 | 2.1 |
+| 🇬🇧 United Kingdom | $3.3T | 42.1 | 46.0 | **−4.6** | 104 | 2.3 |
+| 🇫🇷 France | $3.1T | 53.2 | 57.7 | **−5.8** | 111 | 2.1 |
+| 🇮🇹 Italy | $2.3T | 48.0 | 52.0 | −3.4 | 137 | 1.5 |
+| 🇨🇦 Canada | $2.2T | 41.3 | 43.3 | −2.0 | 107 | 1.4 |
+| 🇹🇷 Turkey | $1.3T | 28.8 | 32.7 | **−5.3** | 27 | 2.1 |
+| 🇪🇸 Spain | $1.8T | 42.5 | 45.5 | −3.1 | 104 | 1.3 |
+| 🇳🇱 Netherlands | $1.1T | 44.7 | 45.4 | −0.5 | 46 | 2.1 |
+| 🇵🇱 Poland | $848B | 42.4 | 47.6 | **−5.1** | 54 | 4.1 |
+| 🇳🇴 Norway | $592B | 67.0 | 50.8 | **+16.2** | 40 | 2.2 |
+| 🇸🇪 Sweden | $580B | 49.6 | 51.1 | −1.5 | 33 | 2.1 |
+| 🇧🇪 Belgium | $662B | 50.5 | 55.2 | **−4.7** | 106 | 1.3 |
+| 🇩🇰 Denmark | $406B | 51.8 | 49.2 | **+2.6** | 29 | 2.4 |
+| 🇷🇴 Romania | $372B | 32.2 | 40.1 | **−8.6** | 52 | 2.3 |
+| 🇨🇿 Czechia | $343B | 41.5 | 44.3 | −2.9 | 44 | 2.1 |
+| 🇫🇮 Finland | $306B | 54.4 | 58.4 | **−4.1** | 79 | 2.4 |
+| 🇵🇹 Portugal | $288B | 46.4 | 46.0 | **+0.4** | 97 | 1.6 |
+| 🇬🇷 Greece | $254B | 52.0 | 50.5 | **+1.5** | 159 | 3.1 |
+| 🇭🇺 Hungary | $222B | 44.8 | 49.3 | −4.4 | 74 | 2.1 |
+| 🇸🇰 Slovakia | $138B | 41.5 | 46.7 | **−5.2** | 57 | 2.0 |
+| 🇧🇬 Bulgaria | $108B | 36.5 | 39.5 | −2.9 | 23 | 2.2 |
+| 🇭🇷 Croatia | $82B | 45.0 | 46.0 | −0.9 | 60 | 1.8 |
+| 🇱🇹 Lithuania | $76B | 37.8 | 41.0 | −3.2 | 38 | 2.9 |
+| 🇸🇮 Slovenia | $70B | 44.5 | 46.8 | −2.3 | 69 | 1.3 |
+| 🇱🇺 Luxembourg | $89B | 45.3 | 46.2 | −0.9 | 27 | 1.3 |
+| 🇱🇻 Latvia | $45B | 38.7 | 42.8 | −4.1 | 46 | 3.2 |
+| 🇪🇪 Estonia | $40B | 38.0 | 42.0 | −3.8 | 24 | 3.4 |
+| 🇮🇸 Iceland | $31B | 44.0 | 46.5 | −2.5 | 70 | — |
+| 🇦🇱 Albania | $26B | 28.6 | 30.8 | −2.2 | 60 | 2.0 |
+| 🇲🇰 N. Macedonia | $16B | 33.0 | 37.0 | −4.0 | 52 | 2.0 |
+| 🇲🇪 Montenegro | $8B | 41.0 | 44.0 | −3.0 | 66 | 2.0 |
+
+*Sources: IMF WEO April 2025, Eurostat, NATO. Def % = NATO-reported defence expenditure, 2024/2025 estimates.*
+
+## Key Observations
+
+### Surplus Countries (5 of 32)
+Only **Denmark (+2.6%)**, **Greece (+1.5%)**, **Norway (+16.2%)**, **Portugal (+0.4%)**, and effectively the **Netherlands (−0.5%)** ran near-balanced or surplus positions in 2024. Norway's extraordinary surplus is a statistical artefact of including petroleum fund earnings; its structural non-oil balance is approximately −3% of GDP.
+
+::: {.callout-note}
+## Greece: The Alliance's Greatest Fiscal Turnaround
+Greece ran a fiscal surplus in 2024 despite carrying 159% debt-to-GDP — the highest in all of NATO. This reflects a decade of brutal structural adjustment following three successive bailout programmes (2010, 2012, 2015) totalling approximately €330 billion. Greece generated sufficient primary surplus to service its restructured debt while simultaneously maintaining Europe's highest defence expenditure ratio at 3.1% of GDP — driven not by the Russian threat but by its decades-long security competition with Turkey.
+:::
+
+### The Severe Deficit Countries (>4% of GDP)
+
+**Romania (−8.6%)** is NATO's most acute fiscal crisis. This combines:
+- A 2024 pension reform that increased benefits by approximately 40%
+- Revenue collection stuck at only 32.2% of GDP due to widespread informality
+- Structural public sector employment and social commitments that resist compression
+- EU Excessive Deficit Procedure pressure that has so far produced limited adjustment
+
+**France (−5.8%)** is the most alarming among major Western allies. Political paralysis following the June 2024 parliamentary dissolution produced two consecutive governments unable to pass coherent budgets. With debt at 111% of GDP and rising, France is under EU fiscal surveillance and faces difficult choices between welfare state maintenance and restoring fiscal credibility.
+
+**United States (−6.5%)** is running a structurally large deficit outside of recession — a level historically associated only with wars, depressions, or pandemics. Net interest alone reached **$949 billion** in FY2024, exceeding the entire defence budget of most NATO allies combined. The CBO projects debt reaching 130%+ of GDP by the early 2030s under current policy.
+
+**Poland (−5.1%)** is the only country where the deficit is a deliberate strategic choice: Poland is running a wartime-adjacent military modernisation programme while simultaneously maintaining generous social transfers. With debt at only 54% of GDP, this is fiscally sustainable for now — but the trajectory requires monitoring.
+
+## Revenue Structures
+
+Revenue-to-GDP ratios reflect both the size of the welfare state and tax system efficiency:
+
+**Highest collectors (>50% of GDP):**
+- Norway (67.0%) — petroleum revenues inflate the figure
+- Finland (54.4%) — comprehensive Nordic welfare state
+- France (53.2%) — world's highest-taxing major economy
+- Greece (52.0%) — post-crisis tax compliance improvements
+- Denmark (51.8%) — Nordic model, very high income taxes
+- Belgium (50.5%) — high labour tax wedge
+
+**Lowest collectors (<35% of GDP):**
+- Albania (28.6%) — large informal economy
+- Turkey (28.8%) — lower development level, extensive informality
+- Romania (32.2%) — structural revenue gap, EU's most acute case
+- United States (34.4%) — no federal VAT, lower social contributions
+
+The United States' 34.4% revenue ratio is the most consequential outlier. Most Western European NATO partners collect 10–20 percentage points more of GDP in revenue — meaning they have fundamentally larger governments relative to their economies, funded by taxes the US does not collect (primarily VAT and higher payroll taxes).
+
+## Debt Profiles
+
+### High-Debt Cohort (>90% of GDP)
+Greece (159%), Italy (137%), United States (122%), France (111%), Belgium (106%), Canada (107%), Spain (104%), United Kingdom (104%), and Portugal (97%) all carry gross government debt above 90% of GDP.
+
+For this cohort, the fiscal constraint on additional defence spending is most acute: higher borrowing rates translate directly into higher interest costs, which appear in COFOG General Public Services and crowd out every other priority.
+
+### Low-Debt Cohort (<40% of GDP)
+Estonia (24%), Bulgaria (23%), Luxembourg (27%), Denmark (29%), Sweden (33%), Latvia (38%), Lithuania (38%), Norway (40%) have the most fiscal space within the alliance.
+
+Estonia's 24% gross government debt — the lowest in NATO — is the product of deliberate post-independence fiscal conservatism and currency board discipline. Combined with its 3.4% defence spending and small economy, Estonia is arguably the most strategically disciplined fiscal actor in the alliance: it has kept its debt very low precisely so it has room to spend on defence when needed.
+
+## The Interest Payment Burden
+
+Interest payments are classified under COFOG General Public Services and represent dead fiscal weight — money that services past decisions rather than producing current output:
+
+| Country | Estimated interest cost (% GDP) | Annual € equivalent |
+|---|---|---|
+| Italy | ~3.8% | ~$88B |
+| Greece | ~3.5% | ~$9B |
+| Hungary | ~5.0% | ~$11B |
+| United States | ~3.3% | ~$950B |
+| France | ~2.8% | ~$88B |
+| Belgium | ~2.5% | ~$17B |
+
+Italy and Greece together pay more in annual interest as a share of GDP than they spend on defence — a vivid illustration of the fiscal cost of accumulated debt.
+
+## Fiscal Trajectories: The 2035 Horizon
+
+The IMF's medium-term projections through 2030 suggest that under current policies:
+
+- **US debt** rises from 122% to 135%+ of GDP
+- **French debt** rises from 111% to 120%+ of GDP  
+- **Italian debt** stabilises only if primary surpluses are maintained — fragile
+- **Eastern European debt** rises modestly given defence investment and EU transfers
+- **Nordic debt** remains low and stable, giving maximum fiscal flexibility
+
+For NATO as an alliance, the fiscal health of its largest members is a strategic variable. A US sovereign debt crisis, French budgetary paralysis, or Italian spread crisis would cascade across alliance financing and political cohesion in ways that no amount of capability target compliance can mitigate.
+
+::: {.callout-note}
+Proceed to [Chapter 3 — COFOG Spending Categories](chapter3.qmd) for the full ten-category spending breakdown with interactive dashboard.
+:::

@@ -43,6 +43,26 @@ website:
             - books/example-book/index.qmd
             - books/example-book/chapter1.qmd
             - books/example-book/chapter2.qmd
+    - id: nato-spending
+      title: "NATO Spending Analysis"
+      style: floating
+      contents:
+        - books/nato-spending/index.qmd
+        - section: "Part I — Defence"
+          contents:
+            - books/nato-spending/chapter1.qmd
+        - section: "Part II — Federal Budgets"
+          contents:
+            - books/nato-spending/chapter2.qmd
+        - section: "Part III — COFOG Categories"
+          contents:
+            - books/nato-spending/chapter3.qmd
+        - section: "Part IV — Country Profiles"
+          contents:
+            - books/nato-spending/chapter4.qmd
+        - section: "Part V — Reference"
+          contents:
+            - books/nato-spending/chapter5.qmd
 
   page-footer:
     left: "&copy; 2026 Timothy Hartzog"

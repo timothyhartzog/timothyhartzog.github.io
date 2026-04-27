@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NATO Spending Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181b22;
+    --border: rgba(255,255,255,0.07);
+    --border-bright: rgba(255,255,255,0.15);
+    --text: #e8eaf0;
+    --text-muted: #6b7080;
+    --text-dim: #3a3f50;
+    --accent: #3d7fff;
+    --accent2: #00d4aa;
+    --warn: #ff6b35;
+    --danger: #ff3860;
+    --gold: #ffd166;
+    --purple: #9b5de5;
+    --c-gps: #4361ee;
+    --c-def: #ef233c;
+    --c-pos: #f72585;
+    --c-ea:  #7209b7;
+    --c-env: #2dc653;
+    --c-hca: #0096c7;
+    --c-hlt: #06d6a0;
+    --c-rcr: #ffd166;
+    --c-edu: #ff9f1c;
+    --c-sp:  #ff6b6b;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP HEADER ─────────────────────────────────────── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    background: rgba(10,12,16,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .site-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .site-logo span { color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0; font-family: var(--font-body); font-weight: 300; margin-left: 0.5rem; }
+  .nav-tabs { display: flex; gap: 0.25rem; margin-left: auto; }
+  .nav-tab {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    background: transparent;
+    font-family: var(--font-body);
+  }
+  .nav-tab:hover { color: var(--text); border-color: var(--border-bright); }
+  .nav-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* ── VIEWS ──────────────────────────────────────────── */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ── SUMMARY VIEW ───────────────────────────────────── */
+  .summary-hero {
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-hero h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .summary-hero h1 em { color: var(--accent); font-style: normal; }
+  .summary-hero p { color: var(--text-muted); font-size: 0.9rem; max-width: 640px; line-height: 1.6; }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    margin: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .kpi {
+    background: var(--surface);
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+  .kpi-val {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent2);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .kpi-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+
+  /* ── CHARTS GRID ────────────────────────────────────── */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin: 0 2rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .chart-panel {
+    background: var(--surface);
+    padding: 1.5rem;
+  }
+  .chart-panel.wide { grid-column: span 2; }
+  .chart-panel h3 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+  }
+  .chart-panel h3 strong { color: var(--accent); font-weight: 600; }
+  .chart-wrap { position: relative; width: 100%; }
+
+  /* ── CATEGORY LEGEND ────────────────────────────────── */
+  .cat-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 2rem 2rem;
+  }
+  .cat-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .cat-pill:hover { border-color: var(--border-bright); color: var(--text); }
+  .cat-pill.active { border-color: currentColor; }
+  .cat-pill .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── COUNTRY CARDS VIEW ─────────────────────────────── */
+  .countries-header {
+    padding: 2rem 2rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .countries-header h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+  }
+  .search-wrap {
+    margin-left: auto;
+    position: relative;
+  }
+  .search-wrap input {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 0.4rem 0.75rem 0.4rem 2rem;
+    border-radius: 6px;
+    width: 200px;
+    outline: none;
+  }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap::before {
+    content: '⌕';
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+  .region-filter {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    padding: 0 2rem 1rem;
+  }
+  .region-btn {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    background: transparent;
+    transition: all 0.15s;
+    font-family: var(--font-body);
+  }
+  .region-btn:hover { color: var(--text); border-color: var(--border-bright); }
+  .region-btn.active { background: var(--surface2); color: var(--text); border-color: var(--border-bright); }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin: 0 2rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .country-card {
+    background: var(--surface);
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .country-card:hover { background: var(--surface2); }
+  .country-card.hidden { display: none; }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  .card-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    flex: 1;
+  }
+  .card-region {
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    background: var(--surface2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+  .card-total {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .card-total strong {
+    font-size: 1.1rem;
+    color: var(--accent2);
+  }
+  .stacked-bar {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 0.75rem;
+    background: var(--surface2);
+  }
+  .stacked-seg { height: 100%; transition: flex 0.3s; }
+  .cat-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem 0.75rem; }
+  .cat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+  .cat-row .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .cat-row .lbl { flex: 1; }
+  .cat-row .val {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .card-chart-wrap {
+    position: relative;
+    height: 160px;
+    margin-top: 1rem;
+  }
+
+  /* ── MODAL ──────────────────────────────────────────── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border-bright);
+    border-radius: 12px;
+    width: 90vw;
+    max-width: 860px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(24px);
+    transition: transform 0.25s;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .modal-title { font-family: var(--font-display); font-size: 2.5rem; letter-spacing: 0.04em; flex: 1; }
+  .modal-close {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { padding: 1.5rem; }
+  .modal-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .modal-stat {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .modal-stat-val {
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .modal-stat-lbl { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+  .modal-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .modal-chart-box h4 {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .modal-chart-box .chart-wrap { position: relative; height: 220px; }
+  .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .comparison-table th {
+    text-align: left;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-weight: 600;
+  }
+  .comparison-table th:not(:first-child) { text-align: right; }
+  .comparison-table td {
+    padding: 0.4rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+  }
+  .comparison-table td:not(:first-child) { text-align: right; }
+  .comparison-table tr:last-child td { border-bottom: none; }
+  .comparison-table .above { color: var(--accent2); }
+  .comparison-table .below { color: var(--warn); }
+  .bar-inline {
+    display: inline-block;
+    height: 4px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+
+  /* ── RANKING VIEW ───────────────────────────────────── */
+  .ranking-header {
+    padding: 2rem 2rem 1rem;
+  }
+  .ranking-header h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .rank-selector {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .rank-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-body);
+  }
+  .rank-btn .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .rank-btn:hover { color: var(--text); border-color: var(--border-bright); }
+  .rank-btn.active { background: var(--surface2); color: var(--text); border-color: var(--border-bright); }
+  .ranking-chart-wrap { position: relative; margin: 0 2rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+  .ranking-chart-wrap h3 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-logo">NATO<span>Spending Dashboard · COFOG 2023-24</span></div>
+  <nav class="nav-tabs">
+    <button class="nav-tab active" onclick="showView('summary')">Alliance Overview</button>
+    <button class="nav-tab" onclick="showView('countries')">Country Cards</button>
+    <button class="nav-tab" onclick="showView('rankings')">Rankings</button>
+  </nav>
+</header>
+
+<!-- ══════════════ SUMMARY VIEW ════════════════════════════════════ -->
+<div id="view-summary" class="view active">
+  <div class="summary-hero">
+    <h1>32 Allies.<br><em>10 Spending Dimensions.</em></h1>
+    <p>All figures are general government expenditure (central + sub-national + social security) as % of GDP, based on COFOG classification. EU data 2023 (Eurostat); US/Canada 2024 (OECD/IMF).</p>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><span class="kpi-val">32</span><span class="kpi-lbl">NATO Allies</span></div>
+    <div class="kpi"><span class="kpi-val">49.0%</span><span class="kpi-lbl">EU avg total spend</span></div>
+    <div class="kpi"><span class="kpi-val">19.2%</span><span class="kpi-lbl">EU avg social protection</span></div>
+    <div class="kpi"><span class="kpi-val">7.3%</span><span class="kpi-lbl">EU avg health</span></div>
+    <div class="kpi"><span class="kpi-val">4.7%</span><span class="kpi-lbl">EU avg education</span></div>
+    <div class="kpi"><span class="kpi-val">1.3%</span><span class="kpi-lbl">EU avg defence (COFOG)</span></div>
+  </div>
+
+  <div class="charts-grid">
+    <!-- Total spending horizontal bar -->
+    <div class="chart-panel wide">
+      <h3>Total General Government Expenditure <strong>% of GDP</strong> · All 32 Allies</h3>
+      <div class="chart-wrap" style="height:780px">
+        <canvas id="chart-total" role="img" aria-label="Horizontal bar chart of total government spending as % of GDP for all 32 NATO allies"></canvas>
+      </div>
+    </div>
+    <!-- Social protection comparison -->
+    <div class="chart-panel">
+      <h3>Social Protection <strong>% GDP</strong></h3>
+      <div class="chart-wrap" style="height:360px">
+        <canvas id="chart-sp" role="img" aria-label="Social protection spending by NATO country"></canvas>
+      </div>
+    </div>
+    <!-- Health comparison -->
+    <div class="chart-panel">
+      <h3>Health <strong>% GDP</strong></h3>
+      <div class="chart-wrap" style="height:360px">
+        <canvas id="chart-hlt" role="img" aria-label="Health spending by NATO country"></canvas>
+      </div>
+    </div>
+    <!-- Education vs defence scatter -->
+    <div class="chart-panel">
+      <h3>Education vs Defence <strong>scatter · % GDP</strong></h3>
+      <div class="chart-wrap" style="height:320px">
+        <canvas id="chart-scatter" role="img" aria-label="Scatter plot of education vs defence spending per NATO country"></canvas>
+      </div>
+    </div>
+    <!-- Avg composition radar EU-like donut -->
+    <div class="chart-panel">
+      <h3>EU Average Composition <strong>% of Total Expenditure</strong></h3>
+      <div class="chart-wrap" style="height:320px">
+        <canvas id="chart-donut" role="img" aria-label="Donut chart of EU average government expenditure by COFOG category"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ COUNTRIES VIEW ══════════════════════════════════ -->
+<div id="view-countries" class="view">
+  <div class="countries-header">
+    <h2>Country Profiles</h2>
+    <div class="search-wrap">
+      <input type="text" id="country-search" placeholder="Search country…" oninput="filterCards()">
+    </div>
+  </div>
+  <div class="region-filter" id="region-filter">
+    <button class="region-btn active" onclick="setRegion('all',this)">All Regions</button>
+    <button class="region-btn" onclick="setRegion('NA',this)">North America</button>
+    <button class="region-btn" onclick="setRegion('WE',this)">Western Europe</button>
+    <button class="region-btn" onclick="setRegion('NB',this)">Nordic/Baltic</button>
+    <button class="region-btn" onclick="setRegion('EE',this)">Eastern Europe</button>
+    <button class="region-btn" onclick="setRegion('SE',this)">Southern Europe</button>
+  </div>
+  <div class="cards-grid" id="cards-grid"></div>
+</div>
+
+<!-- ══════════════ RANKINGS VIEW ═══════════════════════════════════ -->
+<div id="view-rankings" class="view">
+  <div class="ranking-header">
+    <h2>Category Rankings</h2>
+    <div class="rank-selector" id="rank-selector"></div>
+  </div>
+  <div class="ranking-chart-wrap">
+    <h3 id="rank-title">Select a category above</h3>
+    <div class="chart-wrap" style="height:720px">
+      <canvas id="chart-rank" role="img" aria-label="Ranking chart for selected COFOG category"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ COUNTRY MODAL ═══════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modal-title"></div>
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem" id="modal-sub"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-stats-row" id="modal-stats"></div>
+      <div class="modal-charts">
+        <div class="modal-chart-box">
+          <h4>Spending Composition</h4>
+          <div class="chart-wrap"><canvas id="modal-chart-donut"></canvas></div>
+        </div>
+        <div class="modal-chart-box">
+          <h4>vs. NATO Average</h4>
+          <div class="chart-wrap"><canvas id="modal-chart-bar"></canvas></div>
+        </div>
+      </div>
+      <table class="comparison-table" id="modal-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>This Country</th>
+            <th>NATO Avg</th>
+            <th>Δ vs Avg</th>
+            <th>Breakdown</th>
+          </tr>
+        </thead>
+        <tbody id="modal-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────────────────
+const CATS = [
+  {code:'GPS',label:'Gen. Public Services',color:'#4361ee'},
+  {code:'DEF',label:'Defence',color:'#ef233c'},
+  {code:'POS',label:'Public Order & Safety',color:'#f72585'},
+  {code:'EA', label:'Economic Affairs',color:'#7209b7'},
+  {code:'ENV',label:'Environment',color:'#2dc653'},
+  {code:'HCA',label:'Housing & Community',color:'#0096c7'},
+  {code:'HLT',label:'Health',color:'#06d6a0'},
+  {code:'RCR',label:'Recreation/Culture',color:'#ffd166'},
+  {code:'EDU',label:'Education',color:'#ff9f1c'},
+  {code:'SP', label:'Social Protection',color:'#ff6b6b'},
+];
+
+// GPS DEF POS EA ENV HCA HLT RCR EDU SP TOTAL
+const DATA = [
+  {n:'United States',  r:'NA', d:[4.5,3.4,1.7,4.2,0.3,0.5,8.7,0.4,5.4,14.0,37.9], gdp:28782},
+  {n:'Canada',         r:'NA', d:[4.8,1.4,2.0,4.5,0.5,0.8,9.8,0.6,6.2,13.4,44.0], gdp:2215},
+  {n:'United Kingdom', r:'WE', d:[4.6,2.3,1.9,3.8,0.5,1.2,8.2,0.5,5.4,17.9,46.3], gdp:3340},
+  {n:'France',         r:'WE', d:[8.2,2.1,1.6,4.4,0.8,1.8,8.9,1.4,5.4,23.4,58.0], gdp:3131},
+  {n:'Germany',        r:'WE', d:[5.4,1.5,1.6,5.2,0.8,1.1,8.2,0.9,4.4,19.8,49.0], gdp:4710},
+  {n:'Italy',          r:'SE', d:[7.4,1.5,1.9,4.6,0.7,0.7,6.8,0.8,4.0,21.1,49.5], gdp:2320},
+  {n:'Spain',          r:'SE', d:[4.4,1.3,1.8,4.8,0.8,0.6,7.4,1.4,4.3,18.6,45.4], gdp:1808},
+  {n:'Netherlands',    r:'WE', d:[3.6,1.5,1.6,3.7,0.9,0.5,7.8,1.2,5.3,16.7,42.8], gdp:1135},
+  {n:'Belgium',        r:'WE', d:[6.8,1.3,1.7,4.6,0.9,0.4,8.1,1.4,6.2,20.8,52.2], gdp:662},
+  {n:'Poland',         r:'EE', d:[4.8,2.3,2.3,7.5,0.8,1.0,6.2,1.0,5.2,15.1,46.2], gdp:848},
+  {n:'Sweden',         r:'NB', d:[4.3,1.4,1.4,4.1,0.5,0.5,7.5,1.2,7.2,18.8,47.0], gdp:580},
+  {n:'Norway',         r:'NB', d:[4.5,1.9,1.0,5.8,0.5,1.2,9.5,1.2,6.2,21.5,53.3], gdp:592},
+  {n:'Denmark',        r:'NB', d:[4.1,1.6,0.9,3.8,0.5,0.8,8.2,1.1,6.8,18.8,46.6], gdp:406},
+  {n:'Turkey',         r:'SE', d:[5.1,2.0,1.6,6.2,0.3,0.6,4.5,0.8,4.0, 8.2,33.3], gdp:1340},
+  {n:'Greece',         r:'SE', d:[8.2,2.8,1.7,4.0,0.5,0.4,5.3,0.8,4.1,21.5,49.3], gdp:254},
+  {n:'Romania',        r:'EE', d:[5.2,1.5,2.7,6.8,0.8,0.5,4.7,1.0,3.9,12.8,40.0], gdp:372},
+  {n:'Hungary',        r:'EE', d:[10.3,1.3,1.9,9.2,0.9,0.6,4.1,1.0,5.0,12.3,46.6],gdp:222},
+  {n:'Portugal',       r:'SE', d:[5.3,1.3,1.7,4.2,0.6,0.6,7.2,1.0,4.9,18.4,45.2], gdp:288},
+  {n:'Czechia',        r:'EE', d:[4.2,1.5,1.8,5.9,0.9,1.0,8.9,1.1,5.0,14.6,45.0], gdp:343},
+  {n:'Finland',        r:'NB', d:[6.6,1.8,1.2,5.3,0.5,0.8,8.2,1.2,6.3,25.7,57.6], gdp:306},
+  {n:'Slovakia',       r:'EE', d:[5.0,1.2,2.4,7.5,0.9,0.9,6.4,1.1,4.4,16.2,46.0], gdp:138},
+  {n:'Luxembourg',     r:'WE', d:[4.9,0.7,1.4,4.0,0.8,0.7,5.8,1.3,5.3,16.6,41.5], gdp:89},
+  {n:'Latvia',         r:'NB', d:[3.9,2.3,2.6,4.8,0.5,1.0,5.1,1.4,5.8,12.9,40.3], gdp:45},
+  {n:'Lithuania',      r:'NB', d:[3.4,1.5,1.2,4.2,0.6,0.6,5.8,1.0,5.0,14.2,37.5], gdp:76},
+  {n:'Estonia',        r:'NB', d:[4.5,2.4,1.7,4.5,1.0,0.8,7.1,1.8,6.3,12.5,42.6], gdp:40},
+  {n:'Croatia',        r:'SE', d:[4.5,1.2,2.2,7.8,0.7,0.5,7.3,1.1,4.5,16.1,45.9], gdp:82},
+  {n:'Bulgaria',       r:'EE', d:[3.2,1.7,2.6,5.2,0.7,0.6,5.5,1.0,3.6,14.5,38.6], gdp:108},
+  {n:'Slovenia',       r:'EE', d:[4.8,1.1,1.7,5.0,0.8,0.9,7.8,1.3,5.5,17.1,46.0], gdp:70},
+  {n:'Albania',        r:'SE', d:[4.5,1.2,1.5,5.8,0.5,0.6,3.8,0.8,3.2, 8.0,30.0], gdp:26},
+  {n:'N. Macedonia',   r:'EE', d:[5.5,1.2,1.8,5.5,0.7,0.5,4.6,0.8,3.8,11.0,35.4], gdp:16},
+  {n:'Montenegro',     r:'SE', d:[5.2,1.2,2.0,5.0,0.6,0.6,5.5,1.0,4.5,16.5,42.1], gdp:8},
+  {n:'Iceland',        r:'NB', d:[8.8,0.0,1.4,4.2,0.7,1.5,8.2,1.8,6.8,14.8,48.2], gdp:31},
+];
+
+// NATO averages per category
+const NATO_AVG = CATS.map((_,i) => {
+  const sum = DATA.reduce((a,c) => a + c.d[i], 0);
+  return +(sum / DATA.length).toFixed(2);
+});
+
+const REGION_LABELS = {NA:'North America', WE:'Western Europe', NB:'Nordic/Baltic', EE:'Eastern Europe', SE:'Southern Europe'};
+
+// Chart.js global defaults for dark theme
+Chart.defaults.color = '#6b7080';
+Chart.defaults.borderColor = 'rgba(255,255,255,0.07)';
+Chart.defaults.font.family = "'IBM Plex Mono', monospace";
+Chart.defaults.font.size = 11;
+
+let rankChart = null, modalDonut = null, modalBar = null;
+let currentRankCat = 0;
+
+// ── VIEW SWITCHING ────────────────────────────────────────────────────────
+function showView(v) {
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if (v === 'countries' && !cardsBuilt) buildCards();
+  if (v === 'rankings' && !rankBuilt) buildRankings();
+}
+
+// ── SUMMARY CHARTS ────────────────────────────────────────────────────────
+function buildSummary() {
+  const sorted = [...DATA].sort((a,b) => b.d[10]-a.d[10]);
+
+  // Total bar chart
+  const totalChart = new Chart(document.getElementById('chart-total'), {
+    type: 'bar',
+    data: {
+      labels: sorted.map(d => d.n),
+      datasets: CATS.map((cat, i) => ({
+        label: cat.label,
+        data: sorted.map(d => d.d[i]),
+        backgroundColor: cat.color + 'cc',
+        borderWidth: 0,
+      }))
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: ctx => ctx[0].label,
+            footer: ctx => 'Total: '+ctx.reduce((a,c) => a+(c.raw||0), 0).toFixed(1)+'% GDP'
+          }
+        }
+      },
+      scales: {
+        x: { stacked: true, title: { display: true, text: '% of GDP', color: '#6b7080' }, ticks: { callback: v => v+'%' }, max: 65 },
+        y: { stacked: true, ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+
+  // Social protection
+  const spSorted = [...DATA].sort((a,b) => b.d[9]-a.d[9]);
+  new Chart(document.getElementById('chart-sp'), {
+    type: 'bar',
+    data: {
+      labels: spSorted.map(d => d.n),
+      datasets: [{
+        data: spSorted.map(d => d.d[9]),
+        backgroundColor: spSorted.map((_, i) => '#ff6b6b' + (i<5?'ff':'88')),
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.raw.toFixed(1)+'% GDP' } } },
+      scales: {
+        x: { ticks: { callback: v => v+'%' } },
+        y: { ticks: { font: { size: 9 } } }
+      }
+    }
+  });
+
+  // Health
+  const hltSorted = [...DATA].sort((a,b) => b.d[6]-a.d[6]);
+  new Chart(document.getElementById('chart-hlt'), {
+    type: 'bar',
+    data: {
+      labels: hltSorted.map(d => d.n),
+      datasets: [{
+        data: hltSorted.map(d => d.d[6]),
+        backgroundColor: hltSorted.map((_,i) => '#06d6a0' + (i<5?'ff':'88')),
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.raw.toFixed(1)+'% GDP' } } },
+      scales: {
+        x: { ticks: { callback: v => v+'%' } },
+        y: { ticks: { font: { size: 9 } } }
+      }
+    }
+  });
+
+  // Scatter: Education vs Defence
+  new Chart(document.getElementById('chart-scatter'), {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'NATO Member',
+        data: DATA.map(d => ({ x: d.d[1], y: d.d[8], label: d.n })),
+        backgroundColor: '#3d7fff88',
+        borderColor: '#3d7fff',
+        borderWidth: 1,
+        pointRadius: 6,
+        pointHoverRadius: 8,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ctx.raw.label+': Def '+ctx.raw.x.toFixed(1)+'% | Edu '+ctx.raw.y.toFixed(1)+'%' } }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Defence % GDP', color: '#6b7080' }, ticks: { callback: v => v+'%' } },
+        y: { title: { display: true, text: 'Education % GDP', color: '#6b7080' }, ticks: { callback: v => v+'%' } }
+      }
+    }
+  });
+
+  // EU Composition Donut
+  const euAvgCats = [5.9,1.3,1.7,5.8,0.8,1.2,7.3,1.2,4.7,19.2];
+  new Chart(document.getElementById('chart-donut'), {
+    type: 'doughnut',
+    data: {
+      labels: CATS.map(c => c.label),
+      datasets: [{
+        data: euAvgCats,
+        backgroundColor: CATS.map(c => c.color+'cc'),
+        borderColor: '#111318',
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { font: { size: 10 }, padding: 8, boxWidth: 10 } },
+        tooltip: { callbacks: { label: ctx => ctx.label+': '+ctx.raw.toFixed(1)+'% GDP' } }
+      }
+    }
+  });
+}
+
+// ── COUNTRY CARDS ─────────────────────────────────────────────────────────
+let cardsBuilt = false;
+let activeRegion = 'all';
+const cardCharts = {};
+
+function buildCards() {
+  cardsBuilt = true;
+  const grid = document.getElementById('cards-grid');
+  DATA.forEach(country => {
+    const total = country.d[10];
+    const card = document.createElement('div');
+    card.className = 'country-card';
+    card.dataset.name = country.n.toLowerCase();
+    card.dataset.region = country.r;
+    card.onclick = () => openModal(country);
+
+    // stacked bar
+    const segs = CATS.map((cat, i) => {
+      const pct = (country.d[i] / total * 100).toFixed(1);
+      return `<div class="stacked-seg" style="flex:${country.d[i]};background:${cat.color}"></div>`;
+    }).join('');
+
+    // cat rows
+    const rows = CATS.map((cat, i) => `
+      <div class="cat-row">
+        <div class="dot" style="background:${cat.color}"></div>
+        <span class="lbl">${cat.code}</span>
+        <span class="val">${country.d[i].toFixed(1)}%</span>
+      </div>
+    `).join('');
+
+    const chartId = 'card-chart-'+country.n.replace(/\W/g,'');
+
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="card-name">${country.n}</div>
+        <div class="card-region">${REGION_LABELS[country.r]}</div>
+      </div>
+      <div class="card-total">Total govt spend: <strong>${total.toFixed(1)}%</strong> of GDP</div>
+      <div class="stacked-bar">${segs}</div>
+      <div class="cat-rows">${rows}</div>
+      <div class="card-chart-wrap"><canvas id="${chartId}" role="img" aria-label="Spending chart for ${country.n}"></canvas></div>
+    `;
+    grid.appendChild(card);
+
+    // build mini polar chart after DOM insert
+    requestAnimationFrame(() => {
+      const el = document.getElementById(chartId);
+      if (!el) return;
+      cardCharts[country.n] = new Chart(el, {
+        type: 'radar',
+        data: {
+          labels: CATS.map(c => c.code),
+          datasets: [
+            {
+              label: country.n,
+              data: CATS.map((_,i) => country.d[i]),
+              backgroundColor: '#3d7fff22',
+              borderColor: '#3d7fff',
+              borderWidth: 1.5,
+              pointRadius: 2,
+              pointBackgroundColor: '#3d7fff',
+            },
+            {
+              label: 'NATO Avg',
+              data: NATO_AVG,
+              backgroundColor: '#ffffff08',
+              borderColor: '#ffffff30',
+              borderWidth: 1,
+              pointRadius: 0,
+              borderDash: [3,3],
+            }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            r: {
+              ticks: { display: false },
+              grid: { color: 'rgba(255,255,255,0.06)' },
+              angleLines: { color: 'rgba(255,255,255,0.06)' },
+              pointLabels: { font: { size: 9 }, color: '#6b7080' },
+              suggestedMin: 0,
+            }
+          }
+        }
+      });
+    });
+  });
+}
+
+function filterCards() {
+  const q = document.getElementById('country-search').value.toLowerCase();
+  document.querySelectorAll('.country-card').forEach(card => {
+    const nm = card.dataset.name;
+    const rg = card.dataset.region;
+    const matchSearch = nm.includes(q);
+    const matchRegion = activeRegion === 'all' || rg === activeRegion;
+    card.classList.toggle('hidden', !matchSearch || !matchRegion);
+  });
+}
+
+function setRegion(r, btn) {
+  activeRegion = r;
+  document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCards();
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────
+function openModal(country) {
+  document.getElementById('modal-title').textContent = country.n;
+  document.getElementById('modal-sub').textContent = REGION_LABELS[country.r] + ' · GDP $' + (country.gdp >= 1000 ? (country.gdp/1000).toFixed(1)+'T' : country.gdp+'B');
+
+  // key stats
+  const statKeys = [
+    {label:'Total Expenditure', val: country.d[10].toFixed(1)+'% GDP', color: '#3d7fff'},
+    {label:'Social Protection', val: country.d[9].toFixed(1)+'% GDP', color: '#ff6b6b'},
+    {label:'Health', val: country.d[6].toFixed(1)+'% GDP', color: '#06d6a0'},
+    {label:'Education', val: country.d[8].toFixed(1)+'% GDP', color: '#ff9f1c'},
+  ];
+  document.getElementById('modal-stats').innerHTML = statKeys.map(s =>
+    `<div class="modal-stat"><span class="modal-stat-val" style="color:${s.color}">${s.val}</span><span class="modal-stat-lbl">${s.label}</span></div>`
+  ).join('');
+
+  // destroy old charts
+  if (modalDonut) { modalDonut.destroy(); modalDonut = null; }
+  if (modalBar) { modalBar.destroy(); modalBar = null; }
+
+  // donut
+  modalDonut = new Chart(document.getElementById('modal-chart-donut'), {
+    type: 'doughnut',
+    data: {
+      labels: CATS.map(c => c.label),
+      datasets: [{
+        data: CATS.map((_,i) => country.d[i]),
+        backgroundColor: CATS.map(c => c.color+'cc'),
+        borderColor: '#181b22', borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 9 }, padding: 6, boxWidth: 8 } },
+        tooltip: { callbacks: { label: ctx => ctx.label+': '+ctx.raw.toFixed(1)+'% GDP' } }
+      }
+    }
+  });
+
+  // bar vs avg
+  const diffs = CATS.map((_,i) => +(country.d[i] - NATO_AVG[i]).toFixed(2));
+  modalBar = new Chart(document.getElementById('modal-chart-bar'), {
+    type: 'bar',
+    data: {
+      labels: CATS.map(c => c.code),
+      datasets: [{
+        label: 'vs NATO avg (pp)',
+        data: diffs,
+        backgroundColor: diffs.map(v => v >= 0 ? '#06d6a0aa' : '#ff6b6baa'),
+        borderColor: diffs.map(v => v >= 0 ? '#06d6a0' : '#ff6b6b'),
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => (ctx.raw > 0 ? '+' : '')+ctx.raw.toFixed(2)+'pp vs NATO avg' } } },
+      scales: {
+        x: { grid: { display: false } },
+        y: { ticks: { callback: v => (v > 0 ? '+' : '')+v } }
+      }
+    }
+  });
+
+  // comparison table
+  const tbody = document.getElementById('modal-tbody');
+  tbody.innerHTML = CATS.map((cat, i) => {
+    const val = country.d[i];
+    const avg = NATO_AVG[i];
+    const diff = +(val - avg).toFixed(2);
+    const cls = diff > 0.3 ? 'above' : diff < -0.3 ? 'below' : '';
+    const maxBar = 30;
+    const barW = Math.min(val/maxBar*80, 80);
+    return `<tr>
+      <td><span class="dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${cat.color};margin-right:6px;vertical-align:middle"></span>${cat.label}</td>
+      <td>${val.toFixed(1)}%</td>
+      <td>${avg.toFixed(1)}%</td>
+      <td class="${cls}">${diff > 0 ? '+' : ''}${diff.toFixed(2)}</td>
+      <td><span class="bar-inline" style="width:${barW}px;background:${cat.color}88"></span></td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modal-overlay') || e.currentTarget.tagName === 'BUTTON') {
+    document.getElementById('modal-overlay').classList.remove('open');
+  }
+}
+
+// ── RANKINGS ──────────────────────────────────────────────────────────────
+let rankBuilt = false;
+
+function buildRankings() {
+  rankBuilt = true;
+  const sel = document.getElementById('rank-selector');
+  CATS.forEach((cat, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'rank-btn' + (i === 0 ? ' active' : '');
+    btn.innerHTML = `<span class="dot" style="background:${cat.color}"></span>${cat.code} — ${cat.label}`;
+    btn.onclick = () => {
+      document.querySelectorAll('.rank-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateRankChart(i, cat);
+    };
+    sel.appendChild(btn);
+  });
+  updateRankChart(0, CATS[0]);
+}
+
+function updateRankChart(catIdx, cat) {
+  const sorted = [...DATA].sort((a,b) => b.d[catIdx]-a.d[catIdx]);
+  document.getElementById('rank-title').innerHTML = `<strong style="color:${cat.color}">${cat.label}</strong> — ranked highest to lowest · % of GDP`;
+
+  if (rankChart) rankChart.destroy();
+  rankChart = new Chart(document.getElementById('chart-rank'), {
+    type: 'bar',
+    data: {
+      labels: sorted.map(d => d.n),
+      datasets: [
+        {
+          label: cat.label,
+          data: sorted.map(d => d.d[catIdx]),
+          backgroundColor: sorted.map(d => {
+            const v = d.d[catIdx];
+            const avg = NATO_AVG[catIdx];
+            return v > avg * 1.3 ? cat.color + 'ee' : v < avg * 0.7 ? cat.color + '55' : cat.color + 'aa';
+          }),
+          borderColor: cat.color,
+          borderWidth: 1,
+        },
+        {
+          label: 'NATO Average',
+          data: sorted.map(() => NATO_AVG[catIdx]),
+          type: 'line',
+          borderColor: '#ffffff50',
+          borderWidth: 1.5,
+          borderDash: [5,4],
+          pointRadius: 0,
+          fill: false,
+        }
+      ]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: {
+          label: ctx => ctx.datasetIndex === 0
+            ? ctx.raw.toFixed(1)+'% GDP'
+            : 'NATO avg: '+ctx.raw.toFixed(1)+'%'
+        }}
+      },
+      scales: {
+        x: { ticks: { callback: v => v+'%' } },
+        y: { ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+buildSummary();
+</script>
+</body>
+</html>

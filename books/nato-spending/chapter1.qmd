@@ -1,0 +1,133 @@
+---
+title: "Chapter 1: Alliance Defence Spending"
+---
+
+## The 2% Benchmark: History and Achievement
+
+The 2% of GDP defence spending target was not invented at the 2014 Wales Summit — it had circulated informally in NATO discussions for years — but Wales was the first time member governments made a formal written commitment to it. The political context was Russia's annexation of Crimea in February 2014, which ended the post-Cold War "peace dividend" era and forced a reckoning with how far European defence capacity had atrophied.
+
+In 2014, only **three NATO members** met the threshold: the United States, Greece, and the United Kingdom. By 2023, that had risen to 11. By 2024, 23 of 31 (Sweden had just joined). And in 2025, for the first time in the alliance's history, **all 32 members** met or exceeded 2%.
+
+## The NATO-COFOG Measurement Gap
+
+A critical methodological point before examining the data: **NATO's official defence expenditure figures and the COFOG Division 02 "Defence" figures are not the same**, and the differences matter:
+
+| Item | NATO Methodology | COFOG Methodology |
+|---|---|---|
+| Military pensions | Included in defence | Classified under Social Protection (Div. 10) |
+| Equipment purchases | Recorded at time of **payment** | Recorded at time of **delivery** |
+| Some civil defence | May be included | Under Public Order & Safety (Div. 03) |
+| Result | Generally **higher** | Generally **lower** |
+
+The gap averages 0.2–0.5 percentage points of GDP per country but can be much larger for countries with large active procurement programmes. Poland's NATO-reported 4.1% vs. COFOG 2.3% is the most extreme example: billions in advance payments to US and Korean arms manufacturers are counted by NATO but not yet in COFOG because the equipment hasn't been delivered.
+
+## NATO Defence Expenditure: All 32 Allies
+
+The table below uses **NATO's official methodology** (as reported in the August 2025 NATO Defence Expenditure release), which is the appropriate measure for burden-sharing assessment.
+
+| Country | % GDP (2025) | USD billions (2024) | % change since 2014 |
+|---|---|---|---|
+| 🇵🇱 Poland | **4.48%** | $46B | +214% |
+| 🇱🇹 Lithuania | **4.00%** | $2.5B | +324% |
+| 🇱🇻 Latvia | **3.73%** | $1.4B | +316% |
+| 🇪🇪 Estonia | **3.38%** | $1.4B | +119% |
+| 🇳🇴 Norway | **3.35%** | $12B | +65% |
+| 🇺🇸 United States | **3.22%** | $935B | +14% |
+| 🇩🇰 Denmark | **3.22%** | $8.5B | +160% |
+| 🇬🇷 Greece | **2.85%** | $7B | +56% |
+| 🇫🇮 Finland | **2.77%** | $7B | +82% |
+| 🇸🇪 Sweden | **2.51%** | $13B | — |
+| 🇳🇱 Netherlands | **2.49%** | $27B | +114% |
+| 🇬🇧 United Kingdom | **2.40%** | $85B | +23% |
+| 🇹🇷 Turkey | **2.33%** | $20B | +129% |
+| 🇷🇴 Romania | **2.28%** | $8.5B | +136% |
+| 🇭🇺 Hungary | **2.06%** | $4.5B | +225% |
+| 🇧🇬 Bulgaria | **2.06%** | $3B | +117% |
+| 🇫🇷 France | **2.05%** | $65B | +26% |
+| 🇸🇰 Slovakia | **2.04%** | $2.8B | +155% |
+| 🇭🇷 Croatia | **2.03%** | $1.7B | +38% |
+| 🇲🇪 Montenegro | **2.03%** | $0.16B | +82% |
+| 🇸🇮 Slovenia | **2.02%** | $1.0B | +75% |
+| 🇮🇹 Italy | **2.01%** | $34B | +43% |
+| 🇨🇦 Canada | **2.01%** | $32B | +58% |
+| 🇦🇱 Albania | **2.01%** | $0.5B | +106% |
+| 🇪🇸 Spain | **2.00%** | $24B | +67% |
+| 🇧🇪 Belgium | **2.00%** | $8.5B | +57% |
+| 🇨🇿 Czechia | **2.00%** | $6B | +171% |
+| 🇵🇹 Portugal | **2.00%** | $5B | +45% |
+| 🇲🇰 N. Macedonia | **2.00%** | $0.3B | +149% |
+| 🇱🇺 Luxembourg | **2.00%** | $1.3B | +189% |
+| 🇩🇪 Germany | ~2.1% est. | $97.7B | +96% |
+| 🇮🇸 Iceland | — | — | — |
+
+*Iceland has no standing armed forces; it contributes through basing rights and Coast Guard cooperation. Sweden joined in March 2024; 2014 baseline not applicable. Germany's 2025 figure not yet officially published.*
+
+## The Scale Asymmetry
+
+The absolute dollar figures reveal a structural reality that percentage comparisons obscure:
+
+- The **United States alone** ($935B) spends more than all other 31 allies **combined** (~$574B for Europe + Canada)
+- **Germany** ($97.7B) and the **UK** ($85B) together account for roughly 30% of non-US NATO spending
+- The **Baltic states**, despite their exemplary 3–4% GDP ratios, collectively spend only ~$4.3B — less than 0.5% of US defence outlays
+
+This asymmetry explains why the United States has persistently pressed allies for higher contributions. The US taxpayer funds a disproportionate share of the collective security umbrella under which all 32 members shelter.
+
+## The New 5% Target: What It Requires
+
+The Hague Summit (2025) set a new benchmark: **5% of GDP** by 2035, with 3.5% for core NATO-defined defence requirements and 1.5% for broader security (cyber, critical infrastructure, civil preparedness, defence industrial base).
+
+For a representative set of European allies, this is what reaching 5% would require in new spending:
+
+| Country | Current NATO % | Additional spend needed | Approximate € per year |
+|---|---|---|---|
+| France | 2.05% | +2.95 pp | ~$92B |
+| Germany | ~2.1% | +2.9 pp | ~$137B |
+| Italy | 2.01% | +2.99 pp | ~$69B |
+| Spain | 2.00% | +3.00 pp | ~$54B |
+| Belgium | 2.00% | +3.00 pp | ~$20B |
+| Poland | 4.48% | +0.52 pp | ~$4B |
+
+For context: adding 3 percentage points of GDP in defence spending is the equivalent of building a new NHS-scale institution, or adding a third of the current German Bundeswehr budget every single year. For countries already running large fiscal deficits (France -5.8%, Italy -3.4%, Belgium -4.7%), achieving the 5% target without either dramatic tax increases or structural spending cuts is arithmetically infeasible within a decade.
+
+## The Defence-Welfare State Trade-off
+
+::: {.callout-important}
+## The Core Structural Tension
+
+Social protection alone averages **19.2% of GDP** across EU NATO members. Health adds another **7.3%**. Together, these two categories consume 26.5% of GDP — more than the entire GDP of most smaller NATO allies, and more than five times the new 3.5% core defence target.
+
+Adding meaningful defence capacity means either:
+1. **Raising taxes** — politically difficult, economically complex
+2. **Cutting social spending** — politically explosive in most democracies
+3. **Running larger deficits** — creates long-run debt sustainability risks
+4. **Some combination** of all three
+
+The Hague target is ambitious precisely because it cannot be achieved without confronting this trade-off directly.
+:::
+
+## Eastern European Exceptionalism
+
+The most dramatic spending increases since 2014 have come from the nations with the most direct exposure to Russian aggression:
+
+- **Lithuania +324%**, **Latvia +316%**, **Estonia +119%** — the Baltic states have moved from token military budgets to 3–4% of GDP in a decade
+- **Poland +214%** — operating the alliance's largest land forces expansion programme
+- **Romania +136%**, **Bulgaria +117%** — significant increases from a lower base
+
+For the first time in recorded NATO history, a European ally — Norway — surpassed the United States in **defence spending per capita** in 2025. This reflects both Norway's exceptional wealth (sovereign oil fund) and its genuine strategic priority shift since 2022.
+
+The political economy of Eastern European defence spending is worth noting: these countries are simultaneously managing EU-funded infrastructure investment, rising social commitments, and rapid military modernisation. Poland's -5.1% fiscal deficit is partly a consequence of taking deterrence seriously at a moment when fiscal orthodoxy would argue for restraint.
+
+## Chapter Summary
+
+| Theme | Key Finding |
+|---|---|
+| Universal 2% compliance | Achieved for the first time in 2025 — all 32 members |
+| Scale asymmetry | US spending exceeds all other allies combined in absolute terms |
+| Eastern surge | Baltic states and Poland recording +200–300% increases since 2014 |
+| 5% target | Requires 2–3 pp GDP increases for most Western European allies — fiscally severe |
+| NATO-COFOG gap | COFOG figures are 0.2–0.5+ pp below NATO figures; Poland gap is ~1.8 pp |
+| Defence-welfare trade-off | Social protection + health = 26.5% EU GDP average — structural constraint on defence |
+
+::: {.callout-note}
+Proceed to [Chapter 2 — Federal Budgets](chapter2.qmd) for a complete breakdown of revenue, expenditure, fiscal balance, and gross debt for all 32 allies.
+:::

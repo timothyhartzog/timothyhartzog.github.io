@@ -1,0 +1,309 @@
+---
+title: "Chapter 4: Country Profiles"
+---
+
+Individual fiscal and spending profiles for all 32 NATO members, organised by region. Each profile covers: GDP context, total government expenditure, revenue structure, fiscal balance and debt, and a brief COFOG spending characterisation.
+
+---
+
+## North America
+
+### 🇺🇸 United States
+
+**GDP:** $28.8T | **Total Expenditure:** 37.9% GDP | **Fiscal Balance:** −6.5% | **Debt:** 122% GDP
+
+The United States presents the starkest paradox in NATO fiscal analysis: the world's largest economy running an outsized peacetime deficit. General government revenue of 34.4% of GDP is the lowest among major NATO members — reflecting the absence of a federal VAT, lower social insurance contribution rates, and a comparatively lean state relative to European peers. Yet expenditure has risen to 37.9% due to the combination of mandatory entitlement growth (Social Security $1.5T, Medicare/Medicaid $1.7T in FY2024) and net interest now at $949 billion annually — the fastest-growing budget category.
+
+The US defence allocation at 3.4% of GDP ($935B) exceeds the combined defence spending of all other 31 NATO allies. Structurally, the federal budget is in a vise: two-thirds of spending is mandatory (determined by existing law, not annual appropriations), and the remaining discretionary third is split approximately equally between defence and everything else. The long-run trajectory — CBO projects debt reaching 135%+ by the early 2030s — represents the most consequential fiscal risk in the alliance.
+
+**COFOG Profile:** Unusually low social protection (14.0%) and environmental protection (0.3%) by peer standards; high defence (3.4%) and health (8.7%, reflecting Medicare and Medicaid scale). General public services of 4.5% includes rising interest payments.
+
+---
+
+### 🇨🇦 Canada
+
+**GDP:** $2.2T | **Total Expenditure:** 44.0% GDP | **Fiscal Balance:** −2.0% | **Debt:** 107% GDP
+
+Canada sits between European and American spending models: a moderately large state (44% total spending) with universal healthcare (9.8% GDP — NATO's highest ratio), comprehensive provincial social programmes, and federal-provincial funding complexity that inflates apparent general government totals. The 107% gross debt figure includes significant provincial obligations. Canada has been under chronic US pressure for its 1.4% NATO defence spending, finally crossing 2% in 2025.
+
+**COFOG Profile:** Health (9.8%) and education (6.2%) both among NATO's highest; defence (1.4%) historically below threshold; social protection (13.4%) moderate.
+
+---
+
+## Western Europe
+
+### 🇬🇧 United Kingdom
+
+**GDP:** $3.3T | **Total Expenditure:** 46.3% GDP | **Fiscal Balance:** −4.6% | **Debt:** 104% GDP
+
+Post-Brexit and post-pandemic, the UK is running a structurally elevated deficit against a backdrop of rising NHS demand, legacy energy support costs, and indexed-linked gilt obligations that amplify the cost of inflation. Social protection at 17.9% of GDP reflects the comprehensive welfare state alongside accelerating pension costs. Health at 8.2% funds the NHS but is associated with severe waiting time crises — suggesting efficiency gaps rather than purely a resource problem. Defence at 2.3% remains above the NATO threshold.
+
+**COFOG Profile:** Large social protection and health; moderate defence; housing (1.2%) above EU average reflecting residual social housing stock.
+
+---
+
+### 🇫🇷 France
+
+**GDP:** $3.1T | **Total Expenditure:** 58.0% GDP | **Fiscal Balance:** −5.8% | **Debt:** 111% GDP
+
+France operates the most comprehensive and expensive government model among major NATO allies. Social protection at 23.4% of GDP reflects extraordinary pension generosity — the 2023 reform raising retirement age from 62 to 64 was passed amid mass protests and barely dented the trajectory. General public services at 8.2% reflects a very large administrative apparatus and rising debt service costs. Revenue at 53.2% is already among the world's highest, yet still insufficient to close a structural deficit that has deepened with political paralysis.
+
+**COFOG Profile:** Second-highest social protection in NATO (23.4%); highest recreation/culture (1.4%, reflecting the *exception culturelle*); defence at 2.1% COFOG (2.05% NATO) finally above threshold.
+
+---
+
+### 🇩🇪 Germany
+
+**GDP:** $4.7T | **Total Expenditure:** 49.0% GDP | **Fiscal Balance:** −2.0% | **Debt:** 63% GDP
+
+Germany's *Schuldenbremse* (constitutional debt brake) has kept fiscal discipline tight but created a political crisis as defence and infrastructure needs collided with the 0.35% structural deficit cap. The brake is being reformed to exempt defence spending. Revenue at 46.2% and relatively moderate debt (63%) give Germany more fiscal room than France or Italy, but its economy has been in or near recession since 2023, complicating consolidation. Social protection at 19.8% and health at 8.2% reflect the comprehensive Bismarckian social insurance system.
+
+**COFOG Profile:** Well-balanced across categories; general public services (5.4%) moderate; rising defence from a low base; education (4.4%) below the Nordic peers despite Germany's research reputation.
+
+---
+
+### 🇳🇱 Netherlands
+
+**GDP:** $1.1T | **Total Expenditure:** 42.8% GDP | **Fiscal Balance:** −0.5% | **Debt:** 46% GDP
+
+Among the most fiscally disciplined large Western European NATO members. Near-balanced budget, moderate debt (46%), and lean general public services (3.6% — reflecting low debt service and efficient administration). Health (7.8%) and social protection (16.7%) are comprehensive without being the most generous in NATO. The Netherlands operates a regulated private insurance model for health that achieves universal coverage at moderate cost. Defence at 2.1% has crossed the NATO threshold.
+
+**COFOG Profile:** Lean GPS; strong health and education (5.3%); moderate social protection; very low debt service compared to peers.
+
+---
+
+### 🇧🇪 Belgium
+
+**GDP:** $662B | **Total Expenditure:** 52.2% GDP | **Fiscal Balance:** −4.7% | **Debt:** 106% GDP
+
+Belgium's fragmented state structure — federal, Flemish, Walloon, and Brussels-Capital governments with overlapping spending authority — makes fiscal coordination and consolidation exceptionally difficult. Social protection at 20.8% is high; general public services at 6.8% reflects elevated debt service and administrative duplication. Defence at 1.3% is one of NATO's lowest and has been a persistent source of alliance criticism. Revenue at 50.5% is already very high, limiting tax increases as an adjustment mechanism.
+
+**COFOG Profile:** Very high social protection and GPS; lowest defence in Western Europe; high education (6.2%) driven by dual school networks.
+
+---
+
+### 🇱🇺 Luxembourg
+
+**GDP:** $89B | **Total Expenditure:** 41.5% GDP | **Fiscal Balance:** −0.9% | **Debt:** 27% GDP
+
+Luxembourg's extraordinary wealth (highest GDP per capita in NATO) funds a comprehensive social model at modest debt levels. Its fiscal challenge is structural: its economy is highly dependent on financial services and fund domiciliation, now under pressure from the OECD Global Minimum Tax and EU transparency requirements. Defence at 1.3% (0.7% COFOG) is among NATO's lowest; Luxembourg contributes through common funding and niche capabilities.
+
+**COFOG Profile:** Compact and balanced; very low debt service; below-threshold defence.
+
+---
+
+## Nordic and Baltic
+
+### 🇸🇪 Sweden
+
+**GDP:** $580B | **Total Expenditure:** 47.0% GDP | **Fiscal Balance:** −1.5% | **Debt:** 33% GDP
+
+Sweden's comprehensive welfare model — universal pre-primary care, free university education, high replacement rate pensions — is reflected in its COFOG profile: 7.2% education (NATO's highest), 18.8% social protection, 7.5% health. Sweden joined NATO in March 2024 and has rapidly increased defence to 2.1%. Gross debt at 33% of GDP gives Sweden substantial fiscal space. Its deficit of −1.5% reflects economic slowdown and defence ramp-up, not structural imbalance.
+
+**COFOG Profile:** NATO's highest education ratio; strong health; large social protection; rising defence.
+
+---
+
+### 🇳🇴 Norway
+
+**GDP:** $592B | **Total Expenditure:** 53.3% GDP | **Fiscal Balance:** +16.2% | **Debt:** 40% GDP
+
+Norway's headline figures are dominated by petroleum revenues. The +16.2% surplus reflects oil and gas earnings flowing through the Government Pension Fund Global (GPFG) — the world's largest sovereign wealth fund at ~$1.7 trillion. The structural non-oil balance is approximately −3% of GDP. Norway's social model is comprehensive: health at 9.5%, social protection at 21.5%, education at 6.2%. For the first time in NATO history, Norway surpassed the US in defence spending per capita in 2025.
+
+**COFOG Profile:** Exceptional health investment; high social protection; rising defence (1.9% COFOG, 2.2% NATO); oil revenues mask true fiscal position.
+
+---
+
+### 🇩🇰 Denmark
+
+**GDP:** $406B | **Total Expenditure:** 46.6% GDP | **Fiscal Balance:** +2.6% | **Debt:** 29% GDP
+
+Denmark is a fiscal exemplar: surplus, low debt, high public services quality. Its comprehensive Nordic welfare state generates excellent outcomes without the fiscal distress seen in Mediterranean Europe. Revenue at 51.8% — driven by very high income tax rates and extensive social contributions — funds health (8.2%), education (6.8%), and social protection (18.8%) at consistently high levels. Defence at 2.4% is above the NATO threshold.
+
+**COFOG Profile:** Balanced across all categories; strongest fiscal position among Nordic NATO members; among the highest per-capita health spenders.
+
+---
+
+### 🇫🇮 Finland
+
+**GDP:** $306B | **Total Expenditure:** 57.6% GDP | **Fiscal Balance:** −4.1% | **Debt:** 79% GDP
+
+Finland's NATO accession in April 2023 came alongside its most challenging fiscal period in decades. The deficit of −4.1% reflects: closure of Russian border trade (significant economic loss), a real estate/construction slump, and the cost of doubling defence from ~1.5% to 2.4% of GDP. Finland's social protection at 25.7% — the highest in NATO — reflects an exceptionally generous welfare model that has survived multiple government cycles. Revenue at 54.4% is already very high, limiting further tax-based adjustment.
+
+**COFOG Profile:** NATO's highest social protection; strong health (8.2%) and education (6.3%); rising defence; deficit driven by economic headwinds and security investment.
+
+---
+
+### 🇱🇻 Latvia
+
+**GDP:** $45B | **Total Expenditure:** 40.3% GDP | **Fiscal Balance:** −4.1% | **Debt:** 46% GDP
+
+Latvia is spending 3.2% of GDP on defence (NATO methodology) while its total government is only 40% of GDP — an extraordinary feat of military prioritisation for a small economy. General public services at 3.9% is low (reflecting modest debt), public order and safety at 2.6% is high (border exposure, large police). Social protection at 12.9% is modest; health at 5.1% is underfunded relative to needs. The deficit is driven almost entirely by the defence build-up.
+
+---
+
+### 🇱🇹 Lithuania
+
+**GDP:** $76B | **Total Expenditure:** 37.5% GDP | **Fiscal Balance:** −3.2% | **Debt:** 38% GDP
+
+Lithuania maintains one of NATO's leanest governments (37.5% total) while sustaining 2.9% of GDP in NATO defence spending. Revenue collection at 37.8% is modest; social protection (14.2%) and health (5.8%) are below EU averages. Lithuania has the most dramatic defence spending growth trajectory in NATO: +324% since 2014.
+
+---
+
+### 🇪🇪 Estonia
+
+**GDP:** $40B | **Total Expenditure:** 42.6% GDP | **Fiscal Balance:** −3.8% | **Debt:** 24% GDP
+
+Estonia's 24% gross government debt is the lowest in all of NATO — a product of post-independence currency board discipline and persistent fiscal conservatism. This gives Estonia exceptional room to absorb defence costs (3.4% NATO) without debt sustainability concerns. Health at 7.1% is relatively strong; education at 6.3% reflects Estonia's world-leading digital education investment. Recreation at 1.8% — highest in NATO alongside Iceland — reflects Estonia's commitment to cultural heritage preservation after Soviet suppression.
+
+---
+
+### 🇮🇸 Iceland
+
+**GDP:** $31B | **Total Expenditure:** 48.2% GDP | **Fiscal Balance:** −2.5% | **Debt:** 70% GDP
+
+Iceland has no standing armed forces and makes no contribution to NATO's defence spending metrics. It contributes through basing rights (Keflavík Air Station) and Coast Guard cooperation. Its GPS ratio of 8.8% — highest in NATO — is partly explained by government accounts including units engaged in providing loans. Health (8.2%) and education (6.8%) are among NATO's highest ratios, reflecting Iceland's strong welfare state and small population where per-person investment naturally appears high as a GDP share.
+
+---
+
+## Eastern Europe
+
+### 🇵🇱 Poland
+
+**GDP:** $848B | **Total Expenditure:** 46.2% GDP | **Fiscal Balance:** −5.1% | **Debt:** 54% GDP
+
+Poland is the most consequential fiscal story in Eastern Europe. It is running a wartime-adjacent military modernisation programme (4.1% NATO defence) while simultaneously maintaining generous social transfers (800+ child benefit, expanded pensions) — producing a −5.1% fiscal deficit. Economic affairs at 7.5% reflects enormous EU-funded infrastructure investment. With debt at 54% of GDP and strong economic growth, Poland's fiscal bet is credible for now, but requires sustained growth to prevent debt accumulation.
+
+**COFOG Profile:** High defence and economic affairs; moderate social protection; significant defence build-up driving the deficit.
+
+---
+
+### 🇷🇴 Romania
+
+**GDP:** $372B | **Total Expenditure:** 40.0% GDP | **Fiscal Balance:** −8.6% | **Debt:** 52% GDP
+
+Romania's −8.6% deficit is NATO's worst and the EU's largest fiscal gap in 2024. The structural mismatch: revenue at only 32.2% (EU's lowest bar Albania, due to widespread informality) against spending inflated by a 40% pension benefit increase in 2024. Economic affairs at 6.8% and public order at 2.7% (highest in NATO) are additional pressures. The EU Excessive Deficit Procedure requires painful adjustment — higher taxes or major spending cuts — that has proven politically impossible to implement.
+
+---
+
+### 🇭🇺 Hungary
+
+**GDP:** $222B | **Total Expenditure:** 46.6% GDP | **Fiscal Balance:** −4.4% | **Debt:** 74% GDP
+
+Hungary presents the most contested spending structure in NATO. General public services at **10.3% of GDP — the highest in the alliance** — reflects both very high debt service costs and the Orbán government's administrative intervention model. Economic affairs at 9.2% (also NATO's highest) reflects heavy state-directed subsidies and industry support. Health at only 4.1% is NATO's lowest — a systematic underfunding that has driven physician and nurse emigration to Western Europe. Defence at 1.3% (COFOG) remains below the NATO threshold despite commitments.
+
+**COFOG Profile:** Extreme divergence: highest GPS and economic affairs in NATO; lowest health in NATO Europe; below-threshold defence.
+
+---
+
+### 🇨🇿 Czechia
+
+**GDP:** $343B | **Total Expenditure:** 45.0% GDP | **Fiscal Balance:** −2.9% | **Debt:** 44% GDP
+
+Czechia presents one of Eastern Europe's strongest COFOG health profiles: 8.9% of GDP — equal to France and among NATO's highest. This reflects genuine policy investment following EU accession and rising incomes. Social protection at 14.6% is moderate; general public services at 4.2% is lean (low debt service). Deficit of −2.9% is manageable.
+
+---
+
+### 🇸🇰 Slovakia
+
+**GDP:** $138B | **Total Expenditure:** 46.0% GDP | **Fiscal Balance:** −5.2% | **Debt:** 57% GDP
+
+Slovakia's −5.2% deficit reflects the Fico government's reversal of previously planned fiscal consolidation and expansion of social transfers. Economic affairs at 7.5% partly reflects EU fund absorption for its energy transition. Public order at 2.4% is elevated. Health at 6.4% and education at 4.4% are moderate. Slovakia is under the EU Excessive Deficit Procedure.
+
+---
+
+### 🇧🇬 Bulgaria
+
+**GDP:** $108B | **Total Expenditure:** 38.6% GDP | **Fiscal Balance:** −2.9% | **Debt:** 23% GDP
+
+Bulgaria's 23% gross government debt is tied with Estonia for the lowest in NATO. This reflects decades of currency board discipline (lev fixed to euro, requiring fiscal balance). Social protection at 14.5% and health at 5.5% are below EU averages; education at 3.6% is the second-lowest in NATO. Bulgaria is on the path to eurozone accession. Despite institutional challenges, its fiscal position is among the most solid in Eastern Europe.
+
+---
+
+### 🇸🇮 Slovenia
+
+**GDP:** $70B | **Total Expenditure:** 46.0% GDP | **Fiscal Balance:** −2.3% | **Debt:** 69% GDP
+
+Slovenia is a eurozone member with moderate and declining debt (from a crisis-era peak). Health (7.8%) and social protection (17.1%) are well-funded by Eastern European standards. Education (5.5%) and recreation (1.3%) are solid. Defence at 1.1% COFOG (1.3% NATO) remains below threshold.
+
+---
+
+### 🇲🇰 North Macedonia
+
+**GDP:** $16B | **Total Expenditure:** 35.4% GDP | **Fiscal Balance:** −4.0% | **Debt:** 52% GDP
+
+North Macedonia operates a compact government with limited fiscal capacity. Health (4.6%) and education (3.8%) are underfunded relative to needs. The −4.0% deficit is large relative to its fiscal capacity. EU accession candidacy is expected to drive increased structural investment.
+
+---
+
+## Southern Europe
+
+### 🇮🇹 Italy
+
+**GDP:** $2.3T | **Total Expenditure:** 49.5% GDP | **Fiscal Balance:** −3.4% | **Debt:** 137% GDP
+
+Italy's 137% debt-to-GDP makes it NATO's most structurally fragile large economy. Interest payments (~3.8% of GDP) consume a larger share of output than Italy's defence budget. Social protection at 21.1% reflects extraordinarily generous pension commitments built up before the 1995 Dini reform; many retirees who retired before that reform receive replacement rates well above 80%. Health at 6.8% is adequate but has been chronically underfunded relative to ageing demographic needs. Education at 4.0% is below the EU average and has been cut repeatedly during austerity. Defence at 1.5% COFOG remains below the NATO threshold — Italy has committed to reaching 2% but progress has been slow.
+
+**COFOG Profile:** High GPS (dominated by interest); large social protection; adequate health; weak education and defence.
+
+---
+
+### 🇪🇸 Spain
+
+**GDP:** $1.8T | **Total Expenditure:** 45.4% GDP | **Fiscal Balance:** −3.1% | **Debt:** 104% GDP
+
+Spain has returned to fiscal balance faster than most post-2008 crisis countries (deficit of only −3.1% in 2024, down from 11% at the nadir). Social protection (18.6%) and health (7.4%) reflect a comprehensive post-Franco welfare state. Education (4.3%) and defence (1.3%) are below NATO averages. Spain's political complexity — coalition government, regional spending autonomy (Catalonia, Basque Country) — makes structural reform difficult. The housing affordability crisis is generating pressure to increase HCA spending from its current 0.6%.
+
+---
+
+### 🇵🇹 Portugal
+
+**GDP:** $288B | **Total Expenditure:** 45.2% GDP | **Fiscal Balance:** +0.4% | **Debt:** 97% GDP
+
+Portugal's fiscal turnaround from 2011 bailout recipient to 2024 surplus country is one of the alliance's most impressive fiscal rehabilitation stories. Revenue (46.4%) slightly exceeds expenditure (46.0%), producing a small surplus. Health (7.2%) and social protection (18.4%) are maintained at European norms. Debt at 97% continues to decline from its 130% crisis peak. Defence at 1.3% COFOG (1.6% NATO) remains below the 2% threshold.
+
+---
+
+### 🇬🇷 Greece
+
+**GDP:** $254B | **Total Expenditure:** 49.3% GDP | **Fiscal Balance:** +1.5% | **Debt:** 159% GDP
+
+Greece is simultaneously the alliance's most debt-burdened member (159% GDP) and one of its most impressive fiscal reformers (running primary surpluses since 2016, headline surplus since 2023). General public services at 8.2% includes approximately 3.5% of GDP in interest payments — the eurozone's highest interest burden by GDP share despite successful debt restructuring. Defence at 2.8% COFOG (3.1% NATO) is driven by Greece-Turkey security competition, not Russia. Social protection at 21.5% reflects an ageing population and legacy pension generosity.
+
+---
+
+### 🇹🇷 Turkey
+
+**GDP:** $1.3T | **Total Expenditure:** 33.3% GDP | **Fiscal Balance:** −5.3% | **Debt:** 27% GDP
+
+Turkey is a structural outlier. Its total government expenditure of only 33.3% of GDP reflects its lower income level and different policy tradition — a smaller formal welfare state with less comprehensive social protection (8.2%) and health (4.5%). The −5.3% deficit reflects post-earthquake reconstruction costs, subsidised credit programmes, and inflation-driven spending pressures. Gross debt at 27% looks very low but is partly a function of high inflation eroding the real value of existing debt. Turkey's demographic structure (median age 33, much younger than European NATO members) reduces current social spending pressure but will shift over coming decades.
+
+---
+
+### 🇭🇷 Croatia
+
+**GDP:** $82B | **Total Expenditure:** 45.9% GDP | **Fiscal Balance:** −0.9% | **Debt:** 60% GDP
+
+Croatia joined the eurozone in January 2023, which reinforced fiscal discipline. The near-balanced deficit (−0.9%) is comfortable. Economic affairs at 7.8% — second highest in NATO after Hungary — reflects Croatia's EU structural fund absorption and heavy tourism infrastructure investment. Health (7.3%) and social protection (16.1%) are adequate. Defence at 1.2% COFOG (1.8% NATO) is below threshold but rising.
+
+---
+
+### 🇦🇱 Albania
+
+**GDP:** $26B | **Total Expenditure:** 30.0% GDP | **Fiscal Balance:** −2.2% | **Debt:** 60% GDP
+
+Albania operates NATO's smallest government by total expenditure (30.0% GDP) with correspondingly limited public services: health at 3.8% is the lowest in the alliance; education at 3.2% is second-lowest; social protection at 8.0% reflects a young population and minimal pension development. Revenue collection at 28.6% faces significant informal economy challenges. EU accession candidacy should drive institutional improvement and increased investment over the coming decade.
+
+---
+
+### 🇲🇪 Montenegro
+
+**GDP:** $8B | **Total Expenditure:** 42.1% GDP | **Fiscal Balance:** −3.0% | **Debt:** 66% GDP
+
+Montenegro's 66% debt-to-GDP includes a significant Chinese-financed highway construction loan contracted in 2014. The government structure is moderate (42.1% total); social protection (16.5%) and health (5.5%) are reasonable for the income level. Defence at 1.2% COFOG (2.0% NATO) has met the threshold.
+
+---
+
+::: {.callout-note}
+Proceed to [Chapter 5 — Glossary](chapter5.qmd) for definitions of all key terms.
+:::
