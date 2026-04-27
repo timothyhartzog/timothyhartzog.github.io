@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NATO / EU / USA Debt Analysis</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --bg:#0a0c10;--s1:#111318;--s2:#181b22;--bdr:rgba(255,255,255,.07);--bdr2:rgba(255,255,255,.14);
+  --tx:#e8eaf0;--muted:#6b7080;--dim:#2a2f3a;
+  --blue:#3d7fff;--teal:#06d6a0;--warn:#ffd166;--red:#ff4757;--purple:#9b5de5;--orange:#ff6b35;
+  --font:'IBM Plex Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:var(--font);min-height:100vh;overflow-x:hidden}
+.hdr{padding:1.5rem 2rem 1rem;border-bottom:1px solid var(--bdr)}
+.hdr h1{font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+.hdr h1 span{color:var(--blue)}
+.hdr p{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+.tabs{display:flex;gap:.25rem;padding:.75rem 2rem;border-bottom:1px solid var(--bdr);flex-wrap:wrap}
+.tab{font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:.35rem .9rem;
+  border-radius:4px;cursor:pointer;border:1px solid transparent;color:var(--muted);background:transparent;font-family:var(--font);transition:all .15s}
+.tab:hover{color:var(--tx);border-color:var(--bdr2)}
+.tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.view{display:none}.view.active{display:block}
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--bdr);margin:1.5rem 2rem;border:1px solid var(--bdr);border-radius:8px;overflow:hidden}
+.kpi{background:var(--s1);padding:1rem;text-align:center}
+.kv{font-family:var(--mono);font-size:1.4rem;font-weight:600;display:block;margin-bottom:.2rem}
+.kl{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+/* panels */
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bdr);margin:0 2rem 2rem;border:1px solid var(--bdr);border-radius:8px;overflow:hidden}
+.panel{background:var(--s1);padding:1.25rem}
+.panel.wide{grid-column:span 2}
+.panel h3{font-family:var(--mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.9rem;border-bottom:1px solid var(--bdr);padding-bottom:.5rem}
+.panel h3 strong{color:var(--blue)}
+.cw{position:relative;width:100%}
+/* table */
+.tbl-wrap{overflow-x:auto;margin:0 2rem 2rem}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+th{font-size:.65rem;font-weight:600;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);text-align:left;padding:.45rem .75rem;border-bottom:1px solid var(--bdr);background:var(--s2);cursor:pointer}
+th:hover{color:var(--tx)}
+th.num,td.num{text-align:right}
+td{padding:.4rem .75rem;border-bottom:.5px solid var(--bdr);font-family:var(--mono)}
+tr:hover td{background:var(--s2)}
+.r{color:var(--red)}.g{color:var(--teal)}.y{color:var(--warn)}.m{color:var(--muted)}
+/* projection timeline */
+.timeline{margin:0 2rem 2rem;background:var(--s1);border:1px solid var(--bdr);border-radius:8px;padding:1.25rem}
+.timeline h3{font-family:var(--mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.9rem;border-bottom:1px solid var(--bdr);padding-bottom:.5rem}
+/* interest section */
+.interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);margin:0 2rem 2rem;border:1px solid var(--bdr);border-radius:8px;overflow:hidden}
+.ig{background:var(--s1);padding:1.25rem}
+.ig h4{font-family:var(--mono);font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.75rem}
+.big-num{font-family:var(--mono);font-size:2rem;font-weight:600;color:var(--red);margin-bottom:.25rem}
+.big-sub{font-size:.75rem;color:var(--muted);line-height:1.5}
+/* scroll */
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:var(--s1)}::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:3px}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>NATO · EU · USA <span>Sovereign Debt Analysis</span></h1>
+  <p>General government gross debt as % of GDP · IMF WEO October 2025 · CBO Long-Term Outlook March 2025 · Eurostat 2024</p>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('overview',this)">Alliance Overview</button>
+  <button class="tab" onclick="show('table',this)">Country Rankings</button>
+  <button class="tab" onclick="show('projections',this)">2025–2055 Projections</button>
+  <button class="tab" onclick="show('interest',this)">Interest Costs</button>
+  <button class="tab" onclick="show('trajectory',this)">Historical Trajectory</button>
+</div>
+
+<!-- ══ OVERVIEW ════════════════════════════════════════════════════════ -->
+<div id="view-overview" class="view active">
+  <div class="kpi-row">
+    <div class="kpi"><span class="kv" style="color:var(--red)">94.7%</span><span class="kl">Global avg debt/GDP 2025</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--red)">100%</span><span class="kl">US debt held by public 2025</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--red)">159%</span><span class="kl">Greece — highest in NATO</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--teal)">23%</span><span class="kl">Bulgaria — lowest in NATO</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--warn)">$1.9T</span><span class="kl">US deficit FY2025</span></div>
+  </div>
+  <div class="panels">
+    <div class="panel wide">
+      <h3>Gross Government Debt <strong>% of GDP</strong> · All NATO Members · 2025 estimates</h3>
+      <div class="cw" style="height:700px"><canvas id="c-all"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Debt by Region <strong>unweighted average % GDP</strong></h3>
+      <div class="cw" style="height:300px"><canvas id="c-region"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Debt vs Deficit <strong>scatter · 2025</strong></h3>
+      <div class="cw" style="height:300px"><canvas id="c-scatter"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TABLE ════════════════════════════════════════════════════════════ -->
+<div id="view-table" class="view">
+  <div style="padding:1rem 2rem .5rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+    <span style="font-size:.75rem;color:var(--muted)">Sort by:</span>
+    <select id="sortSel" style="font-size:.72rem;padding:.3rem .6rem;background:var(--s2);border:1px solid var(--bdr2);color:var(--tx);border-radius:4px;font-family:var(--font)" onchange="renderTable()">
+      <option value="debt">Debt % GDP ↓</option>
+      <option value="deficit">Deficit % GDP</option>
+      <option value="interest">Interest % GDP</option>
+      <option value="country">Country A–Z</option>
+    </select>
+  </div>
+  <div class="tbl-wrap">
+    <table><thead><tr>
+      <th>Country</th>
+      <th class="num">Debt %GDP</th>
+      <th class="num">Deficit %GDP</th>
+      <th class="num">Revenue %</th>
+      <th class="num">Expend %</th>
+      <th class="num">Interest %GDP</th>
+      <th class="num">2035 proj.</th>
+      <th>Risk tier</th>
+    </tr></thead><tbody id="tbl-body"></tbody></table>
+  </div>
+</div>
+
+<!-- ══ PROJECTIONS ══════════════════════════════════════════════════════ -->
+<div id="view-projections" class="view">
+  <div class="kpi-row">
+    <div class="kpi"><span class="kv" style="color:var(--red)">118%</span><span class="kl">US debt/GDP by 2035 (CBO)</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--red)">156%</span><span class="kl">US debt/GDP by 2055 (CBO)</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--warn)">$1.8T</span><span class="kl">US net interest by 2035</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--red)">5.4%</span><span class="kl">US interest/GDP by 2055</span></div>
+    <div class="kpi"><span class="kv" style="color:var(--warn)">2034</span><span class="kl">Soc. Security trust fund insolvency</span></div>
+  </div>
+  <div class="panels">
+    <div class="panel wide">
+      <h3>US Federal Debt Trajectory <strong>% of GDP · CBO projections 2025–2055</strong></h3>
+      <div class="cw" style="height:340px"><canvas id="c-usproj"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Key NATO Country Debt Projections <strong>2025–2035</strong></h3>
+      <div class="cw" style="height:300px"><canvas id="c-euproj"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>US Annual Deficit Projection <strong>$T · 2025–2035</strong></h3>
+      <div class="cw" style="height:300px"><canvas id="c-deficit"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ INTEREST ══════════════════════════════════════════════════════════ -->
+<div id="view-interest" class="view">
+  <div class="interest-grid">
+    <div class="ig">
+      <h4>US Net Interest 2025</h4>
+      <div class="big-num">$1.0T</div>
+      <div class="big-sub">Surpassed $1 trillion for the first time in history. Already the 2nd-largest federal expenditure after Social Security — exceeding defence ($895B) and Medicare.</div>
+    </div>
+    <div class="ig">
+      <h4>US Interest / GDP trajectory</h4>
+      <div class="big-num">3.2% → 5.4%</div>
+      <div class="big-sub">Interest cost as % of GDP: 3.2% in 2025 (already at a post-WWII record), rising to 4.1% by 2035 and 5.4% by 2055. Triple the pre-pandemic level of 1.6% (2020).</div>
+    </div>
+    <div class="ig">
+      <h4>By 2055: interest = 28% of revenue</h4>
+      <div class="big-num">28¢</div>
+      <div class="big-sub">Of every dollar collected in federal taxes, 28 cents will go to interest payments alone — leaving only 72 cents for every other government priority combined.</div>
+    </div>
+  </div>
+  <div class="panels">
+    <div class="panel wide">
+      <h3>US Net Interest Cost <strong>$B · historical and projected 2010–2035</strong></h3>
+      <div class="cw" style="height:320px"><canvas id="c-interest"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>NATO Interest Burden <strong>% GDP · selected allies</strong></h3>
+      <div class="cw" style="height:280px"><canvas id="c-int-compare"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Interest vs. Other Spending <strong>US federal budget FY2025</strong></h3>
+      <div class="cw" style="height:280px"><canvas id="c-int-pie"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HISTORICAL ════════════════════════════════════════════════════════ -->
+<div id="view-trajectory" class="view">
+  <div class="panels">
+    <div class="panel wide">
+      <h3>Debt/GDP Historical & Projected <strong>US, EU-Average, Greece, Italy, Germany · 2000–2035</strong></h3>
+      <div class="cw" style="height:400px"><canvas id="c-hist"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Debt Change 2019→2025 <strong>pandemic impact · percentage points</strong></h3>
+      <div class="cw" style="height:320px"><canvas id="c-change"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Low-Debt NATO Cluster <strong>fiscal space leaders</strong></h3>
+      <div class="cw" style="height:320px"><canvas id="c-lowdebt"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CHART.JS DEFAULTS ─────────────────────────────────────────────────
+Chart.defaults.color='#6b7080';
+Chart.defaults.borderColor='rgba(255,255,255,0.06)';
+Chart.defaults.font.family="'IBM Plex Mono',monospace";
+Chart.defaults.font.size=11;
+
+// ── DATA ─────────────────────────────────────────────────────────────
+const COUNTRIES = [
+  // name, region, debt2025, deficit2025, revenue, expend, interest_gdp, debt2035proj
+  ['Greece',       'SE', 147, -3.2, 52.0, 50.5, 3.5, 140],
+  ['Italy',        'SE', 137, -3.4, 48.0, 52.0, 3.8, 142],
+  ['United States','NA', 122, -6.5, 34.4, 37.9, 3.2, 120],
+  ['France',       'WE', 115, -5.8, 53.2, 57.7, 2.8, 130],
+  ['Belgium',      'WE', 108, -4.7, 50.5, 55.2, 2.5, 118],
+  ['Canada',       'NA', 107, -2.0, 41.3, 43.3, 2.1, 110],
+  ['Spain',        'SE', 104, -3.1, 42.5, 45.5, 2.2, 102],
+  ['United Kingdom','WE',100, -5.4, 42.1, 46.0, 3.1, 108],
+  ['Portugal',     'SE',  97,  0.4, 46.4, 46.0, 1.8,  88],
+  ['Iceland',      'NB',  70, -2.5, 44.0, 46.5, 1.6,  72],
+  ['Finland',      'NB',  79, -4.1, 54.4, 58.4, 1.8,  90],
+  ['Hungary',      'EE',  74, -4.4, 44.8, 49.3, 5.0,  80],
+  ['Slovenia',     'EE',  69, -2.3, 44.5, 46.8, 1.4,  68],
+  ['Montenegro',   'SE',  66, -3.0, 41.0, 44.0, 2.0,  70],
+  ['Germany',      'WE',  63, -2.8, 46.2, 48.2, 0.9,  68],
+  ['Croatia',      'SE',  60, -0.9, 45.0, 46.0, 1.5,  54],
+  ['Albania',      'SE',  60, -2.2, 28.6, 30.8, 2.1,  62],
+  ['Slovakia',     'EE',  57, -5.2, 41.5, 46.7, 1.6,  68],
+  ['Poland',       'EE',  54, -5.8, 42.4, 47.6, 1.5,  65],
+  ['Romania',      'EE',  52, -8.6, 32.2, 40.1, 1.8,  72],
+  ['N. Macedonia', 'EE',  52, -4.0, 33.0, 37.0, 1.8,  60],
+  ['Netherlands',  'WE',  46, -0.5, 44.7, 45.4, 1.0,  44],
+  ['Latvia',       'NB',  46, -4.1, 38.7, 42.8, 1.2,  55],
+  ['Lithuania',    'NB',  38, -3.2, 37.8, 41.0, 1.1,  45],
+  ['Norway',       'NB',  40,+16.2, 67.0, 50.8, 0.6,  35],
+  ['Sweden',       'NB',  33, -1.5, 49.6, 51.1, 0.5,  34],
+  ['Turkey',       'SE',  27, -5.3, 28.8, 32.7, 1.9,  35],
+  ['Czechia',      'EE',  44, -2.9, 41.5, 44.3, 0.9,  48],
+  ['Luxembourg',   'WE',  27, -0.9, 45.3, 46.2, 0.5,  28],
+  ['Denmark',      'NB',  29, +2.6, 51.8, 49.2, 0.4,  26],
+  ['Estonia',      'NB',  24, -3.8, 38.0, 42.0, 0.5,  32],
+  ['Bulgaria',     'EE',  23, -2.9, 36.5, 39.5, 0.7,  28],
+];
+
+const REGIONS = {NA:'North America',WE:'Western Europe',NB:'Nordic/Baltic',EE:'Eastern Europe',SE:'Southern Europe'};
+const REG_COLORS = {NA:'#3d7fff',WE:'#9b5de5',NB:'#06d6a0',EE:'#ffd166',SE:'#ff6b35'};
+
+function riskTier(debt, deficit) {
+  if (debt > 110 || deficit < -6) return ['🔴 Critical',  'r'];
+  if (debt > 80  || deficit < -4) return ['🟠 High',      'y'];
+  if (debt > 60  || deficit < -2) return ['🟡 Elevated',  'y'];
+  return                                  ['🟢 Moderate',  'g'];
+}
+
+// ── COLOUR by debt level ────────────────────────────────────────────
+function debtColor(d) {
+  if(d>120)return '#ff4757ee';
+  if(d>90) return '#ff6b35cc';
+  if(d>60) return '#ffd166cc';
+  return '#06d6a0cc';
+}
+
+// ── OVERVIEW CHARTS ───────────────────────────────────────────────────
+function buildOverview(){
+  const sorted=[...COUNTRIES].sort((a,b)=>b[2]-a[2]);
+  new Chart(document.getElementById('c-all'),{
+    type:'bar',
+    data:{
+      labels:sorted.map(d=>d[0]),
+      datasets:[{
+        data:sorted.map(d=>d[2]),
+        backgroundColor:sorted.map(d=>debtColor(d[2])),
+        borderWidth:0,
+      }]
+    },
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:c=>c.raw+'% GDP'}}},
+      scales:{
+        x:{max:165,ticks:{callback:v=>v+'%'},
+          grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{font:{size:10}}}
+      }
+    }
+  });
+
+  // Region averages
+  const regAvg={};
+  COUNTRIES.forEach(d=>{
+    if(!regAvg[d[1]])regAvg[d[1]]={sum:0,n:0};
+    regAvg[d[1]].sum+=d[2]; regAvg[d[1]].n++;
+  });
+  const regs=Object.entries(regAvg).map(([r,v])=>({r,avg:+(v.sum/v.n).toFixed(1)})).sort((a,b)=>b.avg-a.avg);
+  new Chart(document.getElementById('c-region'),{
+    type:'bar',
+    data:{
+      labels:regs.map(r=>REGIONS[r.r]),
+      datasets:[{data:regs.map(r=>r.avg),backgroundColor:regs.map(r=>REG_COLORS[r.r]+'cc'),borderWidth:0}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw.toFixed(1)+'% avg'}}},
+      scales:{x:{ticks:{font:{size:9}}},y:{ticks:{callback:v=>v+'%'}}}}
+  });
+
+  // Scatter debt vs deficit
+  new Chart(document.getElementById('c-scatter'),{
+    type:'scatter',
+    data:{datasets:[{
+      data:COUNTRIES.map(d=>({x:d[2],y:d[3],label:d[0]})),
+      backgroundColor:'#3d7fff88',borderColor:'#3d7fff',borderWidth:1,
+      pointRadius:5,pointHoverRadius:7
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:c=>c.raw.label+': Debt '+c.raw.x+'% | Deficit '+c.raw.y+'%'}}},
+      scales:{
+        x:{title:{display:true,text:'Debt % GDP',color:'#6b7080'},ticks:{callback:v=>v+'%'}},
+        y:{title:{display:true,text:'Deficit % GDP',color:'#6b7080'},ticks:{callback:v=>v+'%'}}
+      }
+    }
+  });
+}
+
+// ── TABLE ─────────────────────────────────────────────────────────────
+function renderTable(){
+  const sort=document.getElementById('sortSel').value;
+  let data=[...COUNTRIES];
+  if(sort==='debt') data.sort((a,b)=>b[2]-a[2]);
+  else if(sort==='deficit') data.sort((a,b)=>a[3]-b[3]);
+  else if(sort==='interest') data.sort((a,b)=>b[6]-a[6]);
+  else data.sort((a,b)=>a[0].localeCompare(b[0]));
+
+  const body=document.getElementById('tbl-body');
+  body.innerHTML=data.map((d,i)=>{
+    const [label,cls]=riskTier(d[2],d[3]);
+    const defCls=d[3]<-5?'r':d[3]<-2?'y':d[3]>0?'g':'m';
+    const debtCls=d[2]>120?'r':d[2]>80?'y':d[2]<40?'g':'m';
+    const intCls=d[6]>3?'r':d[6]>1.5?'y':'m';
+    return `<tr>
+      <td style="color:var(--tx);font-weight:500">${d[0]}</td>
+      <td class="num ${debtCls}">${d[2]}%</td>
+      <td class="num ${defCls}">${d[3]>0?'+':''}${d[3]}%</td>
+      <td class="num">${d[4]}%</td>
+      <td class="num">${d[5]}%</td>
+      <td class="num ${intCls}">${d[6]}%</td>
+      <td class="num" style="color:${d[7]>d[2]?'#ff4757':'#06d6a0'}">${d[7]}%</td>
+      <td><span class="${cls}">${label}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── PROJECTIONS ───────────────────────────────────────────────────────
+function buildProjections(){
+  // US long-run CBO
+  const usYears=[2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2035,2040,2045,2050,2055];
+  const usDebt= [79,  100, 99,  96,  97,  99, 100, 103, 107, 110, 112, 115, 118, 125, 136, 146, 156];
+  new Chart(document.getElementById('c-usproj'),{
+    type:'line',
+    data:{
+      labels:usYears,
+      datasets:[
+        {label:'Debt held by public % GDP',data:usDebt,borderColor:'#ff4757',backgroundColor:'#ff475720',
+         fill:true,pointRadius:4,pointBackgroundColor:'#ff4757',tension:.3,borderWidth:2},
+        {label:'WWII record (106%)',data:usYears.map(()=>106),borderColor:'#ffd16660',borderDash:[5,4],
+         pointRadius:0,fill:false,borderWidth:1.5},
+      ]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:10},padding:8,boxWidth:10}},
+        tooltip:{callbacks:{label:c=>c.raw+'% GDP'}}},
+      scales:{
+        x:{ticks:{maxTicksLimit:10}},
+        y:{min:75,max:165,ticks:{callback:v=>v+'%'}}
+      }
+    }
+  });
+
+  // EU country projections
+  const projYears=[2025,2027,2030,2033,2035];
+  const euCountries=[
+    {n:'France',   color:'#3d7fff', vals:[115,117,122,127,130]},
+    {n:'Italy',    color:'#ff6b35', vals:[137,138,140,141,142]},
+    {n:'Germany',  color:'#ffd166', vals:[63, 64, 66, 67, 68]},
+    {n:'Greece',   color:'#9b5de5', vals:[147,145,143,141,140]},
+    {n:'Poland',   color:'#06d6a0', vals:[54, 57, 60, 63, 65]},
+  ];
+  new Chart(document.getElementById('c-euproj'),{
+    type:'line',
+    data:{labels:projYears,
+      datasets:euCountries.map(c=>({label:c.n,data:c.vals,borderColor:c.color,
+        pointBackgroundColor:c.color,fill:false,tension:.3,pointRadius:3,borderWidth:1.5}))
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:9},padding:6,boxWidth:8}}},
+      scales:{y:{ticks:{callback:v=>v+'%'}}}}
+  });
+
+  // US deficit projection $T
+  const defYears=[2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
+  const defVals= [1.9, 2.0, 2.1, 2.2, 2.2, 2.3, 2.3, 2.4, 2.4, 2.5, 2.5];
+  new Chart(document.getElementById('c-deficit'),{
+    type:'bar',
+    data:{labels:defYears,
+      datasets:[{label:'Annual deficit $T',data:defVals,
+        backgroundColor:'#ff475788',borderColor:'#ff4757',borderWidth:1}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.raw+'T'}}},
+      scales:{y:{ticks:{callback:v=>'$'+v+'T'}}}}
+  });
+}
+
+// ── INTEREST ─────────────────────────────────────────────────────────
+function buildInterest(){
+  // US interest historical + projected
+  const iYears=[2010,2012,2014,2016,2018,2019,2020,2021,2022,2023,2024,2025,2026,2028,2030,2032,2035];
+  const iVals= [196, 220, 229, 240, 325, 375, 345, 352, 476, 659, 882, 970,1000,1150,1350,1520,1800];
+  const iHist=17, iProj=17;
+  new Chart(document.getElementById('c-interest'),{
+    type:'line',
+    data:{labels:iYears,
+      datasets:[
+        {label:'Historical',
+         data:iVals.map((v,i)=>i<=10?v:null),
+         borderColor:'#ff4757',backgroundColor:'#ff475718',fill:true,
+         pointRadius:3,pointBackgroundColor:'#ff4757',tension:.4,borderWidth:2},
+        {label:'Projected (CBO/CRFB)',
+         data:iVals.map((v,i)=>i>=10?v:null),
+         borderColor:'#ffd166',backgroundColor:'#ffd16618',fill:true,
+         pointRadius:3,pointBackgroundColor:'#ffd166',tension:.4,borderWidth:2,borderDash:[4,3]},
+      ]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:10},padding:8,boxWidth:10}},
+        tooltip:{callbacks:{label:c=>'$'+c.raw+'B'}}},
+      scales:{y:{ticks:{callback:v=>'$'+(v/1000).toFixed(1)+'T'}}}}
+  });
+
+  // NATO interest comparison
+  const intData=[
+    ['Hungary',5.0],['Italy',3.8],['United States',3.2],['Greece',3.5],
+    ['UK',3.1],['France',2.8],['Belgium',2.5],['Romania',1.8],
+    ['Portugal',1.8],['Canada',2.1],['Germany',0.9],['Denmark',0.4],
+    ['Sweden',0.5],['Estonia',0.5],['Norway',0.6]
+  ].sort((a,b)=>b[1]-a[1]);
+  new Chart(document.getElementById('c-int-compare'),{
+    type:'bar',
+    data:{labels:intData.map(d=>d[0]),
+      datasets:[{data:intData.map(d=>d[1]),
+        backgroundColor:intData.map(d=>d[1]>3?'#ff4757cc':d[1]>1.5?'#ffd166cc':'#06d6a0cc'),
+        borderWidth:0}]
+    },
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'% GDP'}}},
+      scales:{x:{ticks:{callback:v=>v+'%'}},y:{ticks:{font:{size:9}}}}}
+  });
+
+  // US budget pie
+  new Chart(document.getElementById('c-int-pie'),{
+    type:'doughnut',
+    data:{
+      labels:['Social Security','Net Interest','Medicare/Medicaid','Defence','Other Mandatory','Non-Def. Discretionary'],
+      datasets:[{
+        data:[1.5, 0.97, 1.7, 0.90, 1.2, 0.73],
+        backgroundColor:['#3d7fff','#ff4757','#06d6a0','#9b5de5','#ffd166','#ff6b35'],
+        borderColor:'#111318',borderWidth:2
+      }]
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{font:{size:9},padding:6,boxWidth:8}},
+        tooltip:{callbacks:{label:c=>'$'+c.raw+'T (est.)'}}}}
+  });
+}
+
+// ── HISTORICAL ────────────────────────────────────────────────────────
+function buildHistorical(){
+  const hYears=[2000,2002,2004,2006,2008,2010,2012,2014,2016,2018,2019,2020,2021,2022,2023,2024,2025,2028,2030,2035];
+  const histSeries=[
+    {n:'United States',color:'#3d7fff',
+     d:[55,57,61,63,68,91,100,104,105,105,108,127,127,121,120,122,122,115,118,118]},
+    {n:'EU Average',color:'#06d6a0',
+     d:[61,60,61,57,60,79,84,86,83,81,77,90,88,85,82,83,84,83,82,80]},
+    {n:'Greece',color:'#9b5de5',
+     d:[103,101,98,107,112,147,160,180,178,185,181,207,195,174,162,154,147,143,141,140]},
+    {n:'Italy',color:'#ff6b35',
+     d:[108,105,104,106,106,119,127,132,135,134,135,155,150,144,137,137,137,139,140,142]},
+    {n:'Germany',color:'#ffd166',
+     d:[59,60,65,67,65,81,79,74,68,61,59,68,69,66,63,63,63,65,66,68]},
+  ];
+  new Chart(document.getElementById('c-hist'),{
+    type:'line',
+    data:{labels:hYears,
+      datasets:histSeries.map(s=>({label:s.n,data:s.d,borderColor:s.color,
+        pointBackgroundColor:s.color,fill:false,tension:.3,
+        pointRadius:(ctx)=>ctx.dataIndex>=16?2:2,borderWidth:1.8,
+        borderDash:(ctx)=>[]}))
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:10},padding:8,boxWidth:10}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw+'%'}}},
+      scales:{
+        x:{ticks:{maxTicksLimit:12}},
+        y:{ticks:{callback:v=>v+'%'},min:40,max:220}
+      }
+    }
+  });
+
+  // Change 2019→2025
+  const changeData=[
+    ['Greece',181,147,-34],['Italy',135,137,2],['US',108,122,14],['France',98,115,17],
+    ['Belgium',98,108,10],['UK',84,100,16],['Spain',98,104,6],['Portugal',117,97,-20],
+    ['Finland',59,79,20],['Germany',59,63,4],['Poland',46,54,8],['Romania',35,52,17],
+    ['Denmark',33,29,-4],['Sweden',35,33,-2],['Norway',40,40,0],['Estonia',8,24,16],
+  ].sort((a,b)=>b[3]-a[3]);
+  new Chart(document.getElementById('c-change'),{
+    type:'bar',
+    data:{labels:changeData.map(d=>d[0]),
+      datasets:[{
+        label:'Change in debt/GDP (pp) 2019→2025',
+        data:changeData.map(d=>d[3]),
+        backgroundColor:changeData.map(d=>d[3]>0?'#ff475788':'#06d6a088'),
+        borderColor:changeData.map(d=>d[3]>0?'#ff4757':'#06d6a0'),borderWidth:1
+      }]
+    },
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(c.raw>0?'+':'')+c.raw+' pp'}}},
+      scales:{y:{ticks:{font:{size:9}}},x:{ticks:{callback:v=>(v>0?'+':'')+v+'pp'}}}}
+  });
+
+  // Low debt cluster
+  const lowDebt=[
+    {n:'Bulgaria',vals:[17,18,18,20,22,23]},
+    {n:'Estonia',  vals:[8,9,9,10,18,24]},
+    {n:'Luxembourg',vals:[22,22,23,24,25,27]},
+    {n:'Denmark',  vals:[33,35,34,33,30,29]},
+    {n:'Sweden',   vals:[40,37,35,35,33,33]},
+  ];
+  const ldYears=[2020,2021,2022,2023,2024,2025];
+  const ldColors=['#ffd166','#3d7fff','#9b5de5','#06d6a0','#ff6b35'];
+  new Chart(document.getElementById('c-lowdebt'),{
+    type:'line',
+    data:{labels:ldYears,
+      datasets:lowDebt.map((s,i)=>({label:s.n,data:s.vals,borderColor:ldColors[i],
+        pointBackgroundColor:ldColors[i],fill:false,tension:.3,pointRadius:3,borderWidth:1.8}))
+    },
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:10},padding:6,boxWidth:8}}},
+      scales:{y:{ticks:{callback:v=>v+'%'},max:45}}}
+  });
+}
+
+// ── VIEW SWITCHING ────────────────────────────────────────────────────
+const built={};
+function show(v,btn){
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  btn.classList.add('active');
+  if(!built[v]){
+    built[v]=true;
+    if(v==='table')renderTable();
+    else if(v==='projections')buildProjections();
+    else if(v==='interest')buildInterest();
+    else if(v==='trajectory')buildHistorical();
+  }
+}
+
+// init overview immediately
+buildOverview();
+</script>
+</body>
+</html>

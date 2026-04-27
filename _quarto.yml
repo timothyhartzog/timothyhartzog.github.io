@@ -63,6 +63,9 @@ website:
         - section: "Part V — Reference"
           contents:
             - books/nato-spending/chapter5.qmd
+        - section: "Part VI — Debt Analysis"
+          contents:
+            - books/nato-spending/chapter6.qmd
 
   page-footer:
     left: "&copy; 2026 Timothy Hartzog"

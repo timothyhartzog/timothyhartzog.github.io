@@ -1,0 +1,163 @@
+---
+title: "Chapter 6: The Debt Load — EU, NATO & USA"
+---
+
+## The Debt Crisis Hidden in Plain Sight
+
+Public debt has become the defining fiscal reality of the NATO alliance. The global average debt-to-GDP ratio reached 94.7% in 2025, up from 92.4% the previous year. Within NATO, the situation is more acute: the alliance's largest economy, the United States, now carries gross general government debt equal to its entire annual GDP. Three of the alliance's four major European economies — France, Italy, and the United Kingdom — have surpassed the 100% threshold. Greece, NATO's most indebted member, sits at 147%.
+
+This is not a temporary crisis. It is a structural condition that predates the pandemic, was dramatically accelerated by it, and is now being compounded by three simultaneous fiscal pressures: ageing demographics driving pension and health costs upward; rising interest rates that have made accumulated debt far more expensive to service; and the new NATO defence commitment (3.5–5% of GDP by 2035) adding substantial spending obligations on top of already-stretched budgets.
+
+## Interactive Dashboard
+
+The dashboard below covers five analytical views: the Alliance Overview (all 32 NATO members ranked by debt), Country Rankings table (sortable by debt, deficit, and interest burden), 2025–2055 US and European projections, the interest cost explosion, and historical trajectories since 2000.
+
+{{< claude-artifact file="debt-dashboard.html" height="900px" title="NATO / EU / USA Debt Analysis Dashboard" >}}
+
+---
+
+## The United States: A Debt Trajectory Without Precedent
+
+The US fiscal position is simultaneously the most important and most alarming in the alliance. Federal debt held by the public rises from 100% of GDP in 2025 to 118% in 2035, surpassing its previous high of 106% of GDP set in 1946. That previous record was set during the largest mobilisation in American history — a temporary wartime emergency followed by rapid debt reduction as the economy boomed. The current trajectory is entirely different: it is structural, permanent, and accelerating.
+
+In nominal dollars, budget deficits have risen from $442 billion in 2015 to a projected $1.9 trillion in 2025, and are projected to rise to $2.5 trillion by 2035 and $6.4 trillion by 2055. Debt held by the public, boosted by large deficits, reaches its highest level ever in 2029 and then continues to grow, reaching 156% of GDP in 2055.
+
+The underlying arithmetic is straightforward and grim: over the next ten years, federal spending will average approximately 24% of GDP, while federal revenues are projected to average only about 18% of GDP. That 6-percentage-point gap between what the government spends and what it collects is structural — it exists not because of recessions or emergencies but because of the permanent baseline mismatch between entitlement commitments and tax policy.
+
+### The Interest Cost Explosion
+
+The single most consequential development in US fiscal policy in the past three years has been the explosion in interest costs. Net interest payments on the national debt surpassed $1 trillion for the first time in FY2025. Over the coming decade, interest payments are projected to surpass $1.5 trillion in 2032 and $1.8 trillion in 2035.
+
+Interest costs have doubled as a share of GDP from 1.6% in 2020 to a record 3.2% projected for 2025. CBO projects interest costs will continue to rise to new records of 4.1% of GDP by 2035, 4.6% in 2045, and 5.4% in 2055 — triple what it was pre-pandemic.
+
+The implications for the federal budget are severe. Interest costs exceed outlays for defence from 2025 to 2035, and exceed outlays for non-defence discretionary programmes from 2027 to 2035. From 2027 on, interest costs are greater in relation to GDP than at any point since at least 1940.
+
+Nearly $1 out of every $5 in taxes collected goes not toward funding current priorities but to paying interest on past borrowing. Net interest is already the second-largest expenditure after Social Security. By 2055, interest costs will consume 28% of total revenue collection — meaning 28 cents of every tax dollar collected goes to interest alone.
+
+### The One Big Beautiful Bill Act Effect
+
+The passage of the OBBBA in 2025 significantly worsened the already-difficult US fiscal trajectory. Under the CRFB Adjusted August 2025 Baseline, debt will climb from 100% of GDP at the end of 2025 to a record 107% by 2028 and 120% by 2035. Deficits will total $22.7 trillion over a decade, rising from $1.7 trillion in 2025 to $2.6 trillion in 2035.
+
+Under a more adverse scenario — where Trump tariffs are struck down by courts, temporary OBBBA provisions are made permanent, and interest rates stay elevated — debt could reach 134% of GDP; total ten-year deficits could exceed $28 trillion; and interest payments could rise to $2.2 trillion by 2035.
+
+### The R > G Threshold
+
+Perhaps the most technically alarming long-run projection is the relationship between the interest rate (R) and the economic growth rate (G). When R exceeds G, debt dynamics become self-reinforcing — debt grows faster than the economy even without any new primary deficits. Under CBO's long-term outlook, the average interest rate will exceed economic growth (R>G) by 2045, sparking the beginning of a debt spiral.
+
+This is not theoretical. Countries that cross the R>G threshold without fiscal adjustment face compounding debt accumulation that becomes increasingly difficult to escape without either structural reforms, financial repression, or default. Japan has navigated this partly through domestic savings pools and central bank intervention; the US may not have the same options.
+
+---
+
+## The European Debt Landscape
+
+### The High-Debt Cohort: Greece, Italy, France, Belgium
+
+**Greece** (147% debt/GDP) remains NATO's most debt-burdened member, though its trajectory is the most improved. After peaking at 207% during the COVID-19 pandemic and debt crisis era, Greece has consistently run primary surpluses and benefited from favourable debt restructuring terms. Greece's debt burden is highest overall in Europe, at 147% — nearly double the region's average. Its projections show gradual decline toward 140% by 2035, the only major high-debt NATO member on a clearly improving trajectory.
+
+**Italy** (137% debt/GDP) is NATO's most consequential debt risk. Unlike Greece, Italy has not undergone equivalent structural adjustment, and its pension system remains one of the world's most generous in historical terms. Interest payments of ~3.8% of GDP mean Italy pays more in annual debt service than it spends on defence, healthcare improvement, or education expansion. Given the projected primary balances for 2025, debt ratios are set to rise in some cases — including Italy — significantly. The IMF's projections show Italian debt potentially rising from 137% to 142% by 2035 without meaningful reform.
+
+**France** (115% debt/GDP) is the most alarming trend story among major Western allies. France is running a 5.4% deficit, above the EU's limit. With two consecutive governments unable to pass coherent budgets in 2024 and a structural deficit driven by pension generosity, housing costs, and a massive administrative apparatus, France's debt trajectory points toward 130%+ by 2035. The combination of high existing debt, a large annual deficit, and political paralysis on reform creates what economists call a "fiscal doom loop" risk: rising debt increases interest costs, which worsens the deficit, which increases debt.
+
+**Belgium** (108% debt/GDP) presents a similar profile to France at smaller scale: high existing debt, large annual deficit (−4.7%), one of Europe's highest tax burdens (50.5% of GDP) already limiting further revenue, and structural political difficulty in consolidation due to its fragmented federalism.
+
+### The United Kingdom: A Special Case
+
+The UK (100% debt/GDP) has crossed the symbolic threshold and is running a deficit of −5.4% — larger than France's as a share of GDP. Uniquely, the UK issued a large proportion of its debt in index-linked gilts, meaning the 2022-2024 inflation surge significantly increased debt service costs in ways that other NATO members did not experience. The combination of NHS funding pressures, indexed pension obligations, and a structural revenue gap makes the UK's fiscal position more precarious than the 100% headline figure suggests.
+
+### Germany: The Great Exception (For Now)
+
+Germany (63% debt/GDP) is the fiscal outlier among major Western NATO economies — and the comparison it forces is revealing. Germany's debt is approximately half of France's, two-thirds of the UK's, and less than half of Italy's. This is the direct result of the *Schuldenbremse* (constitutional debt brake) enforcing fiscal discipline for over a decade. The costs of that discipline — underinvestment in infrastructure, under-equipped armed forces, delayed energy transition — are now becoming apparent. But Germany enters the current defence investment era with 63% debt and falling, giving it the fiscal capacity that France, Italy, and the UK lack. Germany recently bypassed its famous debt brake in order to boost investment in defence following the onset of the Russo-Ukrainian War. Even with this reform, Germany's trajectory to 68% by 2035 is far more manageable than its large-economy peers.
+
+---
+
+## Eastern European Divergence: Two Groups
+
+Eastern European NATO members have split into two clearly distinct fiscal trajectories since Russia's 2022 invasion of Ukraine.
+
+**The Defence Spenders — Running Elevated Deficits**
+
+Poland (54% debt, −5.8% deficit), Romania (52% debt, −8.6% deficit), Slovakia (57% debt, −5.2% deficit), and Latvia (46% debt, −4.1% deficit) are all running deficits substantially larger than the EU's 3% reference value. In Poland and the Baltics, this reflects a deliberate strategic decision: rapid military modernisation is being prioritised over short-term fiscal balance. Poland's debt, while rising, starts from a modest 54% base and is being accumulated in service of a clear strategic rationale. Romania's situation is less defensible: its deficit is driven more by domestic political spending decisions (the 2024 pension reform) than by defence investment, and its revenue collection at 32.2% of GDP is structurally inadequate.
+
+**The Fiscal Conservatives — Low Debt, Building Capacity**
+
+Estonia (24%), Bulgaria (23%), and to a lesser extent Denmark (29%) and Sweden (33%) have maintained fiscal discipline throughout the post-COVID period. Estonia and Bulgaria are remarkable cases: both carry gross government debt below 25% of GDP, both have adopted or closely follow currency board-style fiscal disciplines, and both are increasing defence spending from fiscally sound positions. Poland stands out with a budget deficit of 5.8%, driven largely by a surge in defence spending since 2022. As one of NATO's frontline states, the country has rapidly expanded its military budget, illustrating how geopolitical tensions are directly reshaping fiscal balances across Europe.
+
+---
+
+## The NATO Debt-Defence Impossible Triangle
+
+The most consequential structural problem for the alliance is what might be called the **impossible triangle** of NATO fiscal reality:
+
+1. **High existing debt** — most major NATO allies carry debt above 60% of GDP, many above 100%
+2. **Rising interest rates** — real interest rates have returned to positive territory after a decade of near-zero, dramatically increasing the cost of debt service
+3. **New defence commitments** — the 3.5–5% of GDP defence targets require 1.5–3 percentage point increases in spending for most European allies
+
+These three forces are simultaneously pulling the fiscal system in incompatible directions. Higher defence spending increases deficits, which increases debt, which increases interest costs, which further constrains fiscal space for defence — a feedback loop that has no easy resolution.
+
+The only paths out are:
+- **Higher taxes** — politically difficult, economically complex, and in some countries (France at 53% revenue-to-GDP, Belgium at 50.5%) arguably near structural limits
+- **Structural spending cuts** — almost exclusively available in social protection, which is politically explosive given organised pensioner voting blocs
+- **Faster economic growth** — the most benign solution, but one that cannot be mandated, and which demographic trends (ageing workforces) work against
+- **Defence-related investment that itself drives growth** — the theory behind arguments that military R&D, industrial base investment, and security-enabled trade expansion can partially self-finance; the empirical evidence is mixed
+
+---
+
+## Interest Costs as a Strategic Variable
+
+A dimension of NATO debt analysis that rarely appears in mainstream alliance discussions: **interest costs are a direct strategic competitor to defence spending**.
+
+Italy pays approximately 3.8% of GDP in annual interest — more than its entire COFOG defence budget. If Italy had Germany's debt-to-GDP ratio, it would save approximately €70 billion per year in interest costs. That is equivalent to building a new Italian Navy plus Air Force every 2–3 years. The accumulated fiscal mismanagement of the 1980s–1990s that drove Italy to 135%+ debt is still being paid for three decades later, and will continue to be paid for decades more.
+
+The same calculation applies across the high-debt cohort:
+- **France** pays ~€88B/year in interest — equivalent to 2.8% of GDP simply to service past borrowing
+- **United States** pays $1.0 trillion/year — more than defence, more than Medicare
+- **Belgium** pays ~€17B/year — at its small economic scale, a crushing burden
+- **Greece** pays ~€9B/year — still enormous relative to its ~€8B annual defence budget, meaning Greece's interest costs alone roughly equal its entire military expenditure
+
+This is the true fiscal cost of the decades of underinvestment in fiscal discipline that characterised most of the post-Cold War era: the bills are now coming due simultaneously with the most urgent defence spending requirements since the 1980s.
+
+---
+
+## Norway: The Positive Outlier and Its Lessons
+
+Norway's position deserves emphasis because it illustrates what fiscal prudence over decades enables. Norway secured a 12.5% budget surplus in 2025, facilitated by its oil reserves. Norway's surplus stands in stark contrast to the rest of Europe. Fuelled by oil revenues, it highlights how access to natural resources can dramatically reshape a country's fiscal position.
+
+But the more important lesson is not the oil wealth — it is the institutional framework built around it. Norway could have spent the petroleum revenues as they arrived (as many resource-rich states do). Instead, it established the Government Pension Fund Global with a fiscal rule limiting annual spending to the fund's expected real return (~3%). The result is a $1.7 trillion asset base (280% of GDP) that permanently subsidises Norwegian public finances. Norway is simultaneously spending 9.5% of GDP on health, 6.2% on education, 21.5% on social protection, and 2.2% on defence — while running a massive surplus. This is only possible because of institutional foresight exercised 30 years ago.
+
+The lesson for NATO is sobering: the fiscal space available for defence, social investment, and climate transition is largely determined by decisions made decades earlier. Countries that ran disciplined budgets in the 1990s and 2000s (Germany, the Nordics, the Baltic states) have options now. Countries that deferred fiscal discipline (Italy, France, Greece, Belgium, the United States) are paying those deferred costs through interest charges that permanently crowd out present priorities.
+
+---
+
+## Debt Sustainability: Who Is Safe, Who Is at Risk
+
+The following framework assesses each NATO member's debt sustainability position across three dimensions: current debt level, trajectory (rising or falling), and fiscal capacity (ability to generate adjustment if needed).
+
+**Low Risk (debt < 50%, manageable trajectory):**
+Bulgaria (23%), Estonia (24%), Luxembourg (27%), Denmark (29%), Sweden (33%), Norway (40%), Latvia (46%) — all have low debt, adequate fiscal capacity, and either improving or stable trajectories.
+
+**Moderate Risk (debt 50–80%, manageable deficits):**
+Germany (63%), Czechia (44%), Netherlands (46%), Lithuania (38%), Croatia (60%), Slovenia (69%) — elevated but not critical debt, mostly with credible fiscal frameworks.
+
+**Elevated Risk (debt 80–110%, structural deficits):**
+Finland (79%), Hungary (74%), Portugal (97%), Canada (107%), Belgium (108%), Spain (104%), United Kingdom (100%) — each faces some combination of high debt, structural deficits, and demographic pressures that require attention but are not immediately destabilising.
+
+**High Risk (debt >110%, large deficits, concerning trajectories):**
+France (115%), United States (122%), Italy (137%), Greece (147%) — these four share: debt well above 100% of GDP, structural primary deficit pressures, rising interest costs as a share of GDP, and insufficient fiscal capacity to rapidly address the imbalance without political pain that democratic systems have so far resisted delivering.
+
+The critical question for the alliance: can the two most powerful NATO members — the United States and France — continue to underwrite collective security and democratic leadership while their fiscal positions deteriorate toward levels that have historically preceded sovereign stress events?
+
+---
+
+## Conclusions and Implications for the Alliance
+
+The debt picture across NATO tells a coherent and alarming story. The post-Cold War "peace dividend" — reduced defence spending, expanded social commitments, and low-interest borrowing — was not free. It was financed through accumulated debt that is now constraining exactly the fiscal choices the alliance needs to make in response to Russian aggression, Chinese military expansion, and the new 5% GDP defence target.
+
+Global public debt rose by 1 percentage point of GDP in 2024, with advanced economies — including the United States — reaching close to 110% of GDP in government borrowing. The directional arrow is upward almost everywhere, and the pace of increase is accelerating.
+
+For NATO strategists, the key insight is this: **the most binding constraint on European collective defence in the 2030s will not be political will, military doctrine, or industrial capacity. It will be sovereign borrowing capacity.** Countries that have consumed their fiscal space on social commitments and interest payments will find themselves unable to respond to defence demands without either destabilising their bond markets or gutting welfare state provisions that underpin democratic social contracts.
+
+The alliance that entered the 21st century with a post-Cold War fiscal windfall will face the 2030s with a debt-constrained fiscal reality. The countries best positioned to navigate it — Germany, the Nordics, the Baltic states, Bulgaria — are in many cases the smallest economies. The countries most constrained — the US, France, Italy — are among the largest. That structural mismatch is the hidden fiscal risk at the heart of NATO's second century.
+
+::: {.callout-note}
+**Sources:** IMF World Economic Outlook October 2025; Congressional Budget Office, Budget and Economic Outlook January 2025 and Long-Term Budget Outlook March 2025; Committee for a Responsible Federal Budget August 2025 Baseline; Eurostat Government Finance Statistics 2024; Visual Capitalist/IMF debt mapping November 2025.
+:::
