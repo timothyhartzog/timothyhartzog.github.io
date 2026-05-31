@@ -3,12 +3,12 @@
 ## Project Overview
 
 This is the main site for **Timothy Hartzog / Hartzog.ai**, built as a static site
-using **Quarto**, deployed on Azure Static Web Apps (primary) with GitHub Pages
+using **Quarto**, deployed on Cloudflare Pages (primary) with GitHub Pages
 as a backup mirror.
 
 - **Domain**: www.hartzog.dev
 - **Stack**: Quarto 1.6+, SCSS, Lua shortcodes
-- **Primary Hosting**: Azure Static Web Apps
+- **Primary Hosting**: Cloudflare Pages (project: `hartzog-dev`)
 - **Backup Hosting**: GitHub Pages (identical build from same repo)
 - **Repo**: timothyhartzog/timothyhartzog.github.io
 
@@ -18,13 +18,15 @@ as a backup mirror.
 The site uses `project: type: website` in `_quarto.yml`. All pages are `.qmd`
 files rendered to static HTML. Output goes to `_site/`.
 
-### Dual Deploy (Azure SWA + GitHub Pages)
+### Dual Deploy (Cloudflare Pages + GitHub Pages)
 The deploy workflow (`.github/workflows/deploy.yml`) builds once with
-`quarto render` and deploys to both Azure SWA and GitHub Pages.
+`quarto render` and deploys the same artifact to both Cloudflare Pages
+(via `cloudflare/wrangler-action`) and GitHub Pages.
 
 ### Key Rules
 - Do NOT hardcode hosting-specific URLs — use relative paths
-- `staticwebapp.config.json` controls Azure SWA routing/headers
+- `_headers` and `_redirects` (at repo root, copied into `_site/` via
+  Quarto `resources`) control Cloudflare Pages routing/headers
 - All styling uses `styles/custom.scss` (dark theme based on Darkly)
 
 ## File Structure
@@ -53,10 +55,12 @@ _extensions/
     └── claude-artifact.lua
 images/                  # Site images (favicon, etc.)
 infrastructure/
-└── azure/               # Azure SWA setup docs
-staticwebapp.config.json # Azure SWA routing & headers
+└── azure/               # Legacy Azure SWA setup docs (kept for reference)
+_headers                 # Cloudflare Pages response headers
+_redirects               # Cloudflare Pages redirects / 404 fallback
+staticwebapp.config.json # Legacy Azure SWA config (kept for reference)
 .github/workflows/
-└── deploy.yml           # CI: quarto render → deploy to both hosts
+└── deploy.yml           # CI: quarto render → deploy to Cloudflare + GitHub Pages
 ```
 
 ## Development
