@@ -1,0 +1,53 @@
+---
+title: "Interactive Data Processing with DuckDB WASM"
+description: "A computational essay demonstrating in-browser data analysis using Observable JS."
+date: "2024-06-07"
+categories: ["WASM", "Data Engineering", "Observable"]
+format:
+  html:
+    toc: true
+    code-fold: show
+---
+
+Welcome to this computational essay. This page is powered entirely by your browser using WebAssembly (WASM) and Observable JS (OJS). There is no backend server running the data processing—it all happens right here on your machine!
+
+## Introduction
+
+In modern web development, we can push computation to the edge and straight into the client. Using DuckDB compiled to WASM, we can query large datasets locally. Let's see an example of generating some random data and plotting it interactively.
+
+## Interactive Example
+
+Adjust the slider below to change the number of data points generated.
+
+```{ojs}
+viewof numPoints = Inputs.range([10, 1000], {value: 100, step: 10, label: "Number of Points"})
+```
+
+Now, let's generate some random data based on your selection using JavaScript.
+
+```{ojs}
+randomData = Array.from({length: numPoints}, (_, i) => ({
+  x: i,
+  y: Math.sin(i / 10) + (Math.random() - 0.5)
+}))
+```
+
+We can immediately visualize this data using Observable Plot. This chart re-renders instantly as you move the slider.
+
+```{ojs}
+Plot.plot({
+  marks: [
+    Plot.line(randomData, {x: "x", y: "y", stroke: "steelblue"}),
+    Plot.dot(randomData, {x: "x", y: "y", fill: "currentColor", r: 2})
+  ],
+  y: {domain: [-2, 2]}
+})
+```
+
+## DuckDB WASM Integration
+
+Beyond simple JavaScript arrays, we can run SQL queries directly in the browser! Quarto's built-in OJS blocks support working with data files.
+
+*(In a full setup, you could load `.csv` or `.parquet` files and query them via DuckDB WASM here).*
+
+This architecture forms the basis of our new interactive personal platform, capable of hosting deep, exploratory articles that readers can play with directly.
