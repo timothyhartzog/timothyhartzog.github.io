@@ -1,0 +1,37 @@
+---
+title: "Running Python in the Browser"
+description: "Demonstrating WASM-powered Python execution using Shinylive."
+date: "2024-06-09"
+categories: ["WASM", "Python", "Interactive"]
+filters:
+  - shinylive
+---
+
+Now that the site is fully hosted on Cloudflare Pages, we want to allow users to interact with code examples directly, without provisioning heavy backend containers.
+
+Using the `shinylive` Quarto extension, we can compile a Python environment down to WebAssembly (Pyodide), letting readers execute Python right here on this page.
+
+## Interactive Python Example
+
+Below is a Shinylive interactive cell. When the page loads, it downloads a lightweight WASM Python runtime. You can edit the code and hit 'Play' to run it directly in your browser!
+
+```{shinylive-python}
+#| standalone: true
+
+from shiny import App, render, ui
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n", "N", 0, 100, 20),
+    ui.output_text_verbatim("txt"),
+)
+
+def server(input, output, session):
+    @output
+    @render.text
+    def txt():
+        return f"n*2 is {input.n() * 2}"
+
+app = App(app_ui, server)
+```
+
+With capabilities like this, our blog posts are transformed from static text into living computational essays.

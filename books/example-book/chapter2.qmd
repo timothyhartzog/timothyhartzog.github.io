@@ -7,6 +7,22 @@ title: "Chapter 2: Advanced Topics"
 One of the strengths of publishing with Quarto is the ability to embed interactive
 elements directly in your content.
 
+In this updated platform, we can now use WebAssembly and Observable JS to bring our book chapters to life! Let's build a quick interactive widget right here.
+
+### Observable JS Integration
+
+Use the slider to change the circle's radius dynamically.
+
+```{ojs}
+viewof radius = Inputs.range([10, 100], {value: 50, step: 1, label: "Radius"})
+```
+
+```{ojs}
+html`<svg width="200" height="200">
+  <circle cx="100" cy="100" r="${radius}" fill="#38bdf8" />
+</svg>`
+```
+
 ## Data Visualization
 
 You can include charts, tables, and interactive widgets. Here's an example using

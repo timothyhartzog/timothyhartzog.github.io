@@ -1,0 +1,20 @@
+---
+title: "My First Audio Post"
+description: "Exploring embedded audio capabilities on the new platform."
+date: "2024-06-08"
+categories: ["Audio", "Personal", "Update"]
+---
+
+With the move to the new Cloudflare WASM-powered platform, one of the key features I wanted to add was first-class support for audio. This means embedding narration or podcast episodes right into the posts!
+
+## Audio Example
+
+Here is a quick example of embedding an HTML5 audio player directly within the markdown content. We can style it with custom SCSS to match the dark theme.
+
+Using our new shortcode, it's easier than ever:
+
+{{< audio "https://www.w3schools.com/html/horse.mp3" title="Sample Horse Audio" >}}
+
+*Note: The audio above is a sample file.*
+
+In the future, I plan to include full audio narrations of my essays and book chapters, bringing a richer multimedia experience to the site.

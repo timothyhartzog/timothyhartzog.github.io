@@ -21,8 +21,12 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Blog
-        href: blog/index.qmd
+      - text: Blogs
+        menu:
+          - text: Tech Blog
+            href: blog/tech/index.qmd
+          - text: Personal Blog
+            href: blog/personal/index.qmd
       - text: Books
         href: books/index.qmd
       - text: About
