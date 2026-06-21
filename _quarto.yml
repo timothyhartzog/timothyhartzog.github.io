@@ -72,6 +72,7 @@ website:
     right:
       - icon: github
         href: https://github.com/timothyhartzog
+        aria-label: GitHub
 
   search:
     location: navbar
