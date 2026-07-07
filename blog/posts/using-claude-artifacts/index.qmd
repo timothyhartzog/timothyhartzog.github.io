@@ -73,9 +73,9 @@ Here's a simple interactive artifact:
   <h3 style="color: #38bdf8; margin: 0 0 1rem 0;">Interactive Counter</h3>
   <div style="font-size: 3rem; color: #e2e8f0; margin: 1rem 0;" id="count-display">0</div>
   <div style="display: flex; gap: 0.5rem; justify-content: center;">
-    <button onclick="updateCount(-1)" style="padding: 0.5rem 1.5rem; background: #334155; color: #e2e8f0; border: 1px solid #475569; border-radius: 6px; cursor: pointer; font-size: 1.1rem;">−</button>
+    <button onclick="updateCount(-1)" aria-label="Decrease" style="padding: 0.5rem 1.5rem; background: #334155; color: #e2e8f0; border: 1px solid #475569; border-radius: 6px; cursor: pointer; font-size: 1.1rem;">−</button>
     <button onclick="updateCount(0)" style="padding: 0.5rem 1.5rem; background: #334155; color: #e2e8f0; border: 1px solid #475569; border-radius: 6px; cursor: pointer; font-size: 1.1rem;">Reset</button>
-    <button onclick="updateCount(1)" style="padding: 0.5rem 1.5rem; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; font-weight: 600;">+</button>
+    <button onclick="updateCount(1)" aria-label="Increase" style="padding: 0.5rem 1.5rem; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; font-weight: 600;">+</button>
   </div>
 </div>
 
