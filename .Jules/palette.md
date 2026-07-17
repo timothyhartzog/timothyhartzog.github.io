@@ -1,0 +1,3 @@
+## 2024-05-15 - ARIA Labels for Icon-Only Buttons in Embedded Interactive Markdown Components
+**Learning:** Raw HTML interactive components embedded in Markdown/MDX files (such as Claude artifacts) frequently bypass component-library defaults and accessibility checks. Icon-only and symbol-only buttons ("+" and "-") in these raw HTML snippets are completely inaccessible to screen readers without explicit ARIA labels.
+**Action:** Always manually verify and add `aria-label` attributes to icon-only buttons and standalone form inputs when dealing with raw HTML embedded inside Quarto `.qmd` or `.mdx` files.
