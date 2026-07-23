@@ -55,8 +55,10 @@ const today = new Date();
 	.social-links a {
 		text-decoration: none;
 		color: rgb(var(--gray));
+		transition: color 0.2s ease;
 	}
-	.social-links a:hover {
+	.social-links a:hover,
+	.social-links a:focus-visible {
 		color: rgb(var(--gray-dark));
 	}
 </style>

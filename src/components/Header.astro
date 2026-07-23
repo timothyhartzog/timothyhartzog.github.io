@@ -77,6 +77,14 @@ import HeaderLink from './HeaderLink.astro';
 	.social-links a {
 		display: flex;
 	}
+	.social-links a {
+		color: var(--black);
+		transition: color 0.2s ease;
+	}
+	.social-links a:hover,
+	.social-links a:focus-visible {
+		color: var(--accent);
+	}
 	@media (max-width: 720px) {
 		.social-links {
 			display: none;
