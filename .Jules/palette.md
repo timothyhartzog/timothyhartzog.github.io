@@ -5,3 +5,7 @@
 ## 2024-05-18 - Missing focus indicators on Astro templates
 **Learning:** Default Astro templates often omit explicit `:focus-visible` styles for interactive elements, relying on inconsistent browser defaults which hurts keyboard accessibility.
 **Action:** Always verify and add `:focus-visible` styles to `a`, `button`, `input`, and `textarea` elements (usually in a global stylesheet) when working with fresh Astro templates to ensure consistent and visible focus states for keyboard users.
+
+## 2026-07-22 - [Title Attributes for Icon-Only Links]
+**Learning:** Icon-only links often use `.sr-only` text for screen readers, but sighted users lack context on hover. This is a common pattern in both Header and Footer components.
+**Action:** Complement `.sr-only` text within icon-only `<a>` or `<button>` elements with a corresponding native `title` attribute on the parent tag to provide on-hover tooltips for sighted users while maintaining screen reader parity.
