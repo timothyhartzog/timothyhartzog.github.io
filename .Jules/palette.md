@@ -9,3 +9,7 @@
 ## 2025-02-12 - Missing tooltips for icon-only links with `.sr-only` text
 **Learning:** Default Astro templates often include `.sr-only` span tags inside icon-only anchor elements (like social links) which is great for screen readers, but they often lack native `title` attributes on the parent anchor, leaving sighted users without tooltips when hovering.
 **Action:** Always complement `.sr-only` text within icon-only `<a>` or `<button>` elements with a corresponding native `title` attribute on the parent tag to provide on-hover tooltips for sighted users while maintaining screen reader parity.
+
+## 2024-03-20 - Add ARIA labels to inline MDX interactive components
+**Learning:** Embedded interactive components in MDX files (like Claude artifacts) can easily bypass the design system's default accessibility rules since they use raw HTML. It is crucial to check for missing ARIA labels or titles on icon-only buttons within these embedded components.
+**Action:** Always verify accessibility attributes (`aria-label`, `title`) on raw HTML elements when they are manually embedded in MDX or Quarto components.
