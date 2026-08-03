@@ -13,3 +13,6 @@
 ## 2026-08-02 - [Navigation ARIA Labels]
 **Learning:** Default Astro templates often omit `aria-label` on navigation `<nav>` elements. Since sites can have multiple navigation regions (main, footer, breadcrumbs, etc.), providing a descriptive ARIA label helps screen reader users understand the purpose of each navigation region.
 **Action:** Always verify and add an appropriate `aria-label` (e.g., `aria-label="Main"`) to `<nav>` elements in Astro templates to improve screen reader accessibility.
+## 2024-08-03 - [Hero Images Alt Text]
+**Learning:** Default Astro templates often leave `alt=""` for cover/hero images on blog posts. While technically valid for purely decorative images, these images frequently add semantic value or context related to the post content.
+**Action:** Always replace empty `alt=""` attributes on blog hero images with dynamic, context-aware alt text (like the blog post title `alt={title}`) to ensure screen readers receive meaningful descriptions.
