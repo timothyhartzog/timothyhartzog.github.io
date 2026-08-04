@@ -65,9 +65,10 @@ b {
 }
 a {
 	color: var(--accent);
+	transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 a:focus-visible,
 button:focus-visible,
