@@ -68,6 +68,10 @@ import HeaderLink from './HeaderLink.astro';
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		transition: color 0.2s ease, border-bottom-color 0.2s ease;
+	}
+	nav a:hover {
+		color: var(--accent);
 	}
 	nav a.active {
 		text-decoration: none;
