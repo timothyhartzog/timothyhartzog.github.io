@@ -65,9 +65,14 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--black);
+		color: rgb(var(--black));
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	}
+	nav a:hover {
+		color: var(--accent-dark);
+		border-bottom-color: rgba(var(--gray), 0.5);
 	}
 	nav a.active {
 		text-decoration: none;
