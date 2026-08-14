@@ -65,9 +65,13 @@ import HeaderLink from './HeaderLink.astro';
 	}
 	nav a {
 		padding: 1em 0.5em;
-		color: var(--black);
+		color: rgb(var(--black));
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		transition: color 0.2s ease, border-bottom-color 0.2s ease;
+	}
+	nav a:hover {
+		color: var(--accent);
 	}
 	nav a.active {
 		text-decoration: none;
@@ -76,6 +80,13 @@ import HeaderLink from './HeaderLink.astro';
 	.social-links,
 	.social-links a {
 		display: flex;
+	}
+	.social-links a {
+		color: rgb(var(--black));
+		transition: color 0.2s ease;
+	}
+	.social-links a:hover {
+		color: var(--accent);
 	}
 	@media (max-width: 720px) {
 		.social-links {
