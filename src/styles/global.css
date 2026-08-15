@@ -64,10 +64,11 @@ b {
 	font-weight: 700;
 }
 a {
+	transition: color 0.2s ease;
 	color: var(--accent);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 a:focus-visible,
 button:focus-visible,
