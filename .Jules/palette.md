@@ -13,3 +13,7 @@
 ## 2026-08-02 - [Navigation ARIA Labels]
 **Learning:** Default Astro templates often omit `aria-label` on navigation `<nav>` elements. Since sites can have multiple navigation regions (main, footer, breadcrumbs, etc.), providing a descriptive ARIA label helps screen reader users understand the purpose of each navigation region.
 **Action:** Always verify and add an appropriate `aria-label` (e.g., `aria-label="Main"`) to `<nav>` elements in Astro templates to improve screen reader accessibility.
+
+## 2024-05-14 - Fix Link Hover Feedback & Invalid CSS Color variables
+**Learning:** The default Astro blog template has identical styling for un-hovered and hovered global links, which makes the links less obvious. Also, when color variables are stored as comma separated lists (e.g. `15, 18, 25` for `--black`), CSS rules like `color: var(--black);` become invalid because they lack the `rgb()` wrapping function.
+**Action:** Consistently verify and wrap comma-separated RGB variables in `rgb(var(--variable))` across `.astro` style tags. Add explicit visual feedback (e.g., color transitions or background/border changes) on `a:hover` inside header and global styles.
