@@ -13,3 +13,6 @@
 ## 2026-08-02 - [Navigation ARIA Labels]
 **Learning:** Default Astro templates often omit `aria-label` on navigation `<nav>` elements. Since sites can have multiple navigation regions (main, footer, breadcrumbs, etc.), providing a descriptive ARIA label helps screen reader users understand the purpose of each navigation region.
 **Action:** Always verify and add an appropriate `aria-label` (e.g., `aria-label="Main"`) to `<nav>` elements in Astro templates to improve screen reader accessibility.
+## 2026-10-07 - Add clear visual feedback to navigation links
+**Learning:** Default Astro blog templates often lack explicit visual feedback for link hover/focus states, relying exclusively on browser defaults or having missing `a:hover` styles making it hard for users to know which items are interactive. Variables defining raw RGB lists must be accessed using `rgb()` function to form valid CSS.
+**Action:** Always test and ensure explicit, visually distinct focus-visible and hover states on critical navigation and interactive elements, matching design tokens to preserve a cohesive and accessible user experience.
