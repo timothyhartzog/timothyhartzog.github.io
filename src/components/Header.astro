@@ -68,9 +68,12 @@ import HeaderLink from './HeaderLink.astro';
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		transition: color 0.2s ease, border-bottom-color 0.2s ease;
 	}
+	nav a:hover,
 	nav a.active {
 		text-decoration: none;
+		color: var(--accent);
 		border-bottom-color: var(--accent);
 	}
 	.social-links,
